@@ -1,0 +1,23 @@
+***, HOCl Ground State Energy with CCSD(T)-F12 and aug-cc-pVQZ-F12
+memory,500,m;
+
+geometry={angstrom
+o 
+h , 1, roh 
+cl , 1, rocl, 2, alpha
+}
+
+roh = 1.00
+rocl = 1.00
+alpha = 170.0
+
+basis=aug-cc-pV(Q+d)Z
+
+hf
+optg,procedure=runccsd2,savexyz=HOCl_eq.xyz
+runccsd2={hf;ccsd(t)}
+
+{ccsd(t)-f12}
+
+
+--- End of Script ---

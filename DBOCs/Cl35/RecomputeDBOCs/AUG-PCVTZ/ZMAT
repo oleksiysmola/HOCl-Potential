@@ -1,0 +1,12 @@
+Hypochlorous acid DBOC calculation                                      
+O                                                                               
+H 1 ROH                                                                         
+CL 1 ROCL 2 A                                                                   
+                                                                                
+ROH=2.1500000000000004                                                                        
+ROCL=1.683                                                                      
+A=107.0                                                                    
+                                                                                
+                                                                                
+*CFOUR(CALC=CCSD,BASIS=AUG-PCVTZ,SCF_CONV=10
+CC_CONV=10,DBOC=ON,MEMORY=500000000)

@@ -1,0 +1,1 @@
+ifort -O3 -qopenmp -o fitPotential_HOCl.x fit_pes_HOCl.f90

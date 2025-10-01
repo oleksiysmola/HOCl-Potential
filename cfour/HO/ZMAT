@@ -1,0 +1,12 @@
+Hypochlorous acid higher-order corrections
+O
+H 1 ROH
+CL 1 ROCL 2 A
+
+ROH=0.96446195
+ROCL=1.68888476
+A=175.00000000
+
+*CFOUR(CALC=CCSDT(Q),BASIS=AUG-PVTZ,SCF_CONV=11                                     
+CC_CONV=9,CC_MAXCYC=1000,FROZEN_CORE=ON,MEMORY=5000000000)   
+

@@ -1,0 +1,2539 @@
+ --invoking executable--
+/home/asmola/.local/bin/xjoda
+
+
+   *************************************************************************
+         <<<     CCCCCC     CCCCCC   |||     CCCCCC     CCCCCC   >>>
+       <<<      CCC        CCC       |||    CCC        CCC         >>>
+      <<<      CCC        CCC        |||   CCC        CCC            >>>
+    <<<        CCC        CCC        |||   CCC        CCC              >>>
+      <<<      CCC        CCC        |||   CCC        CCC            >>>
+       <<<      CCC        CCC       |||    CCC        CCC         >>>
+         <<<     CCCCCC     CCCCCC   |||     CCCCCC     CCCCCC   >>>
+   *************************************************************************
+
+     ****************************************************************
+     * CFOUR Coupled-Cluster techniques for Computational Chemistry *
+     ****************************************************************
+ 
+
+   Department of Chemistry                Institut fuer Physikalische Chemie
+   University of Florida                  Universitaet Mainz
+   Gainesville, FL 32611, USA             D-55099 Mainz, Germany
+
+   Department of Chemistry                Fakultaet fuer Chemie und Biowiss.
+   Johns Hopkins University               Karlsruher Institut fuer Technologie
+   Baltimore, MD 21218, USA               D-76131 Karlsruhe, Germany
+
+   Department of Chemistry                Department of Physical Chemistry
+   Southern Methodist University          Eotvos Lorand University
+   Dallas, TX 75275, USA                  H-1053 Budapest, Hungary
+
+ 
+                       Version 2.1
+ 
+                     vincent.theory.phys.ucl.ac.uk                     
+                     Wed  6 Aug 17:06:02 BST 2025                      
+                     integer*8 version is running
+ 
+********************************************************************************
+*                          Input from ZMAT file                                *
+********************************************************************************
+Hypochlorous acid higher-order corrections                                      
+O                                                                               
+H 1 ROH                                                                         
+CL 1 ROCL 2 A                                                                   
+                                                                                
+ROH=0.96446195                                                                  
+ROCL=1.68888476                                                                 
+A=175.00000000                                                                  
+                                                                                
+*CFOUR(CALC=CCSDT(Q),BASIS=AUG-PVDZ,SCF_CONV=11                                 
+CC_CONV=9,CC_MAXCYC=1000,FROZEN_CORE=ON,MEMORY=5000000000)                      
+                                                                                
+********************************************************************************
+    -------------------------------------------------------------------
+                    CFOUR Control Parameters 
+    -------------------------------------------------------------------
+        External           Internal           Value            Units
+          Name               Name
+    -------------------------------------------------------------------
+       ABCDTYPE             IABCDT         STANDARD    [  0]    ***   
+       ANHARMONIC           IANHAR         OFF         [  0]    ***   
+       ANH_ALGORIT          IANALG         STANDARD    [  0]    ***   
+       ANH_DERIVAT          IANDER         SECOND      [  1]    ***   
+       ANH_MODE             ANHMOD         VIBRATION   [  0]    ***   
+       ANH_STEPSIZ          ICUBST             50000          x 10-6  
+       ANH_SYMMETR          IANHSM         ABELIAN     [  0]    ***   
+       AO_LADDERS           IAOLAD         SINGLEPASS  [  1]    ***   
+       AV_SCF               IAVSCF         OFF         [  0]    ***   
+       BASIS                IBASIS         AUG-PVDZ    [ 33]    ***   
+       BOTHVECTORS          BOTHVC         OFF         [  0]    ***   
+       BOX_POTENT           IPIAB          OFF         [  0]    ***   
+       BREIT                IBREIT         OFF         [  0]    ***   
+       BRUCK_CONV           IBRTOL          10D-  4             ***   
+       BRUECKNER            IBRKNR         OFF         [  0]    ***   
+       BUFFERSIZE           IBUFFS              4096            ***   
+       CACHE_RECS           ICHREC             10               ***   
+       CALCLEVEL            ICLLVL         CCSDT(Q)    [ 54]    ***   
+       CCORBOPT             ICCORB         OFF         [  0]  x 0.01  
+       CC_CONV              ICCCNV          10D-  9             ***   
+       CC_EXPORDER          ICCEOR              5               ***   
+       CC_EXTRAPOL          ICCEXT         DIIS        [  1]    ***   
+       CC_GUESS             ICCGES         MP2         [  0]    ***   
+       CC_MAXCYC            ICCCYC            ***              cycles 
+       CC_PROGRAM           ICCPRO         NCC         [  5]    ***   
+       CHARGE               ICHRGE              0               ***   
+       CHOLESKY             ICHOLE         OFF         [  0]    ***   
+       CIS_CONV             ICISTL              5               ***   
+       COMM_SIZE            IPSIZE            ***               ***   
+       CONSTANT             ICONST         OLD         [  1]    ***   
+       CONTINUUM            ICONTU         NONE        [  0]    ***   
+       CONTRACTION          ICNTYP         GENERAL     [  1]    ***   
+       COORDINATES          ICOORD         INTERNAL    [  0]    ***   
+       CPHF_CONVER          ICPHFT          10D- 16             ***   
+       CPHF_MAXCYC          ICPHFC             64              cycles 
+       CUBIC                ICUBIC         OFF         [  0]    ***   
+       CURVILINEAR          ICURVY         OFF         [  0]    ***   
+       DBOC                 IDBOC          OFF         [  0]    ***   
+       DCT                  IDCT           OFF         [  0]    ***   
+       DERIV_LEV            IDRLVL         ZERO        [  0]    ***   
+       DEVMEM_SIZE          IDVMEM          50000000           MByte  
+       DIAG_MRCC            IEOMST          10D-  0             ***   
+       DIFF_TYPE            IDIFTY         RELAXED     [  0]    ***   
+       DIRECT               IDIRCT         OFF         [  0]    ***   
+       DROPMO               IDRPMO      NONE         
+       ECP                  IECP           OFF         [  0]    ***   
+       EIGENVECTOR          IVEC                1               ***   
+       EL_ANHARM            IELANH         OFF         [  0]    ***   
+       EOMFOLLOW            IEOMSR         ENERGY      [  0]    ***   
+       EOMIP                IEOMIP         OFF         [  0]    ***   
+       EOMLEVEL             HBARFM         SAME        [  0]    ***   
+       EOM_MRCC             IMRCCE         NEW         [  1]    ***   
+       EOM_NONIT            EOMNON         OFF         [  0]    ***   
+       EOM_NSING            IEOMSI          10D-  0             ***   
+       EOM_NSTATES          IMRCCD         DAVIDSON    [  0]    ***   
+       EOM_NTRIP            IEOMTR          10D-  0             ***   
+       EOM_ORDER            IEXORD         ENERGY      [  0]    ***   
+       EOM_PROPSTA          IEOMST              0               ***   
+       ESTATE_CONV          IEXTOL          10D-  5             ***   
+       ESTATE_DIAG          IEXDIG         ITERATIVE   [  0]    ***   
+       ESTATE_LOCK          IESLOC         ON          [  1]    ***   
+       ESTATE_MAXC          IEXMXC             40               ***   
+       ESTATE_PROP          IEXPRP         OFF         [  0]    ***   
+       EVAL_HESS            IRECAL              0            # of cyc.
+       EXCITATION           IEXCIT              0               ***   
+       EXCITE               IEXCIT         NONE        [  0]    ***   
+       EXTERN_POT           IEXPOT         OFF         [  0]    ***   
+       FCGRADNEW            IFCGNW         OFF         [  0]    ***   
+       FC_FIELD             IFINFC              0             x 10-6  
+       FD_CALTYPE           IFDCAL         GRADONLY    [  0]    ***   
+       FD_PROJECT           IFDPRJ         OFF         [  1]    ***   
+       FD_STEPSIZE          IDISFD              0            10-4 bohr
+       FD_USEGROUP          IFDGRP         FULL        [  0]    ***   
+       FILE_RECSIZ          IFLREC              4096           words  
+       FINITE_PERT          IFIPER              0             x 10-6  
+       FIXGEOM              IFIXGM         OFF         [  0]    ***   
+       FOCK                 IFOCK          AO          [  1]    ***   
+       FREQ_ALGORI          IVIALG         STANDARD    [  0]    ***   
+       FROZEN_CORE          IFROCO         ON          [  1]    ***   
+       GAMMA_ABCD           IGABCD         STORE       [  0]    ***   
+       GAMMA_ABCI           IGABCI         STORE       [  0]    ***   
+       GENBAS_1             IGNBS1              0               ***   
+       GENBAS_2             IGNBS2              0               ***   
+       GENBAS_3             IGNBS3              0               ***   
+       GENBAS_4             IGNBS4              0               ***   
+       GEO_CONV             ICONTL              5              H/bohr 
+       GEO_MAXCYC           IOPTCY             50               ***   
+       GEO_MAXSTEP          IMXSTP            300            millibohr
+       GEO_METHOD           INR            SINGLE_POINT[  5]    ***   
+       GIAO                 IGIAO          OFF         [  1]    ***   
+       GIMIC                IGIMIC         OFF         [  0]    ***   
+       GRID                 IGRID          OFF         [  0]    ***   
+       GRID_ALGO            IGALGO         SERIAL      [  0]    ***   
+       GUESS                IGUESS         MOREAD      [  0]    ***   
+       HBAR                 IHBAR          OFF         [  0]    ***   
+       HESS_TYPE            IHESTP         SCF         [  0]    ***   
+       HF2_FILE             IHF2Fl         USE         [  1]    ***   
+       HFSTABILITY          ISTABL         OFF         [  0]    ***   
+       INCORE               INCORE         OFF         [  0]    ***   
+       INPUT_MRCC           IMRCC          ON          [  1]    ***   
+       INTEGRALS            INTTYP         VMOL        [  1]    ***   
+       JODA_PRINT           IJPRNT              0               ***   
+       KEYWORD_OUT          IDMPKW         NO          [  0]    ***   
+       LINDEP_TOL           ILINDP              8               ***   
+       LINEQ_CONV           IZTACN          10D-  7           cycles  
+       LINEQ_EXPOR          ILMAXD              5               ***   
+       LINEQ_MAXCY          ILMAXC            100               ***   
+       LINEQ_TYPE           ILTYPE         DIIS        [  1]    ***   
+       LOCK_ORBOCC          ILOCOC         OFF         [  0]    ***   
+       MEMORY_SIZE          IMEMSZ         *********           words  
+       MEM_UNIT             IMEMU          INTEGERWORDS[  0]    ***   
+       MRCC                 IMRCCC         OFF         [  0]    ***   
+       MULTIPLICTY          IMULTP              1               ***   
+       NACOUPLING           IVCOUP         OFF         [  0]    ***   
+       NEGEVAL              IDIE           ABORT       [  0]    ***   
+       NEWNORM              INEWNO         OFF         [  0]    ***   
+       NON-HF               INONHF         OFF         [  0]    ***   
+       NTOP_TAMP            ITOPT2             15               ***   
+       NUC_MODEL            INUCMO         POINT       [  0]    ***   
+       OCCUPATION           IOCCU   ESTIMATED BY SCF 
+       OPEN-SHELL           IOPEN          SPIN-ORBITAL[  0]    ***   
+       OPTVIB               IOPTVB         OFF         [  0]    ***   
+       ORBITALS             IORBTP         STANDARD    [  0]    ***   
+       PARALLEL             IPARAL         ON          [  1]    ***   
+       PARA_INT             IPINTS         ON          [  1]    ***   
+       PARA_PRINT           IPPRIN              0               ***   
+       PERT_ORB             IPTORB         STANDARD    [  0]    ***   
+       POINTS               IGRDFD              0               ***   
+       PRINT                IPRNT               0               ***   
+       PROPS                IPROPS         OFF         [  0]    ***   
+       PROP_INTEGR          IINTYP         INTERNAL    [  0]    ***   
+       PSI                  IPSI           OFF         [  0]    ***   
+       QC_ALG               IQCALG         FLM         [  0]    ***   
+       QC_LINALG            IQCLIN         TRIDIAG     [  2]    ***   
+       QC_MAXCYC            IQCMAX          10D-100           cycles  
+       QC_MAXSCFCY          IQCMSC          10D- 15           cycles  
+       QC_RTRUST            IQCRTR          10D-  0           x 10-3  
+       QC_SKIPSCF           IQCSKI         OFF         [  0]    ***   
+       QC_START             IQCSTA          10D-  1             ***   
+       QRHFGUESS            IQGUES         OFF         [  0]    ***   
+       QUARTIC              IQUART         OFF         [  0]    ***   
+       RAMAN_INT            IRAMIN         OFF         [  0]    ***   
+       RAMAN_ORB            IRAMRE         UNRELAXED   [  0]    ***   
+       RDO                  IRDOFM         OFF         [  0]    ***   
+       REDUCE_REPR          REDREP         Ir          [  0]    ***   
+       REFERENCE            IREFNC         RHF         [  0]    ***   
+       RELATIVIST           IRELAT         OFF         [  0]    ***   
+       RELAX_DENS           IRDENS         OFF         [  0]    ***   
+       RESET_FLAGS          IRESET         OFF         [  0]    ***   
+       RESTART_CC           ICCRES         OFF         [  0]    ***   
+       ROT_EVEC             ROTVEC              0               ***   
+       SAVE_INTS            ISVINT         OFF         [  0]    ***   
+       SCALE_ON             ISTCRT              0               ***   
+       SCF_CONV             ISCFCV          10D- 11             ***   
+       SCF_DAMPING          IDAMP               0             x 10-3  
+       SCF_EXPORDE          IRPPOR              6               ***   
+       SCF_EXPSTAR          IRPPLS              8               ***   
+       SCF_EXTRAPO          IRPP           ON          [  1]    ***   
+       SCF_MAXCYC           ISCFCY            150              cycles 
+       SCF_NOSTOP           ISCFST         OFF         [  0]    ***   
+       SCF_PRINT            ISCFPR              0               ***   
+       SCF_PROG             ISCFPR         SCF         [  0]    ***   
+       SD_FIELD             IFINSD              0             x 10-6  
+       SOPERT               IPERSO         OFF         [  0]    ***   
+       SPHERICAL            IDFGHI         ON          [  1]    ***   
+       SPINORBIT            ISOCAL         OFF         [  0]    ***   
+       SPINROTATIO          ISRCON         OFF         [  0]    ***   
+       SPIN_FLIP            ISPFLP         OFF         [  0]    ***   
+       SPIN_ORBIT           ISPORB         OFF         [  0]    ***   
+       SPIN_SCAL            ISCSMP         OFF         [  0]    ***   
+       STEEPSCALE           ISTPSC              1000          x 10-3  
+       SUBGROUP             ISUBGP         DEFAULT     [  0]    ***   
+       SUBGRPAXIS           ISBXYZ         X           [  0]    ***   
+       SYMMETRY             ISYM           ON          [  0]    ***   
+       SYM_CHECK            ISYMCK         OVERRIDE    [  1]    ***   
+       T3_EXTRAPOL          IT3EXT         ON          [  1]    ***   
+       T4_EXTRAPOL          IT4EXP         OFF         [  0]    ***   
+       TAMP_SUM             IEVERY              5               ***   
+       TESTSUITE            ITESTS         OFF         [  0]    ***   
+       THERMOCH             ITHERM         OFF         [  0]    ***   
+       TOL_CHOLESK          ITOLCH          10D-  4             ***   
+       TRANGRAD             IRESRM         OFF         [  0]    ***   
+       TRANS_INV            ITRAIN         USE         [  0]    ***   
+       TREAT_PERT           ITREAT         SIMULTANEOUS[  0]    ***   
+       TRIP_ALGORI          ITRALG         NORMAL      [  0]    ***   
+       UIJ_THRESHO          IUIJTH              1               ***   
+       UNITS                IUNITS         ANGSTROM    [  0]    ***   
+       UNOS                 IUNOS          OFF         [  0]    ***   
+       UPDATE_HESS          IHUPDT         ON          [  1]    ***   
+       VIBPHASE             ISETPH         STANDARD    [  0]    ***   
+       VIBRATION            IVIB           NO          [  0]    ***   
+       VIB_ALGORIT          IGEALG         STANDARD    [  0]    ***   
+       VNATORB              IVNORB         OFF         [  0]    ***   
+       VTRAN                IVTRAN         FULL/PARTIAL[  0]    ***   
+       XFIELD               IXEFLD              0             x 10-6  
+       XFORM_TOL            IXFTOL          10D- 11             ***   
+       YFIELD               IYEFLD              0             x 10-6  
+       ZFIELD               IZEFLD              0             x 10-6  
+       ZSCALE_EXP           IZEXPS         OFF         [  0]    ***   
+    -------------------------------------------------------------------
+   3 entries found in Z-matrix 
+   Job Title : Hypochlorous acid higher-order corrections                                      
+   There are  3 unique internal coordinates.
+   Of these,  0 will be optimized.
+   User supplied Z-matrix: 
+--------------------------------------------------------------------------------
+       SYMBOL    BOND      LENGTH    ANGLE     ANGLE     DIHED     ANGLE
+                  TO      (ANGST)    WRT      (DEG)      WRT      (DEG)
+--------------------------------------------------------------------------------
+        O    
+        H          1         ROH  
+        CL         1         ROCL       2        A    
+                  *Initial values for internal coordinates* 
+                      Name             Value
+                        ROH             0.9644619500
+                        ROCL            1.6888847600
+                        A             175.0000000000
+--------------------------------------------------------------------------------
+   Rotational constants (in cm-1): 
+          0.4715253150             0.4716059856          2756.5706358057
+   Rotational constants (in MHz): 
+      14135.9752991357         14138.3937427178      82639920.2334766686
+********************************************************************************
+   The full molecular point group is C s .
+   The largest Abelian subgroup of the full molecular point group is C s .
+   The computational point group is C s .
+********************************************************************************
+--------------------------------------------------------------------------------
+   Analysis of internal coordinates specified by Z-matrix 
+--------------------------------------------------------------------------------
+   *The nuclear repulsion energy is   50.395622368138078 a.u.
+   *There are   3 degrees of freedom within the tot. symm. molecular subspace.
+   *Z-matrix requests optimization of   0 coordinates.
+   *The optimization is constrained.
+   *The following   3 parameters can have non-zero 
+    derivatives within the totally symmetric subspace:
+             A    [ 3]  ROH  [ 1]  ROCL [ 2]
+   *The following   0 parameters are to be optimized:
+
+   *The following coordinates must be varied in an  unconstrained optimization.
+             A    [ 3]  ROH  [ 1]  ROCL [ 2]
+--------------------------------------------------------------------------------
+
+
+ ----------------------------------------------------------------
+         Coordinates used in calculation (QCOMP) 
+ ----------------------------------------------------------------
+ Z-matrix   Atomic            Coordinates (in bohr)
+  Symbol    Number           X              Y              Z
+ ----------------------------------------------------------------
+     O         8         2.11215755    -0.01348711     0.00000000
+     H         1         3.92855205     0.13641272     0.00000000
+     CL       17        -1.07933403     0.00223756     0.00000000
+ ----------------------------------------------------------------
+ 
+   Interatomic distance matrix (Angstroms) 
+ 
+                 O             H             CL   
+                [ 1]        [ 2]        [ 3]
+  O    [ 1]     0.00000
+  H    [ 2]     0.96446     0.00000
+  CL   [ 3]     1.68889     2.65101     0.00000
+ rotcon2
+   Rotational constants (in cm-1): 
+       2756.5706358030             0.4716059856             0.4715253150
+   Rotational constants (in MHz): 
+   82639920.2333963513         14138.3937427178         14135.9752991357
+  ECPDATA file not present.   Using default ECPDATA. 
+  There are   6 frozen-core orbitals.
+  There are   64 basis functions.
+ @GEOPT-W, Archive file not created for single-point calculation.
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.15/       0.19 seconds.
+--executable xjoda finished with status     0 in        0.23 seconds (walltime).
+ --invoking executable--
+/home/asmola/.local/bin/xvmol
+ SERIAL VERSION OF MOLECULE STARTED
+********************************************************************************
+                    INPUT FROM MOL FILE
+********************************************************************************
+INTGRL        1    0    1    0    0    0    0    0    0                         
+         *** CFOUR Program System (Release V0.1) ***                            
+Hypochlorous acid higher-order corrections                                      
+    3    1 Z          0.10E-08              0    0                              
+   9999.00      3.00                                                            
+          8.00000000    1    3    1    1    1                                   
+O #1   2.112157550825937  -0.013487107557305   0.000000000000000                
+   10    4                                                                      
+   11720.0000000000       7.100000000000000E-004 -1.600000000000000E-004        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   1759.00000000000       5.470000000000000E-003 -1.263000000000000E-003        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   400.800000000000       2.783700000000000E-002 -6.267000000000000E-003        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   113.700000000000       0.104800000000000      -2.571600000000000E-002        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   37.0300000000000       0.283062000000000      -7.092400000000000E-002        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   13.2700000000000       0.448719000000000      -0.165411000000000             
+  0.000000000000000E+000  0.000000000000000E+000                                
+   5.02500000000000       0.270952000000000      -0.116955000000000             
+  0.000000000000000E+000  0.000000000000000E+000                                
+   1.01300000000000       1.545800000000000E-002  0.557368000000000             
+  0.000000000000000E+000  0.000000000000000E+000                                
+  0.302300000000000      -2.585000000000000E-003  0.572759000000000             
+   1.00000000000000       0.000000000000000E+000                                
+  7.896000000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+  0.000000000000000E+000   1.00000000000000                                     
+    5    3                                                                      
+   17.7000000000000       4.301800000000000E-002  0.000000000000000E+000        
+  0.000000000000000E+000                                                        
+   3.85400000000000       0.228913000000000       0.000000000000000E+000        
+  0.000000000000000E+000                                                        
+   1.04600000000000       0.508728000000000       0.000000000000000E+000        
+  0.000000000000000E+000                                                        
+  0.275300000000000       0.460531000000000        1.00000000000000             
+  0.000000000000000E+000                                                        
+  6.856000000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+   1.00000000000000                                                             
+    2    2                                                                      
+   1.18500000000000        1.00000000000000       0.000000000000000E+000        
+  0.332000000000000       0.000000000000000E+000   1.00000000000000             
+          1.00000000    1    2    1    1                                        
+H #2   3.928552052743185   0.136412719538112   0.000000000000000                
+    5    3                                                                      
+   13.0100000000000       1.968500000000000E-002  0.000000000000000E+000        
+  0.000000000000000E+000                                                        
+   1.96200000000000       0.137977000000000       0.000000000000000E+000        
+  0.000000000000000E+000                                                        
+  0.444600000000000       0.478148000000000       0.000000000000000E+000        
+  0.000000000000000E+000                                                        
+  0.122000000000000       0.501240000000000        1.00000000000000             
+  0.000000000000000E+000                                                        
+  2.974000000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+   1.00000000000000                                                             
+    2    2                                                                      
+  0.727000000000000        1.00000000000000       0.000000000000000E+000        
+  0.141000000000000       0.000000000000000E+000   1.00000000000000             
+         17.00000000    1    3    1    1    1                                   
+CL#3  -1.079334032539190   0.002237562117524   0.000000000000000                
+   13    5                                                                      
+   127900.000000000       2.412000000000000E-004 -6.790000000000000E-005        
+  2.050000000000000E-005  0.000000000000000E+000  0.000000000000000E+000        
+   19170.0000000000       1.870900000000000E-003 -5.218000000000000E-004        
+  1.583000000000000E-004  0.000000000000000E+000  0.000000000000000E+000        
+   4363.00000000000       9.708300000000000E-003 -2.765100000000000E-003        
+  8.336000000000000E-004  0.000000000000000E+000  0.000000000000000E+000        
+   1236.00000000000       3.931530000000000E-002 -1.115370000000000E-002        
+  3.398800000000000E-003  0.000000000000000E+000  0.000000000000000E+000        
+   403.600000000000       0.125932000000000      -3.859190000000000E-002        
+  1.167380000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+   145.700000000000       0.299341000000000      -9.948480000000000E-002        
+  3.096220000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+   56.8100000000000       0.421886000000000      -0.201392000000000             
+  6.295330000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+   23.2300000000000       0.237201000000000      -0.130313000000000             
+  4.602570000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+   6.64400000000000       1.915310000000000E-002  0.509443000000000             
+ -0.219312000000000       0.000000000000000E+000  0.000000000000000E+000        
+   2.57500000000000      -3.347900000000000E-003  0.610725000000000             
+ -0.408773000000000       0.000000000000000E+000  0.000000000000000E+000        
+  0.537100000000000       9.299000000000000E-004  4.215490000000000E-002        
+  0.638465000000000       0.000000000000000E+000  0.000000000000000E+000        
+  0.193800000000000      -3.964000000000000E-004 -9.234300000000001E-003        
+  0.562362000000000        1.00000000000000       0.000000000000000E+000        
+  6.080000000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+  0.000000000000000E+000  0.000000000000000E+000   1.00000000000000             
+    9    4                                                                      
+   417.600000000000       5.259800000000000E-003 -1.435700000000000E-003        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   98.3300000000000       3.983320000000000E-002 -1.077960000000000E-002        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   31.0400000000000       0.164655000000000      -4.700750000000000E-002        
+  0.000000000000000E+000  0.000000000000000E+000                                
+   11.1900000000000       0.387322000000000      -0.111030000000000             
+  0.000000000000000E+000  0.000000000000000E+000                                
+   4.24900000000000       0.457072000000000      -0.153275000000000             
+  0.000000000000000E+000  0.000000000000000E+000                                
+   1.62400000000000       0.151636000000000       8.946090000000000E-002        
+  0.000000000000000E+000  0.000000000000000E+000                                
+  0.532200000000000       1.816200000000000E-003  0.579444000000000             
+  0.000000000000000E+000  0.000000000000000E+000                                
+  0.162000000000000       1.883000000000000E-003  0.483272000000000             
+   1.00000000000000       0.000000000000000E+000                                
+  4.660000000000000E-002  0.000000000000000E+000  0.000000000000000E+000        
+  0.000000000000000E+000   1.00000000000000                                     
+    3    3                                                                      
+   3.65200000000000        1.00000000000000       0.000000000000000E+000        
+  0.000000000000000E+000                                                        
+  0.603000000000000       0.000000000000000E+000   1.00000000000000             
+  0.000000000000000E+000                                                        
+  0.198000000000000       0.000000000000000E+000  0.000000000000000E+000        
+   1.00000000000000                                                             
+FINISH                                                                          
+ 
+********************************************************************************
+ ONE- AND TWO-ELECTRON INTEGRALS OVER SYMMETRY-ADAPTED AOS ARE CALCULATED.
+
+  SPHERICAL HARMONICS ARE USED.
+  
+  INTEGRALS LESS THAN  0.10E-13 ARE NEGLECTED.
+
+  NUCLEAR REPULSION ENERGY :   50.3956223681 A.U.
+  @MOLECU-I, ONE ELECTRON INTEGRALS (CPU/WALL):        0.01/       0.02 SECONDS.
+  @TWOEL-I,     520239 INTEGRALS OF SYMMETRY TYPE  I I I I
+  @TWOEL-I,     342865 INTEGRALS OF SYMMETRY TYPE  I J I J
+  @TWOEL-I,     183349 INTEGRALS OF SYMMETRY TYPE  I I J J
+  @TWOEL-I, TOTAL NUMBER OF 2-E INTEGRALS    1046453.
+  @MOLECU-I, TWO ELECTRON INTEGRALS (CPU/WALL):        0.60/       0.34 SECONDS.
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.63/       0.37 seconds.
+
+Running with 2 threads/proc
+
+--executable xvmol finished with status     0 in        0.40 seconds (walltime).
+ --invoking executable--
+/home/asmola/.local/bin/xvmol2ja
+ @GETMEM-I,  Allocated   38146 MB of main memory.
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.02/       0.03 seconds.
+--executable xvmol2ja finished with status     0 in        0.05 seconds (walltime).
+ --invoking executable--
+/home/asmola/.local/bin/xvscf
+  There are   64 functions in the AO basis.
+
+  There are 2 irreducible representations.
+
+       Irrep        # of functions
+         1                 45
+         2                 19
+
+
+  Parameters for SCF calculation: 
+        SCF reference function:  RHF  
+  Maximum number of iterations:  150
+     Full symmetry point group: C s 
+     Computational point group: C s 
+        Initial density matrix: MOREAD                 
+     SCF convergence tolerance: 10**(-11)
+  DIIS convergence acceleration:  ON
+          Latest start for DIIS:   8
+                     DIIS order:   6
+
+  Memory information:     212696 words required.
+  Fock matrices are constructed from AO integral file.
+ @GETMEM-I,  Allocated       1 MB of main memory.
+  Initialization and symmetry analysis required      0.001 seconds.
+
+  @INITGES-I, Occupancies from core Hamiltonian:
+
+          Alpha population by irrep:  10    3
+           Beta population by irrep:  10    3
+
+
+ total no. of electrons in initial guess :  0.000000000000000E+000
+  --------------------------------------------------------------------
+  Iteration         Total Energy            Largest Density Difference
+  --------------------------------------------------------------------
+       0            50.395622368138092              0.0000000000D+00
+   current occupation vector 
+    10  3
+    10  3
+       1          -435.756178133056892              0.1796800813D+02
+   current occupation vector 
+    10  3
+    10  3
+       2          -341.409601458796033              0.1796008559D+02
+   current occupation vector 
+    10  3
+    10  3
+       3          -442.613703571710346              0.1362585979D+02
+   current occupation vector 
+    10  3
+    10  3
+       4          -340.062859760299943              0.1362559722D+02
+   current occupation vector 
+    10  3
+    10  3
+       5          -442.666486698064148              0.1351162960D+02
+   current occupation vector 
+    10  3
+    10  3
+       6          -340.051174768896317              0.1351162748D+02
+   current occupation vector 
+    10  3
+    10  3
+       7          -442.667213253030354              0.1351024318D+02
+   current occupation vector 
+    10  3
+    10  3
+       8          -340.051012097922182              0.1351024308D+02
+   current occupation vector 
+    10  3
+    10  3
+       9          -484.382019406082009              0.1325749715D+02
+   current occupation vector 
+    10  3
+    10  3
+      10          -491.055575912819222              0.1257892237D+01
+   current occupation vector 
+    10  3
+    10  3
+      11          -499.879754190058293              0.2411474669D+01
+   current occupation vector 
+    10  3
+    10  3
+      12          -530.638851116292471              0.3126641127D+01
+   current occupation vector 
+    11  2
+    11  2
+      13          -533.631925232198455              0.3393787050D+01
+   current occupation vector 
+    11  2
+    11  2
+      14          -534.438623167520518              0.1324968143D+01
+   current occupation vector 
+    11  2
+    11  2
+      15          -534.516727222449390              0.5857181078D+00
+   current occupation vector 
+    11  2
+    11  2
+      16          -534.532870323335828              0.2002531646D+00
+   current occupation vector 
+    11  2
+    11  2
+      17          -534.540272354558283              0.1155651291D+00
+   current occupation vector 
+    11  2
+    11  2
+      18          -534.541041722863270              0.4669387638D-01
+   current occupation vector 
+    11  2
+    11  2
+      19          -534.541146445047161              0.1589964260D-01
+   current occupation vector 
+    11  2
+    11  2
+      20          -534.541155018396239              0.4938651248D-02
+   current occupation vector 
+    11  2
+    11  2
+      21          -534.541155565867712              0.1227779885D-02
+   current occupation vector 
+    11  2
+    11  2
+      22          -534.541155602797858              0.3713664890D-03
+   current occupation vector 
+    11  2
+    11  2
+      23          -534.541155604283745              0.9895797982D-04
+   current occupation vector 
+    11  2
+    11  2
+      24          -534.541155604408118              0.2405678231D-04
+   current occupation vector 
+    11  2
+    11  2
+      25          -534.541155604433584              0.1217361998D-04
+   current occupation vector 
+    11  2
+    11  2
+      26          -534.541155604434152              0.2720998132D-05
+   current occupation vector 
+    11  2
+    11  2
+      27          -534.541155604437677              0.7142070794D-06
+   current occupation vector 
+    11  2
+    11  2
+      28          -534.541155604437790              0.1839796900D-06
+   current occupation vector 
+    11  2
+    11  2
+      29          -534.541155604435062              0.2001140276D-07
+   current occupation vector 
+    11  2
+    11  2
+      30          -534.541155604436085              0.2878963007D-07
+   current occupation vector 
+    11  2
+    11  2
+      31          -534.541155604436312              0.6659030216D-08
+   current occupation vector 
+    11  2
+    11  2
+      32          -534.541155604436995              0.1499921298D-08
+   current occupation vector 
+    11  2
+    11  2
+      33          -534.541155604436767              0.6584314205D-09
+   current occupation vector 
+    11  2
+    11  2
+      34          -534.541155604436881              0.1146020501D-09
+   current occupation vector 
+    11  2
+    11  2
+      35          -534.541155604436881              0.7274170155D-10
+   current occupation vector 
+    11  2
+    11  2
+      36          -534.541155604436312              0.1996713905D-10
+   current occupation vector 
+    11  2
+    11  2
+
+  SCF has converged.
+
+ Density matrix saved to file den.dat
+ total electron number:   26.0000000000000     
+     E(SCF)=      -534.541155604435289              0.6255718166D-11
+
+
+  Final occupancies:
+
+     Alpha population by irrep:  11    2
+      Beta population by irrep:  11    2
+
+
+  Eigenvector printing suppressed.
+
+ @PUTMOS-I, Writing converged MOs to NEWMOS. 
+ @PUTMOS-I, Symmetry   1 Full Blocks 11 Partial Blocksize   1
+ @PUTMOS-I, Symmetry   2 Full Blocks  4 Partial Blocksize   3
+ @PUTFOCK-I, Writing converged Fock matrix to NEWFOCK. 
+ @PUTFOCK-I, Symmetry   1 Full Blocks 11 Partial Blocksize   1
+ @PUTFOCK-I, Symmetry   2 Full Blocks  4 Partial Blocksize   3
+
+
+ 
+  ORBITAL EIGENVALUES (ALPHA)  (1H = 27.2113834 eV)
+
+       MO #        E(hartree)               E(eV)           FULLSYM    COMPSYM
+       ----   --------------------   --------------------   -------   ---------
+    1     1        -104.8959555105       -2854.3640625044     A'        A'  (1)
+    2     2         -20.6690758341        -562.4341470450     A'        A'  (1)
+    3     3         -10.6174563036        -288.9156742099     A'        A'  (1)
+    4    46          -8.0830565774        -219.9511515724     A''       A'' (2)
+    5     4          -8.0812718976        -219.9025879664     A'        A'  (1)
+    6     5          -8.0776026581        -219.8027428829     A'        A'  (1)
+    7     6          -1.4127277291         -38.4422758762     A'        A'  (1)
+    8     7          -1.0876067189         -29.5952834168     A'        A'  (1)
+    9     8          -0.7699009084         -20.9500687982     A'        A'  (1)
+   10     9          -0.6241081778         -16.9828469102     A'        A'  (1)
+   11    47          -0.5137201588         -13.9790362018     A''       A'' (2)
+   12    10          -0.4570074372         -12.4358045912     A'        A'  (1)
+   13    11          -0.3083501234          -8.3906334304     A'        A'  (1)
+  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+   14    48          -0.0947287757          -2.5777010333     A''       A'' (2)
+   15    12           0.0354521499           0.9647020443     A'        A'  (1)
+   16    49           0.1341372344           3.6500597127     A''       A'' (2)
+   17    13           0.1353593173           3.6833142793     A'        A'  (1)
+   18    14           0.1392998490           3.7905415979     A'        A'  (1)
+   19    15           0.1726287466           4.6974670095     A'        A'  (1)
+   20    16           0.1846041104           5.0233332252     A'        A'  (1)
+   21    17           0.2193274894           5.9682044045     A'        A'  (1)
+   22    50           0.2226927825           6.0597786850     A''       A'' (2)
+   23    18           0.3358065205           9.1377599769     A'        A'  (1)
+   24    51           0.4140000379          11.2655137585     A''       A'' (2)
+   25    19           0.4147252079          11.2852466390     A'        A'  (1)
+   26    20           0.4393897372          11.9564026022     A'        A'  (1)
+   27    52           0.4413020376          12.0084389390     A''       A'' (2)
+   28    21           0.4555906327          12.3972513794     A'        A'  (1)
+   29    22           0.5815851271          15.8257358728     A'        A'  (1)
+   30    53           0.5819333816          15.8352123613     A''       A'' (2)
+   31    23           0.5847368459          15.9114985028     A'        A'  (1)
+   32    24           0.6884605118          18.7339629417     A'        A'  (1)
+   33    54           0.8930833303          24.3020329093     A''       A'' (2)
+   34    25           0.8986406091          24.4532541518     A'        A'  (1)
+   35    26           0.9091174715          24.7383440736     A'        A'  (1)
+   36    55           0.9806919776          26.6859854006     A''       A'' (2)
+   37    27           0.9815311614          26.7088207531     A'        A'  (1)
+   38    28           1.0164908465          27.6601221474     A'        A'  (1)
+   39    56           1.1278263392          30.6897149233     A''       A'' (2)
+   40    29           1.1423950578          31.0861499119     A'        A'  (1)
+   41    30           1.2550032168          34.1503736994     A'        A'  (1)
+   42    57           1.2573856402          34.2152027380     A''       A'' (2)
+   43    31           1.2798807262          34.8273251480     A'        A'  (1)
+   44    32           1.3191556902          35.8960512512     A'        A'  (1)
+   45    58           1.3967826115          38.0083871693     A''       A'' (2)
+   46    33           1.4168924501          38.5556036959     A'        A'  (1)
+   47    34           1.4690299899          39.9743382799     A'        A'  (1)
+   48    59           1.4789222040          40.2435191117     A''       A'' (2)
+   49    35           1.9229053726          52.3249153361     A'        A'  (1)
+   50    36           2.1860732997          59.4860786978     A'        A'  (1)
+   51    60           2.1874179004          59.5226671445     A''       A'' (2)
+   52    37           2.2292038242          60.6597199382     A'        A'  (1)
+   53    38           2.6295614127          71.5540037736     A'        A'  (1)
+   54    39           3.2373676971          88.0932536113     A'        A'  (1)
+   55    61           3.5147577521          95.6414207513    E          A'' (2)
+   56    40           3.5147657150          95.6416374312    E          A'  (1)
+   57    62           3.6761399649         100.0328540171     A''       A'' (2)
+   58    41           3.6964830794         100.5864183048     A'        A'  (1)
+   59    42           4.1673860168         113.4003386786     A'        A'  (1)
+   60    43           5.9057618601         160.7039502441     A'        A'  (1)
+   61    63           5.9072046651         160.7432109635     A''       A'' (2)
+   62    64           5.9579777433         162.1248166609     A''       A'' (2)
+   63    44           5.9911311723         163.0269673303     A'        A'  (1)
+   64    45           6.1386358421         167.0407734536     A'        A'  (1)
+
+
+  VSCF finished.
+
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.41/       0.41 seconds.
+--executable xvscf finished with status     0 in        0.44 seconds (walltime).
+ --invoking executable--
+/home/asmola/.local/bin/xvtran
+ @GETMEM-I,  Allocated   38146 MB of main memory.
+  Full RHF integral transformation
+  The following   6 MOs will be dropped:
+    1  2  3  4  5 12
+  There are  58 active molecular orbitals.
+  Transformation of IIII integrals :
+  1 pass through the AO integral file was required.
+      520239 AO integrals were read.
+      351316 MO integrals were written to HF2.
+  Transformation of IIJJ integrals :
+  1 pass through the AO integral file was required.
+      183349 AO integrals were read.
+      140220 MO integrals were written to HF2.
+  Transformation of IJIJ integrals :
+  1 pass through the AO integral file was required.
+      342865 AO integrals were read.
+      259560 MO integrals were written to HF2.
+  Summary of active molecular orbitals: 
+------------------------------------------------------------------------
+ 
+  Index      Eigenvalue    Symmetry    Index      Eigenvalue    Symmetry
+------------------------------------------------------------------------
+     1        -1.4127277        1        30         1.4690300        1
+     2        -1.0876067        1        31         1.9229054        1
+     3        -0.7699009        1        32         2.1860733        1
+     4        -0.6241082        1        33         2.2292038        1
+     5        -0.4570074        1        34         2.6295614        1
+     6        -0.3083501        1        35         3.2373677        1
+     7        -0.5137202        2        36         3.5147657        1
+     8         0.0354521        1        37         3.6964831        1
+     9         0.1353593        1        38         4.1673860        1
+    10         0.1392998        1        39         5.9057619        1
+    11         0.1726287        1        40         5.9911312        1
+    12         0.1846041        1        41         6.1386358        1
+    13         0.2193275        1        42        -0.0947288        2
+    14         0.3358065        1        43         0.1341372        2
+    15         0.4147252        1        44         0.2226928        2
+    16         0.4393897        1        45         0.4140000        2
+    17         0.4555906        1        46         0.4413020        2
+    18         0.5815851        1        47         0.5819334        2
+    19         0.5847368        1        48         0.8930833        2
+    20         0.6884605        1        49         0.9806920        2
+    21         0.8986406        1        50         1.1278263        2
+    22         0.9091175        1        51         1.2573856        2
+    23         0.9815312        1        52         1.3967826        2
+    24         1.0164908        1        53         1.4789222        2
+    25         1.1423951        1        54         2.1874179        2
+    26         1.2550032        1        55         3.5147578        2
+    27         1.2798807        1        56         3.6761400        2
+    28         1.3191557        1        57         5.9072047        2
+    29         1.4168925        1        58         5.9579777        2
+------------------------------------------------------------------------
+  -1.41272772909507       -1.08760671891623      -0.769900908391113     
+ -0.624108177837856      -0.457007437234076      -0.308350123442270     
+ -0.513720158815891       3.545214993813889E-002  0.135359317282031     
+  0.139299848969570       0.172628746595271       0.184604110394536     
+  0.219327489411091       0.335806520474503       0.414725207944809     
+  0.439389737246398       0.455590632683642       0.581585127081526     
+  0.584736845931948       0.688460511777927       0.898640609054274     
+  0.909117471536436       0.981531161444187        1.01649084652618     
+   1.14239505779364        1.25500321675706        1.27988072624181     
+   1.31915569023085        1.41689245008660        1.46902998985008     
+   1.92290537261404        2.18607329966967        2.22920382424306     
+   2.62956141265485        3.23736769705458        3.51476571496917     
+   3.69648307938710        4.16738601678664        5.90576186009265     
+   5.99113117234332        6.13863584214469      -9.472877565376722E-002
+  0.134137234370331       0.222692782500752       0.414000037884184     
+  0.441302037551048       0.581933381647814       0.893083330312859     
+  0.980691977631333        1.12782633915233        1.25738564023211     
+   1.39678261154893        1.47892220399733        2.18741790042463     
+   3.51475775212832        3.67613996490672        5.90720466507113     
+   5.95797774327350     
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.39/       0.26 seconds.
+--executable xvtran finished with status     0 in        0.27 seconds (walltime).
+ --invoking executable--
+/home/asmola/.local/bin/xintprc
+ @GETMEM-I,  Allocated   38146 MB of main memory.
+  @GMOIAA-I, Processing MO integrals for spin case AA.
+  @GMOIAA-I, Generation of integral list completed.
+                      TYPE                NUMBER
+                      ----               --------
+                      PPPP                447457
+                      PPPH                243916
+                      PPHH                 33847
+                      PHPH                 19924
+                      PHHH                  5678
+                      HHHH                   274
+
+                     TOTAL                751096
+
+  @FORMT2-I, Second-order MP correlation energies:
+            ------------------------------------------------
+            E(SCF)                  =   -534.541155604435 a.u.
+            E2(AA)                  =     -0.053037757860 a.u.
+            E2(AB)                  =     -0.305934256928 a.u.
+            E2(TOT)                 =     -0.412009772648 a.u.
+            Total MP2 energy        =   -534.953165377084 a.u.
+            ------------------------------------------------
+   Largest T2 amplitudes for spin case AB:
+       _       _                 _       _                 _       _
+   i   j   a   b             i   j   a   b             i   j   a   b
+-----------------------------------------------------------------------------
+[  7   7  42  42]-0.18211 [  6   6  42  42]-0.04683 [  7   7  42  44]-0.03522
+[  7   7  44  42]-0.03522 [  2   2  42  42]-0.02819 [  7   7  42  47]-0.02409
+[  7   7  47  42]-0.02409 [  5   5  42  42]-0.02407 [  6   7  28  42]-0.02295
+[  7   6  42  28]-0.02295 [  4   4  30  30]-0.02170 [  5   5  46  46]-0.02167
+[  7   4  42  13] 0.02128 [  4   7  13  42] 0.02128 [  5   5  21  21]-0.02045
+-----------------------------------------------------------------------------
+   Norm of T2AB vector (    67337 symmetry allowed elements):  0.3695176095.
+-----------------------------------------------------------------------------
+ @CHECKOUT-I, Total execution time (CPU/WALL):        0.12/       0.13 seconds.
+--executable xintprc finished with status     0 in        0.15 seconds (walltime).
+  calling xncc 
+ --invoking executable--
+/home/asmola/.local/bin/xncc
+ @GETMEM-I,  Allocated       7 MB of main memory.
+
+Running with 2 threads/proc
+
+Using DIIS to accelerate the convergence of T1 and T2
+Using DIIS to accelerate the convergence of T3
+Using immediate high-order contributions
+Damping factor for T3: 0.000000
+Damping factor for T4: 0.000000
+
+Transposes are coarse-threaded
+
+Memory limit:                 37.253 GiB
+Minimum memory requirement:  105.531 MiB
+Compromise memory amount:      1.305 GiB
+Optimal memory requirement:   13.490 GiB
+
+List              Location   Size        Cached Hunks Est. Disk I/O
+----------------- ---------- ----------- ------ ----- -------------
+
+           T_DIIS       70:0    2.577 MiB    Yes     -    46.388 MiB
+           Z_DIIS       70:1    2.577 MiB    Yes     -    77.314 MiB
+          <AI|bj>         18  526.070 KiB    Yes     -    29.735 MiB
+          <Ab|Cd>        233   26.126 MiB    Yes     -     5.792 GiB
+          <Ab|Ci>         30    3.636 MiB    Yes     -     1.055 GiB
+          <Ab|Ij>         16  526.070 KiB    Yes     -   219.775 MiB
+          <Ai|Bj>         25  526.070 KiB    Yes     -    24.146 MiB
+          <Aj|bI>         21  526.070 KiB     No     -         0   B
+          <Ij|Ka>         10   76.633 KiB    Yes     -    23.948 MiB
+          <Ij|Kl>         13   11.820 KiB    Yes     -   200.945 KiB
+            F(EA)       92:0   11.289 KiB    Yes     -     1.158 MiB
+            F(EM)       93:0    1.727 KiB    Yes     -   207.188 KiB
+            F(MI)       91:0      296   B    Yes     -    43.359 KiB
+            Q(AI)      190:2    1.727 KiB    Yes     -   233.086 KiB
+         Q(Ab,Ij)         50  526.070 KiB    Yes     -   254.302 MiB
+            T(AI)       90:0    1.727 KiB    Yes     -   700.984 KiB
+         T(Ab,Ij)         46  526.070 KiB    Yes     -   273.506 MiB
+         W(Mn,Ij)         53   11.820 KiB    Yes     -     1.558 MiB
+        W~(Ab,Ej)        130    3.636 MiB    Yes     -   828.754 MiB
+        W~(EM,bj)         56  526.070 KiB    Yes     -   146.416 MiB
+        W~(Em,Bj)         58  526.070 KiB    Yes     -   177.240 MiB
+        W~(Ij,Mb)        110   76.633 KiB    Yes     -    12.348 MiB
+       W~~(Ab,Ej)        169    3.636 MiB    Yes     -   763.533 MiB
+       W~~(EM,bj)         76  526.070 KiB    Yes     -    61.649 MiB
+       W~~(Em,Bj)         78  526.070 KiB    Yes     -    61.649 MiB
+       W~~(Ij,Mb)        165   76.633 KiB    Yes     -    15.716 MiB
+            Z(AI)       90:2    1.727 KiB    Yes     -   258.984 KiB
+         Z(Ab,Ij)         63  526.070 KiB    Yes     -    77.061 MiB
+       T(abc,ijk)     T3FILE   39.620 MiB    Yes     1     2.941 GiB
+     T(abcd,ijkl)          -    4.077 GiB     No     1         0   B
+             T3_1       T3_1   39.620 MiB    Yes     1     1.161 GiB
+             T3_2       T3_2   39.620 MiB    Yes     1   594.296 MiB
+             T3_3       T3_3   39.620 MiB    Yes     1   594.296 MiB
+             T3_4       T3_4   39.620 MiB    Yes     1   594.296 MiB
+             T3_5       T3_5   39.620 MiB    Yes     1   594.296 MiB
+       W(abc,ije)    WABCIJE  727.699 MiB    Yes     1     1.421 GiB
+       W(abm,ijk)    WABMIJK   14.054 MiB    Yes     1    28.108 MiB
+       Z(abc,ijk)     Z3FILE   39.620 MiB    Yes     1     2.902 GiB
+     Z(abcd,ijkl)          -    4.077 GiB     No     1         0   B
+             Z3_1       Z3_1   39.620 MiB    Yes     1     1.161 GiB
+             Z3_2       Z3_2   39.620 MiB    Yes     1     1.161 GiB
+             Z3_3       Z3_3   39.620 MiB    Yes     1     1.161 GiB
+             Z3_4       Z3_4   39.620 MiB    Yes     1     1.161 GiB
+             Z3_5       Z3_5   39.620 MiB    Yes     1     1.161 GiB
+
+Simulation and memory analysis took 0.710 seconds
+
+MP2 correlation energy:  -0.412009772648453
+
+Non-iterative calculation of MP2 took 0.003 cpu seconds and 0.002 walltime seconds at 0.219 Gflops/sec
+
+Total MP2 energy: -534.953165377083792
+
+Beginning iterative solution of CCSDT equations:
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+  1  -0.426320319387726 1.65071e-02 5.04724e-02 3.27056e-03        0.717        0.360
+  2  -0.445285385262052 4.38593e-03 7.23024e-02 6.33143e-04        3.601        1.805
+  3  -0.449732460459230 4.23985e-03 9.39619e-02 8.11780e-04        5.579        2.842
+  4  -0.448466845003854 4.88895e-03 8.36607e-02 7.16495e-04        6.560        3.420
+  5  -0.450899661021321 2.36181e-03 1.69418e-02 5.99008e-04        6.044        3.030
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0300758045374   14   11 -0.0228860207777   24   11 -0.0151950343147 
+  15   13 -0.0251383630836   22   11  0.0226769927030   17   13 -0.0142467826753 
+  21   10  0.0240797013894   19   13  0.0219091995452   28   13  0.0139650528305 
+  30   11  0.0237713920854   33   11  0.0216624593362   21   12  0.0135108266162 
+  48   11  0.0231763853916   16   11  0.0161908120814   29   10 -0.0115147680553 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   11   11 -0.3247923164404   14   14    8    8 -0.0295752832116 
+  14   14   12   12 -0.0679091176696   27   27   12   12 -0.0267744780376 
+  14   22   11   11 -0.0540163554213   26   26   12   12 -0.0252014315343 
+  22   14   11   11 -0.0540163554213   30   30   13   13 -0.0247453547413 
+  14   14   13   13  0.0500223099334   14   16   11   11  0.0244755967897 
+  14   30   11   11 -0.0391781782855   16   14   11   11  0.0244755967897 
+  30   14   11   11 -0.0391781782855   27   14   12    8  0.0243117867893 
+  14   14    9    9 -0.0341346523920 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+  6  -0.452670212978728 3.27190e-03 6.79306e-03 2.39234e-04        7.185        4.169
+  7  -0.453116129167192 6.16210e-04 6.64965e-03 1.87005e-04        3.866        1.946
+  8  -0.453253976353527 8.15035e-04 6.72828e-03 1.21742e-04        3.656        1.833
+  9  -0.453332473792592 1.43325e-04 6.62047e-03 1.17030e-04        3.877        1.943
+ 10  -0.453465245934268 2.19066e-04 6.40095e-03 1.15662e-04        3.620        1.817
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0333328697219   22   11  0.0232584952828   24   11 -0.0156100742037 
+  14   11 -0.0322187926239   48   11  0.0231083406547   28   13  0.0147193219540 
+  15   13 -0.0295746953514   33   11  0.0225724619394   17   13 -0.0141095429656 
+  30   11  0.0242716549991   21   10  0.0215950189386   21   12  0.0116798718345 
+  19   13  0.0232862294938   16   11  0.0179117988761   29   10 -0.0102921437509 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   11   11 -0.3430932205231   14   14   10   12 -0.0334205732053 
+  14   14   12   12 -0.1374364198635   14   14    9    9 -0.0289340146325 
+  14   22   11   11 -0.0554177451224   14   16   11   11  0.0261834900656 
+  22   14   11   11 -0.0554177451224   16   14   11   11  0.0261834900656 
+  14   14   13   13  0.0510415431521   27   14   12    8  0.0251366944938 
+  14   30   11   11 -0.0398505195537   14   27    8   12  0.0251366944938 
+  30   14   11   11 -0.0398505195537   27   27   12   12 -0.0248533733468 
+  14   14   12   10 -0.0334205732053 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 11  -0.453661160374193 2.10913e-04 5.93550e-03 1.10307e-04        3.412        1.710
+ 12  -0.453777971162173 2.76727e-04 5.57938e-03 1.03647e-04        3.147        1.577
+ 13  -0.453773612642687 4.24462e-04 5.58069e-03 1.00091e-04        3.615        1.812
+ 14  -0.453932621799242 4.09736e-04 5.38885e-03 1.12423e-04        3.496        1.752
+ 15  -0.454138065505628 7.26136e-04 4.88906e-03 1.04864e-04        3.416        1.712
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0338342559401   22   11  0.0232352166521   24   11 -0.0156544136205 
+  14   11 -0.0330550697180   48   11  0.0230849518329   28   13  0.0149336344344 
+  15   13 -0.0302577331282   33   11  0.0226512757231   17   13 -0.0141379176444 
+  30   11  0.0242939010287   21   10  0.0215024334924   21   12  0.0112272364521 
+  19   13  0.0232855274989   16   11  0.0180187675777   29   10 -0.0102559623943 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   11   11 -0.3429390011993   30   14   11   11 -0.0398137957496 
+  14   14   12   12 -0.1979211582521   14   14   10   10  0.0301974383700 
+  14   14   12   10 -0.0564473231528   27   14   12    8  0.0262827412203 
+  14   14   10   12 -0.0564473231528   14   27    8   12  0.0262827412203 
+  22   14   11   11 -0.0553790181859   16   14   11   11  0.0262784000437 
+  14   22   11   11 -0.0553790181859   14   16   11   11  0.0262784000437 
+  14   14   13   13  0.0505492451638   14   14    9    9 -0.0261644956658 
+  14   30   11   11 -0.0398137957496 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 16  -0.454170714454376 6.61310e-04 4.67320e-03 9.57523e-05        3.813        1.911
+ 17  -0.454071601452206 4.99084e-04 4.75778e-03 9.73842e-05        3.557        1.783
+ 18  -0.454366775064229 5.84315e-04 4.11293e-03 8.47471e-05        3.652        1.831
+ 19  -0.454320087639623 7.40245e-04 4.27974e-03 8.84679e-05        3.632        1.820
+ 20  -0.454702125905184 9.72421e-04 3.60119e-03 1.32433e-04        3.541        1.775
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0344016804806   22   11  0.0231900425419   24   11 -0.0156836308199 
+  14   11 -0.0334336366850   48   11  0.0230668935665   28   13  0.0151789878691 
+  15   13 -0.0309649589702   33   11  0.0227067924463   17   13 -0.0141701529351 
+  30   11  0.0243093217302   21   10  0.0216350667488   21   12  0.0107154486014 
+  19   13  0.0232287702818   16   11  0.0180495616416   29   10 -0.0103176420955 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   11   11 -0.3411073025949   14   30   11   11 -0.0397405056252 
+  14   14   12   12 -0.2956502646184   30   14   11   11 -0.0397405056252 
+  14   14   12   10 -0.0934455056690   27   14   12    8  0.0282046175192 
+  14   14   10   12 -0.0934455056690   14   27    8   12  0.0282046175192 
+  14   14   10   10  0.0612009318865   14   16   11   11  0.0262616567047 
+  14   22   11   11 -0.0552583555469   16   14   11   11  0.0262616567047 
+  22   14   11   11 -0.0552583555469   14   14   13   10 -0.0258601833985 
+  14   14   13   13  0.0478623866805 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 21  -0.455003023268488 1.05142e-03 2.65854e-03 1.33867e-04        3.134        1.571
+ 22  -0.455200506601689 6.49720e-04 2.71881e-03 1.10805e-04        3.457        1.733
+ 23  -0.455166448253332 5.80959e-04 2.89242e-03 9.56650e-05        3.608        1.808
+ 24  -0.455461909136946 4.96197e-04 2.88181e-03 9.96645e-05        3.719        1.981
+ 25  -0.455591884993921 5.87083e-04 2.99159e-03 1.49007e-04        5.742        3.057
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0338735662528   22   11  0.0229351850571   24   11 -0.0154628062614 
+  14   11 -0.0310523992919   48   11  0.0229349479816   28   13  0.0149593210264 
+  15   13 -0.0302582184053   33   11  0.0223911838765   17   13 -0.0141277303901 
+  30   11  0.0240614712550   21   10  0.0220041461989   21   12  0.0107625707466 
+  19   13  0.0232079566576   16   11  0.0176174963449   29   10 -0.0105283411032 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3759443513937   30   14   11   11 -0.0395318123592 
+  14   14   11   11 -0.3342314600388   14   30   11   11 -0.0395318123592 
+  14   14   12   10 -0.1220498188093   14   14   13   10 -0.0348240673491 
+  14   14   10   12 -0.1220498188093   14   14   10   13 -0.0348240673491 
+  14   14   10   10  0.0844259787974   27   14   12    8  0.0298802412245 
+  22   14   11   11 -0.0548430556490   14   27    8   12  0.0298802412245 
+  14   22   11   11 -0.0548430556490   22   14   12   12 -0.0288247693967 
+  14   14   13   13  0.0400758892720 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 26  -0.455502456984233 5.66713e-04 3.14444e-03 1.50760e-04        6.511        3.336
+ 27  -0.455784553031093 6.32022e-04 2.84158e-03 1.21971e-04        5.950        3.072
+ 28  -0.455737445108126 5.52751e-04 2.97920e-03 8.01317e-05        5.304        2.757
+ 29  -0.455812949064253 7.34539e-04 2.23934e-03 2.90556e-04        3.150        1.579
+ 30  -0.455684944656962 3.41340e-04 1.88001e-03 3.12905e-04        3.256        1.632
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0333262100167   48   11  0.0228341955920   24   11 -0.0152878383077 
+  15   13 -0.0295735729750   22   11  0.0227563215261   28   13  0.0147219379407 
+  14   11 -0.0293724891776   21   10  0.0222918474151   17   13 -0.0141023352914 
+  30   11  0.0238586565973   33   11  0.0221454377146   21   12  0.0110687075556 
+  19   13  0.0231794429929   16   11  0.0173118521295   29   10 -0.0106812809716 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3964664204939   14   30   11   11 -0.0394048456507 
+  14   14   11   11 -0.3300267502385   14   14   13   13  0.0386256067905 
+  14   14   12   10 -0.1286282608053   27   14   12    8  0.0304092858894 
+  14   14   10   12 -0.1286282608053   14   27    8   12  0.0304092858894 
+  14   14   10   10  0.0898560532814   22   14   12   12 -0.0301810517971 
+  14   22   11   11 -0.0545835875294   14   22   12   12 -0.0301810517971 
+  22   14   11   11 -0.0545835875294   16   14   12   12  0.0298269327019 
+  30   14   11   11 -0.0394048456507 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 31  -0.455490454992261 2.48148e-04 8.76033e-04 1.63516e-04        3.554        1.781
+ 32  -0.455435615800276 2.06720e-04 7.08388e-04 8.78728e-05        3.577        1.793
+ 33  -0.455443250184673 5.05431e-05 6.19908e-04 3.30438e-05        3.666        1.838
+ 34  -0.455464512207557 4.36670e-05 5.43423e-04 2.32216e-05        3.468        1.738
+ 35  -0.455484496913903 3.83515e-05 4.75347e-04 2.42802e-05        3.174        1.591
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331028989370   48   11  0.0228281901555   24   11 -0.0152823570918 
+  15   13 -0.0292622993160   22   11  0.0227223171396   28   13  0.0146070666728 
+  14   11 -0.0290753116463   21   10  0.0223445825185   17   13 -0.0141854447372 
+  30   11  0.0238542190033   33   11  0.0220945685800   21   12  0.0107693914050 
+  19   13  0.0233375068839   16   11  0.0172297821551   29   10 -0.0106734319529 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3973616716219   30   14   11   11 -0.0393660440332 
+  14   14   11   11 -0.3299452179701   14   14   13   13  0.0371031334616 
+  14   14   12   10 -0.1282734723154   27   14   12    8  0.0304592550411 
+  14   14   10   12 -0.1282734723154   14   27    8   12  0.0304592550411 
+  14   14   10   10  0.0907446669350   14   14   13   10 -0.0304401026292 
+  22   14   11   11 -0.0545443685134   14   14   10   13 -0.0304401026292 
+  14   22   11   11 -0.0545443685134   14   22   12   12 -0.0303952661107 
+  14   30   11   11 -0.0393660440332 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 36  -0.455512056532251 2.28445e-05 4.93181e-04 2.72429e-05        3.523        1.766
+ 37  -0.455507073312601 1.74260e-05 5.77759e-04 2.55264e-05        3.430        1.719
+ 38  -0.455517004121365 5.43998e-05 4.12771e-04 2.72323e-05        3.339        1.675
+ 39  -0.455507005709181 1.60218e-05 4.16689e-04 2.04277e-05        3.584        1.797
+ 40  -0.455487475642813 3.66305e-05 4.37017e-04 1.17590e-05        3.656        1.832
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331091423629   48   11  0.0228294430181   24   11 -0.0152793886947 
+  15   13 -0.0292677658664   22   11  0.0227271157513   28   13  0.0146110627907 
+  14   11 -0.0290511077006   21   10  0.0223368495787   17   13 -0.0141722643615 
+  30   11  0.0238526100055   33   11  0.0220953852966   21   12  0.0107999711091 
+  19   13  0.0233259983547   16   11  0.0172334978648   29   10 -0.0106780589954 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3976421535827   30   14   11   11 -0.0393665601487 
+  14   14   11   11 -0.3299071885039   14   14   13   13  0.0370444356089 
+  14   14   12   10 -0.1284494732835   14   14   13   10 -0.0323871224482 
+  14   14   10   12 -0.1284494732835   14   14   10   13 -0.0323871224482 
+  14   14   10   10  0.0907490997118   27   14   12    8  0.0304613181325 
+  14   22   11   11 -0.0545451333927   14   27    8   12  0.0304613181325 
+  22   14   11   11 -0.0545451333927   14   22   12   12 -0.0303975298342 
+  14   30   11   11 -0.0393665601487 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 41  -0.455514698637528 1.21043e-05 4.77521e-04 1.30279e-05        3.151        1.579
+ 42  -0.455498358561302 7.59087e-06 4.40673e-04 1.09648e-05        3.150        1.579
+ 43  -0.455493139546668 9.70564e-06 4.55677e-04 1.24588e-05        3.709        1.859
+ 44  -0.455497455771217 1.63363e-05 4.42240e-04 1.75784e-05        3.624        1.816
+ 45  -0.455493298580971 7.62930e-06 4.45836e-04 1.22237e-05        3.841        1.925
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331042457336   48   11  0.0228268213087   24   11 -0.0152776468618 
+  15   13 -0.0292647354078   22   11  0.0227220825389   28   13  0.0146108126735 
+  14   11 -0.0290427205971   21   10  0.0223452410919   17   13 -0.0141756229893 
+  30   11  0.0238496481788   33   11  0.0220914126909   21   12  0.0107978261383 
+  19   13  0.0233242970120   16   11  0.0172285499505   29   10 -0.0106798946886 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3975625855699   30   14   11   11 -0.0393645867756 
+  14   14   11   11 -0.3298706960661   14   14   13   13  0.0377572362207 
+  14   14   12   10 -0.1283897737712   14   14   13   10 -0.0318377157510 
+  14   14   10   12 -0.1283897737712   14   14   10   13 -0.0318377157510 
+  14   14   10   10  0.0906727664327   27   14   12    8  0.0304606672816 
+  14   22   11   11 -0.0545406675290   14   27    8   12  0.0304606672816 
+  22   14   11   11 -0.0545406675290   14   22   12   12 -0.0303898649177 
+  14   30   11   11 -0.0393645867756 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 46  -0.455497125073287 9.17195e-06 4.39347e-04 1.72129e-05        4.999        2.506
+ 47  -0.455538779280229 4.05130e-05 3.85681e-04 2.19006e-05        4.568        2.318
+ 48  -0.455542571132333 3.57274e-05 4.06696e-04 2.03704e-05        4.348        2.179
+ 49  -0.455536798556641 2.93101e-05 3.93551e-04 1.43632e-05        6.364        3.323
+ 50  -0.455540104352627 3.68050e-05 4.02604e-04 1.75336e-05        5.908        3.323
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331143440801   48   11  0.0228259416332   24   11 -0.0152798724355 
+  15   13 -0.0292751457102   22   11  0.0227193490436   28   13  0.0146131986034 
+  14   11 -0.0290703177794   21   10  0.0223432429996   17   13 -0.0141835931346 
+  30   11  0.0238506498567   33   11  0.0220941543525   21   12  0.0107807388612 
+  19   13  0.0233349655453   16   11  0.0172287576271   29   10 -0.0106846792213 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.4021988058087   14   30   11   11 -0.0393629247557 
+  14   14   11   11 -0.3298030083839   14   14   13   13  0.0376352295094 
+  14   14   12   10 -0.1301333762788   14   14   13   10 -0.0342597589237 
+  14   14   10   12 -0.1301333762788   14   14   10   13 -0.0342597589237 
+  14   14   10   10  0.0921160205445   14   22   12   12 -0.0307439039926 
+  22   14   11   11 -0.0545380331805   22   14   12   12 -0.0307439039926 
+  14   22   11   11 -0.0545380331805   27   14   12    8  0.0305509951650 
+  30   14   11   11 -0.0393629247557 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 51  -0.455537617828773 2.61453e-05 4.07242e-04 1.49172e-05        3.890        1.966
+ 52  -0.455541284798193 2.76077e-05 4.14969e-04 1.67374e-05        3.147        1.577
+ 53  -0.455548851766815 3.56682e-05 4.34367e-04 1.89370e-05        3.452        1.730
+ 54  -0.455547395962607 2.45323e-05 4.41869e-04 1.30194e-05        3.428        1.718
+ 55  -0.455536982587994 3.04764e-06 4.35678e-04 8.98968e-06        3.397        1.703
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331063850908   48   11  0.0228175651290   24   11 -0.0152675263089 
+  15   13 -0.0292725524332   22   11  0.0227067965277   28   13  0.0146125483234 
+  14   11 -0.0289565718559   21   10  0.0223587556876   17   13 -0.0141756309854 
+  30   11  0.0238356355744   33   11  0.0220773933599   21   12  0.0107852029075 
+  19   13  0.0233107901140   16   11  0.0172112594805   29   10 -0.0106969551965 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.4046514075078   30   14   11   11 -0.0393498548069 
+  14   14   11   11 -0.3294964906461   14   14   13   13  0.0382898346386 
+  14   14   12   10 -0.1310844354692   14   14   13   10 -0.0349503615538 
+  14   14   10   12 -0.1310844354692   14   14   10   13 -0.0349503615538 
+  14   14   10   10  0.0927405458079   14   22   12   12 -0.0309162815730 
+  14   22   11   11 -0.0545137653426   22   14   12   12 -0.0309162815730 
+  22   14   11   11 -0.0545137653426   27   14   12    8  0.0306045116005 
+  14   30   11   11 -0.0393498548069 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 56  -0.455528760244776 6.67422e-06 4.21235e-04 8.30899e-06        3.437        1.723
+ 57  -0.455525652834081 5.45341e-06 4.10990e-04 7.95391e-06        3.341        1.674
+ 58  -0.455526465944480 5.65119e-06 4.12265e-04 7.91833e-06        3.493        1.751
+ 59  -0.455528679688766 7.26358e-06 4.17587e-04 1.12961e-05        3.458        1.733
+ 60  -0.455529802390454 1.04222e-05 4.25122e-04 8.90056e-06        3.596        1.802
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331080063256   48   11  0.0228176947331   24   11 -0.0152681591889 
+  15   13 -0.0292757464004   22   11  0.0227066879537   28   13  0.0146133820968 
+  14   11 -0.0289607821138   21   10  0.0223573114042   17   13 -0.0141770563832 
+  30   11  0.0238361426724   33   11  0.0220778994584   21   12  0.0107837369581 
+  19   13  0.0233109106113   16   11  0.0172114776731   29   10 -0.0106966001488 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.4049621120239   30   14   11   11 -0.0393501586361 
+  14   14   11   11 -0.3294953415840   14   14   13   13  0.0382519842534 
+  14   14   12   10 -0.1311958579015   14   14   13   10 -0.0348380692017 
+  14   14   10   12 -0.1311958579015   14   14   10   13 -0.0348380692017 
+  14   14   10   10  0.0928431736236   22   14   12   12 -0.0309405194796 
+  14   22   11   11 -0.0545139650063   14   22   12   12 -0.0309405194796 
+  22   14   11   11 -0.0545139650063   27   14   12    8  0.0306105952833 
+  14   30   11   11 -0.0393501586361 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 61  -0.455532164442601 4.81690e-06 4.27569e-04 9.08974e-06        3.374        1.691
+ 62  -0.455533852851336 2.09551e-06 4.22950e-04 8.39517e-06        3.556        1.782
+ 63  -0.455530840138038 2.18310e-06 4.07885e-04 8.56926e-06        3.557        1.783
+ 64  -0.455516103602591 2.11791e-06 3.49286e-04 2.16807e-05        3.512        1.760
+ 65  -0.455501449739750 6.37643e-06 2.92739e-04 8.25936e-06        3.620        1.814
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331076249007   48   11  0.0228223569660   24   11 -0.0152718517791 
+  15   13 -0.0292752976604   22   11  0.0227150379066   28   13  0.0146087810954 
+  14   11 -0.0289929981512   21   10  0.0223526536898   17   13 -0.0141781831403 
+  30   11  0.0238415075121   33   11  0.0220835817843   21   12  0.0108038183280 
+  19   13  0.0233110580346   16   11  0.0172206937062   29   10 -0.0106959175522 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3995054471425   30   14   11   11 -0.0393582957107 
+  14   14   11   11 -0.3297019930696   14   14   13   13  0.0381038554978 
+  14   14   12   10 -0.1292682211368   14   14   13   10 -0.0354649623391 
+  14   14   10   12 -0.1292682211368   14   14   10   13 -0.0354649623391 
+  14   14   10   10  0.0912199400442   14   22   12   12 -0.0305359327800 
+  14   22   11   11 -0.0545285379206   22   14   12   12 -0.0305359327800 
+  22   14   11   11 -0.0545285379206   27   14   12    8  0.0305021554080 
+  14   30   11   11 -0.0393582957107 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 66  -0.455499040070689 7.51227e-06 2.80284e-04 4.89094e-06        3.698        1.853
+ 67  -0.455498820649609 4.29672e-06 2.78245e-04 5.11503e-06        3.606        1.807
+ 68  -0.455499178614126 5.22558e-06 2.78561e-04 7.90732e-06        3.512        1.760
+ 69  -0.455498063420562 7.40956e-06 2.68374e-04 9.64827e-06        5.101        2.560
+ 70  -0.455496863121863 9.46249e-06 2.66803e-04 1.15642e-05        4.940        2.538
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331052290569   48   11  0.0228199267142   24   11 -0.0152676270756 
+  15   13 -0.0292749525679   22   11  0.0227106859205   28   13  0.0146070738786 
+  14   11 -0.0289547040518   21   10  0.0223587818912   17   13 -0.0141721424752 
+  30   11  0.0238367045678   33   11  0.0220775720899   21   12  0.0108042793413 
+  19   13  0.0233022976057   16   11  0.0172151378978   29   10 -0.0106987830232 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3989259795432   30   14   11   11 -0.0393543363668 
+  14   14   11   11 -0.3296271019885   14   14   13   13  0.0380310461416 
+  14   14   12   10 -0.1290958779766   14   14   13   10 -0.0358162648857 
+  14   14   10   12 -0.1290958779766   14   14   10   13 -0.0358162648857 
+  14   14   10   10  0.0910024209112   22   14   12   12 -0.0304986949459 
+  22   14   11   11 -0.0545211664378   14   22   12   12 -0.0304986949459 
+  14   22   11   11 -0.0545211664378   27   14   12    8  0.0304905685647 
+  14   30   11   11 -0.0393543363668 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 71  -0.455490978947992 2.15357e-05 2.62906e-04 1.35290e-05        5.912        3.051
+ 72  -0.455487534022465 1.99374e-05 2.51531e-04 9.56463e-06        4.320        2.254
+ 73  -0.455482967838651 2.10764e-05 2.34014e-04 8.27078e-06        6.118        3.341
+ 74  -0.455482773557434 1.52664e-05 2.22891e-04 7.77067e-06        3.279        1.644
+ 75  -0.455486218024215 8.65998e-06 2.22088e-04 3.83464e-06        3.647        1.828
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331054260514   48   11  0.0228235987568   24   11 -0.0152722989660 
+  15   13 -0.0292729281811   22   11  0.0227171931745   28   13  0.0146086716961 
+  14   11 -0.0289924597123   21   10  0.0223514677990   17   13 -0.0141749442062 
+  30   11  0.0238424140356   33   11  0.0220842091683   21   12  0.0108182822712 
+  19   13  0.0233067425508   16   11  0.0172227989387   29   10 -0.0106973548330 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3967306590386   30   14   11   11 -0.0393613387554 
+  14   14   11   11 -0.3297573526209   14   14   13   13  0.0378300643207 
+  14   14   12   10 -0.1283084506690   14   14   13   10 -0.0365802775261 
+  14   14   10   12 -0.1283084506690   14   14   10   13 -0.0365802775261 
+  14   14   10   10  0.0903376105269   27   14   12    8  0.0304438517381 
+  14   22   11   11 -0.0545329632485   14   27    8   12  0.0304438517381 
+  22   14   11   11 -0.0545329632485   22   14   12   12 -0.0303306290091 
+  14   30   11   11 -0.0393613387554 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 76  -0.455483822295668 1.06273e-05 2.19764e-04 8.62563e-06        3.285        1.646
+ 77  -0.455480898454037 7.27277e-06 2.13546e-04 6.52407e-06        3.089        1.548
+ 78  -0.455480152580277 7.17416e-06 2.10603e-04 3.67553e-06        3.104        1.556
+ 79  -0.455480639249790 7.52073e-06 2.12121e-04 3.72970e-06        3.104        1.556
+ 80  -0.455482153024602 4.35128e-06 2.18056e-04 3.96145e-06        3.291        1.649
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331081195910   48   11  0.0228262060521   24   11 -0.0152759798167 
+  15   13 -0.0292743706764   22   11  0.0227221323206   28   13  0.0146101832987 
+  14   11 -0.0290251385090   21   10  0.0223457021231   17   13 -0.0141778826093 
+  30   11  0.0238471277289   33   11  0.0220895906169   21   12  0.0108174387791 
+  19   13  0.0233124686689   16   11  0.0172284483517   29   10 -0.0106944806742 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3967194655947   30   14   11   11 -0.0393650652352 
+  14   14   11   11 -0.3298463665768   14   14   13   13  0.0381860564414 
+  14   14   12   10 -0.1282658615505   14   14   13   10 -0.0364770616650 
+  14   14   10   12 -0.1282658615505   14   14   10   13 -0.0364770616650 
+  14   14   10   10  0.0903448823637   27   14   12    8  0.0304427412972 
+  14   22   11   11 -0.0545401098579   14   27    8   12  0.0304427412972 
+  22   14   11   11 -0.0545401098579   14   22   12   12 -0.0303224919797 
+  14   30   11   11 -0.0393650652352 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 81  -0.455481419649653 2.96855e-06 2.17008e-04 3.94560e-06        3.417        1.713
+ 82  -0.455479739600766 1.30450e-06 2.11631e-04 3.80788e-06        3.372        1.690
+ 83  -0.455472480323465 8.42833e-07 1.90573e-04 5.89476e-06        3.791        1.900
+ 84  -0.455468562442149 2.53683e-06 1.77774e-04 5.60206e-06        3.836        1.923
+ 85  -0.455466933460341 2.56017e-06 1.71930e-04 3.28661e-06        3.598        1.807
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331096341076   48   11  0.0228286450998   24   11 -0.0152788135702 
+  15   13 -0.0292755249374   22   11  0.0227269166808   28   13  0.0146109401077 
+  14   11 -0.0290486655695   21   10  0.0223415374854   17   13 -0.0141798776736 
+  30   11  0.0238509946673   33   11  0.0220936944169   21   12  0.0108210430486 
+  19   13  0.0233148549493   16   11  0.0172336487920   29   10 -0.0106926046908 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3952797003305   30   14   11   11 -0.0393689733393 
+  14   14   11   11 -0.3299466090132   14   14   13   13  0.0384898348707 
+  14   14   12   10 -0.1277296818625   14   14   13   10 -0.0366227728522 
+  14   14   10   12 -0.1277296818625   14   14   10   13 -0.0366227728522 
+  14   14   10   10  0.0899079149644   27   14   12    8  0.0304131218061 
+  14   22   11   11 -0.0545473100049   14   27    8   12  0.0304131218061 
+  22   14   11   11 -0.0545473100049   14   22   12   12 -0.0302115605506 
+  14   30   11   11 -0.0393689733393 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 86  -0.455468222207957 1.33824e-06 1.75706e-04 3.27011e-06        3.730        1.870
+ 87  -0.455468582203673 1.05888e-06 1.78231e-04 3.35440e-06        3.767        1.888
+ 88  -0.455461403327724 1.02841e-05 1.49893e-04 6.63116e-06        3.572        1.791
+ 89  -0.455455367827981 1.06247e-05 1.24718e-04 8.74430e-06        3.581        1.795
+ 90  -0.455434930853147 3.13441e-06 8.55852e-05 1.10557e-05        3.571        1.790
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331094922816   48   11  0.0228356591221   24   11 -0.0152857651662 
+  15   13 -0.0292746584597   22   11  0.0227405801830   28   13  0.0146093652163 
+  14   11 -0.0291045926915   21   10  0.0223304111093   17   13 -0.0141784353617 
+  30   11  0.0238610126480   33   11  0.0221036745204   21   12  0.0108467021023 
+  19   13  0.0233140451972   16   11  0.0172471760382   29   10 -0.0106868877966 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3891617378310   30   14   11   11 -0.0393809932015 
+  14   14   11   11 -0.3302400755216   14   14   13   13  0.0390364700505 
+  14   14   12   10 -0.1254871851851   14   14   13   10 -0.0363088010950 
+  14   14   10   12 -0.1254871851851   14   14   10   13 -0.0363088010950 
+  14   14   10   10  0.0880484241041   27   14   12    8  0.0302888814449 
+  14   22   11   11 -0.0545681502150   14   27    8   12  0.0302888814449 
+  22   14   11   11 -0.0545681502150   14   22   12   12 -0.0297458816347 
+  14   30   11   11 -0.0393809932015 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 91  -0.455419874247305 1.73055e-06 1.20153e-04 4.09056e-06        4.546        2.278
+ 92  -0.455424032316683 4.22510e-06 1.10840e-04 5.94505e-06        5.399        2.735
+ 93  -0.455424295129254 6.29558e-06 9.96694e-05 7.07504e-06        5.551        2.827
+ 94  -0.455427062033983 5.47754e-06 1.14528e-04 7.33495e-06        6.664        3.347
+ 95  -0.455416690343853 4.22124e-06 1.00518e-04 5.97657e-06        6.005        3.393
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331107073372   48   11  0.0228385300597   24   11 -0.0152886076656 
+  15   13 -0.0292745989381   22   11  0.0227460213127   28   13  0.0146090007401 
+  14   11 -0.0291279637764   21   10  0.0223253767546   17   13 -0.0141780137015 
+  30   11  0.0238650057098   33   11  0.0221078498455   21   12  0.0108468899834 
+  19   13  0.0233159761014   16   11  0.0172529683768   29   10 -0.0106840494128 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3870872804955   30   14   11   11 -0.0393851123610 
+  14   14   11   11 -0.3303595219725   14   14   13   13  0.0390314275802 
+  14   14   12   10 -0.1247309610802   14   14   13   10 -0.0362869421487 
+  14   14   10   12 -0.1247309610802   14   14   10   13 -0.0362869421487 
+  14   14   10   10  0.0874513478641   27   14   12    8  0.0302471450939 
+  14   22   11   11 -0.0545763255840   14   27    8   12  0.0302471450939 
+  22   14   11   11 -0.0545763255840   22   14   12   12 -0.0295924687099 
+  14   30   11   11 -0.0393851123610 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+ 96  -0.455408394237782 5.27442e-06 1.03550e-04 5.60902e-06        3.144        1.576
+ 97  -0.455417999580961 6.66529e-06 9.72095e-05 6.13954e-06        3.230        1.619
+ 98  -0.455426895843294 5.57678e-06 8.55747e-05 6.44556e-06        3.448        1.728
+ 99  -0.455431273606147 9.42289e-06 4.39482e-05 1.31873e-05        3.468        1.738
+100  -0.455431692187167 3.37907e-06 5.06923e-05 1.12206e-05        3.658        1.833
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331094803356   48   11  0.0228343812414   24   11 -0.0152837258492 
+  15   13 -0.0292747257985   22   11  0.0227377714803   28   13  0.0146097395869 
+  14   11 -0.0290885984303   21   10  0.0223319186950   17   13 -0.0141786599134 
+  30   11  0.0238581929041   33   11  0.0221012719762   21   12  0.0108498585129 
+  19   13  0.0233140852565   16   11  0.0172443184933   29   10 -0.0106884208209 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3900263223411   14   30   11   11 -0.0393788404243 
+  14   14   11   11 -0.3301710292932   14   14   13   13  0.0387761695323 
+  14   14   12   10 -0.1258077646124   14   14   13   10 -0.0363102612440 
+  14   14   10   12 -0.1258077646124   14   14   10   13 -0.0363102612440 
+  14   14   10   10  0.0882911276378   27   14   12    8  0.0303063494320 
+  14   22   11   11 -0.0545641653774   14   27    8   12  0.0303063494320 
+  22   14   11   11 -0.0545641653774   14   22   12   12 -0.0298067000317 
+  30   14   11   11 -0.0393788404243 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+101  -0.455429073223599 2.58397e-06 4.46495e-05 7.00757e-06        3.594        1.801
+102  -0.455423765877607 4.25631e-06 4.85573e-05 5.28894e-06        3.661        1.835
+103  -0.455420514799569 6.83292e-06 4.26953e-05 4.72299e-06        3.656        1.832
+104  -0.455417655780937 4.83090e-06 2.83533e-05 3.58357e-06        3.645        1.827
+105  -0.455416245471428 1.37650e-06 2.22439e-05 2.53899e-06        3.652        1.830
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331122275304   48   11  0.0228368141587   24   11 -0.0152863273967 
+  15   13 -0.0292778307063   22   11  0.0227423433200   28   13  0.0146116943166 
+  14   11 -0.0291111414821   21   10  0.0223287108376   17   13 -0.0141794007938 
+  30   11  0.0238617824953   33   11  0.0221051708171   21   12  0.0108533516826 
+  19   13  0.0233146502160   16   11  0.0172505502184   29   10 -0.0106863079703 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3878909686399   14   30   11   11 -0.0393832403218 
+  14   14   11   11 -0.3302802465607   14   14   13   13  0.0387924045175 
+  14   14   12   10 -0.1250536509361   14   14   13   10 -0.0363199960088 
+  14   14   10   12 -0.1250536509361   14   14   10   13 -0.0363199960088 
+  14   14   10   10  0.0876671136907   27   14   12    8  0.0302631711419 
+  14   22   11   11 -0.0545718018624   14   27    8   12  0.0302631711419 
+  22   14   11   11 -0.0545718018624   14   22   12   12 -0.0296529255861 
+  30   14   11   11 -0.0393832403218 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+106  -0.455415667482101 6.42359e-07 2.17313e-05 1.14907e-06        3.642        1.826
+107  -0.455415591515031 4.24036e-07 2.25161e-05 5.46899e-07        3.640        1.824
+108  -0.455416115218840 6.75642e-07 1.80339e-05 8.13839e-07        3.640        1.825
+109  -0.455417316880387 3.30970e-07 9.78416e-06 1.31263e-06        3.567        1.788
+110  -0.455418231906097 3.67445e-07 6.33058e-06 1.10115e-06        3.447        1.728
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331120363536   48   11  0.0228363106464   24   11 -0.0152859773689 
+  15   13 -0.0292776993593   22   11  0.0227415034393   28   13  0.0146113490974 
+  14   11 -0.0291084112973   21   10  0.0223296908981   17   13 -0.0141795955781 
+  30   11  0.0238612518243   33   11  0.0221045670836   21   12  0.0108515580731 
+  19   13  0.0233147848245   16   11  0.0172496072946   29   10 -0.0106866569426 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883147723018   30   14   11   11 -0.0393824029448 
+  14   14   11   11 -0.3302622501213   14   14   13   13  0.0387869519173 
+  14   14   12   10 -0.1252067075693   14   14   13   10 -0.0362687857261 
+  14   14   10   12 -0.1252067075693   14   14   10   13 -0.0362687857261 
+  14   14   10   10  0.0877997783504   27   14   12    8  0.0302720064680 
+  14   22   11   11 -0.0545704542578   14   27    8   12  0.0302720064680 
+  22   14   11   11 -0.0545704542578   22   14   12   12 -0.0296849850177 
+  14   30   11   11 -0.0393824029448 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+111  -0.455418522280291 2.02801e-07 3.95272e-06 4.90382e-07        3.823        1.916
+112  -0.455418490723602 1.16737e-07 4.47550e-06 3.24168e-07        3.595        1.802
+113  -0.455418426908830 7.61961e-08 5.49334e-06 2.25924e-07        4.549        2.380
+114  -0.455418578637809 9.12235e-08 4.09670e-06 2.38569e-07        5.267        2.691
+115  -0.455418756358601 7.25238e-08 3.15370e-06 2.24836e-07        4.031        2.039
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331118598151   48   11  0.0228362352470   24   11 -0.0152859237274 
+  15   13 -0.0292773993196   22   11  0.0227414364842   28   13  0.0146112840382 
+  14   11 -0.0291078561488   21   10  0.0223298542313   17   13 -0.0141796020102 
+  30   11  0.0238611739775   33   11  0.0221044643049   21   12  0.0108513103577 
+  19   13  0.0233148548447   16   11  0.0172495408517   29   10 -0.0106866945915 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883602147008   30   14   11   11 -0.0393822020065 
+  14   14   11   11 -0.3302596853581   14   14   13   13  0.0387859305419 
+  14   14   12   10 -0.1252207678633   14   14   13   10 -0.0362605189421 
+  14   14   10   12 -0.1252207678633   14   14   10   13 -0.0362605189421 
+  14   14   10   10  0.0878108459296   27   14   12    8  0.0302730184386 
+  22   14   11   11 -0.0545701904950   14   27    8   12  0.0302730184386 
+  14   22   11   11 -0.0545701904950   14   22   12   12 -0.0296875989440 
+  14   30   11   11 -0.0393822020065 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+116  -0.455418798562565 5.95778e-08 3.15351e-06 2.07272e-07        3.894        1.990
+117  -0.455418774024917 7.77944e-08 2.73665e-06 2.29574e-07        5.115        2.743
+118  -0.455418798621755 7.25991e-08 2.69249e-06 2.32911e-07        5.119        2.589
+119  -0.455418850667995 6.42012e-08 2.61764e-06 2.00839e-07        3.561        1.785
+120  -0.455418897504237 5.24666e-08 2.56956e-06 1.46219e-07        3.721        1.865
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117935132   48   11  0.0228362502737   24   11 -0.0152859530288 
+  15   13 -0.0292772701131   22   11  0.0227414667954   28   13  0.0146112106498 
+  14   11 -0.0291080098545   21   10  0.0223298161909   17   13 -0.0141795570757 
+  30   11  0.0238612069816   33   11  0.0221044942752   21   12  0.0108512989613 
+  19   13  0.0233148864197   16   11  0.0172495594307   29   10 -0.0106866726050 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883465835482   30   14   11   11 -0.0393822191173 
+  14   14   11   11 -0.3302603067903   14   14   13   13  0.0387768840551 
+  14   14   12   10 -0.1252149434706   14   14   13   10 -0.0362597245433 
+  14   14   10   12 -0.1252149434706   14   14   10   13 -0.0362597245433 
+  14   14   10   10  0.0878067018905   27   14   12    8  0.0302727670751 
+  14   22   11   11 -0.0545702296446   14   27    8   12  0.0302727670751 
+  22   14   11   11 -0.0545702296446   14   22   12   12 -0.0296864272149 
+  14   30   11   11 -0.0393822191173 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+121  -0.455418908125511 4.66223e-08 2.54379e-06 1.21011e-07        3.121        1.564
+122  -0.455418915985746 4.39848e-08 2.55330e-06 1.12432e-07        3.095        1.551
+123  -0.455418900870833 4.53291e-08 2.49277e-06 1.16475e-07        3.363        1.686
+124  -0.455418891499236 4.58726e-08 2.35448e-06 1.33399e-07        4.110        2.062
+125  -0.455418905516435 4.49613e-08 2.31493e-06 1.02641e-07        3.577        1.793
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117860986   48   11  0.0228362616060   24   11 -0.0152859625665 
+  15   13 -0.0292772588608   22   11  0.0227414889338   28   13  0.0146112086559 
+  14   11 -0.0291080845279   21   10  0.0223297986173   17   13 -0.0141795391881 
+  30   11  0.0238612217077   33   11  0.0221045092742   21   12  0.0108513449606 
+  19   13  0.0233148757387   16   11  0.0172495799000   29   10 -0.0106866616273 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883360655581   14   30   11   11 -0.0393822391471 
+  14   14   11   11 -0.3302607562178   14   14   13   13  0.0387767407860 
+  14   14   12   10 -0.1252111082105   14   14   13   10 -0.0362598410939 
+  14   14   10   12 -0.1252111082105   14   14   10   13 -0.0362598410939 
+  14   14   10   10  0.0878035294755   27   14   12    8  0.0302725501861 
+  14   22   11   11 -0.0545702637364   14   27    8   12  0.0302725501861 
+  22   14   11   11 -0.0545702637364   22   14   12   12 -0.0296856429143 
+  30   14   11   11 -0.0393822391471 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+126  -0.455418844144779 4.80045e-08 2.26131e-06 1.25038e-07        4.011        2.011
+127  -0.455418762919272 3.39237e-08 2.15540e-06 1.12084e-07        3.564        1.787
+128  -0.455418718246592 2.53548e-08 2.19541e-06 8.94024e-08        3.513        1.761
+129  -0.455418699475663 2.78548e-08 2.11321e-06 9.35034e-08        4.352        2.181
+130  -0.455418732932869 2.85047e-08 1.92303e-06 1.48636e-07        3.561        1.786
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116853455   48   11  0.0228362697983   24   11 -0.0152859781888 
+  15   13 -0.0292770876889   22   11  0.0227415134733   28   13  0.0146111502659 
+  14   11 -0.0291081350177   21   10  0.0223297872929   17   13 -0.0141795111030 
+  30   11  0.0238612437491   33   11  0.0221045191236   21   12  0.0108513840143 
+  19   13  0.0233149086974   16   11  0.0172495744247   29   10 -0.0106866235787 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883248943083   30   14   11   11 -0.0393822437627 
+  14   14   11   11 -0.3302612236086   14   14   13   13  0.0387768146069 
+  14   14   12   10 -0.1252051904165   14   14   13   10 -0.0362476715481 
+  14   14   10   12 -0.1252051904165   14   14   10   13 -0.0362476715481 
+  14   14   10   10  0.0877991947770   27   14   12    8  0.0302723509097 
+  14   22   11   11 -0.0545702815053   14   27    8   12  0.0302723509097 
+  22   14   11   11 -0.0545702815053   14   22   12   12 -0.0296845021014 
+  14   30   11   11 -0.0393822437627 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+131  -0.455418774704933 3.27507e-08 1.81715e-06 3.19378e-08        3.626        1.818
+132  -0.455418752567334 3.15655e-08 1.84064e-06 4.96371e-08        3.531        1.770
+133  -0.455418733663134 2.80181e-08 1.88355e-06 3.38662e-08        3.519        1.764
+134  -0.455418739759333 2.76681e-08 1.88902e-06 3.44121e-08        3.439        1.723
+135  -0.455418738498401 2.78622e-08 1.88842e-06 3.44035e-08        3.368        1.688
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116807695   48   11  0.0228362768678   24   11 -0.0152859837127 
+  15   13 -0.0292770758696   22   11  0.0227415284074   28   13  0.0146111469607 
+  14   11 -0.0291081843348   21   10  0.0223297794748   17   13 -0.0141795234598 
+  30   11  0.0238612536028   33   11  0.0221045281362   21   12  0.0108513840154 
+  19   13  0.0233149184994   16   11  0.0172495839336   29   10 -0.0106866168472 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883192757813   30   14   11   11 -0.0393822529830 
+  14   14   11   11 -0.3302615810358   14   14   13   13  0.0387793095986 
+  14   14   12   10 -0.1252029150041   14   14   13   10 -0.0362463063646 
+  14   14   10   12 -0.1252029150041   14   14   10   13 -0.0362463063646 
+  14   14   10   10  0.0877973964718   27   14   12    8  0.0302722432247 
+  22   14   11   11 -0.0545703019310   14   27    8   12  0.0302722432247 
+  14   22   11   11 -0.0545703019310   14   22   12   12 -0.0296840530721 
+  14   30   11   11 -0.0393822529830 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+136  -0.455418693193168 3.87849e-08 1.94074e-06 3.77182e-08        5.156        2.642
+137  -0.455418662282476 4.14330e-08 1.97399e-06 5.10324e-08        5.304        2.689
+138  -0.455418647673180 1.76270e-08 2.00728e-06 1.05904e-07        4.742        2.427
+139  -0.455418654695222 9.48384e-09 1.96357e-06 8.47838e-08        4.719        2.396
+140  -0.455418672533133 1.91035e-08 1.89130e-06 5.46666e-08        5.599        2.977
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117466311   48   11  0.0228362597230   24   11 -0.0152859624145 
+  15   13 -0.0292771802245   22   11  0.0227414913102   28   13  0.0146112100502 
+  14   11 -0.0291081237144   21   10  0.0223298026818   17   13 -0.0141794992799 
+  30   11  0.0238612254413   33   11  0.0221045080542   21   12  0.0108513507448 
+  19   13  0.0233148921621   16   11  0.0172495722593   29   10 -0.0106865819274 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883362249913   30   14   11   11 -0.0393822289289 
+  14   14   11   11 -0.3302608567183   14   14   13   13  0.0387795592131 
+  14   14   12   10 -0.1252093599790   14   14   13   10 -0.0362281266528 
+  14   14   10   12 -0.1252093599790   14   14   10   13 -0.0362281266528 
+  14   14   10   10  0.0878030094774   27   14   12    8  0.0302725721767 
+  14   22   11   11 -0.0545702541127   14   27    8   12  0.0302725721767 
+  22   14   11   11 -0.0545702541127   14   22   12   12 -0.0296854379858 
+  14   30   11   11 -0.0393822289289 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+141  -0.455418785854225 4.16762e-08 1.60545e-06 4.60799e-08        3.848        1.955
+142  -0.455418838101121 2.67798e-08 1.39900e-06 3.61316e-08        3.696        1.852
+143  -0.455418844478291 2.42536e-08 1.31281e-06 2.57741e-08        3.859        1.934
+144  -0.455418886125506 3.43510e-08 1.27856e-06 4.22647e-08        3.641        1.825
+145  -0.455418901440730 3.55609e-08 1.23418e-06 4.20211e-08        3.647        1.828
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117536878   48   11  0.0228362447413   24   11 -0.0152859507948 
+  15   13 -0.0292771867134   22   11  0.0227414630821   28   13  0.0146112134224 
+  14   11 -0.0291080222603   21   10  0.0223298233047   17   13 -0.0141795068372 
+  30   11  0.0238612065251   33   11  0.0221044909076   21   12  0.0108512817361 
+  19   13  0.0233148979958   16   11  0.0172495496464   29   10 -0.0106865980644 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883483644592   30   14   11   11 -0.0393822025960 
+  14   14   11   11 -0.3302602471356   14   14   13   13  0.0387772832840 
+  14   14   12   10 -0.1252139076704   14   14   13   10 -0.0362320716687 
+  14   14   10   12 -0.1252139076704   14   14   10   13 -0.0362320716687 
+  14   14   10   10  0.0878066077148   27   14   12    8  0.0302728146628 
+  14   22   11   11 -0.0545702096245   14   27    8   12  0.0302728146628 
+  22   14   11   11 -0.0545702096245   14   22   12   12 -0.0296863551194 
+  14   30   11   11 -0.0393822025960 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+146  -0.455418905824043 3.60033e-08 1.22751e-06 4.54752e-08        3.376        1.692
+147  -0.455418874116703 3.33752e-08 1.29599e-06 4.71614e-08        3.148        1.578
+148  -0.455418850301372 2.73358e-08 1.34028e-06 2.51556e-08        3.394        1.701
+149  -0.455418871905908 2.51854e-08 1.31356e-06 5.00295e-08        3.508        1.758
+150  -0.455418880240397 3.40036e-08 1.26566e-06 5.50632e-08        3.949        1.980
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117506887   48   11  0.0228362426404   24   11 -0.0152859490230 
+  15   13 -0.0292771798865   22   11  0.0227414593154   28   13  0.0146112110139 
+  14   11 -0.0291079969995   21   10  0.0223298262135   17   13 -0.0141795313095 
+  30   11  0.0238612043968   33   11  0.0221044860503   21   12  0.0108512598315 
+  19   13  0.0233149123380   16   11  0.0172495391821   29   10 -0.0106866079925 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883519337581   14   30   11   11 -0.0393821965715 
+  14   14   11   11 -0.3302601807815   14   14   13   13  0.0387795375750 
+  14   14   12   10 -0.1252150427264   14   14   13   10 -0.0362356852989 
+  14   14   10   12 -0.1252150427264   14   14   10   13 -0.0362356852989 
+  14   14   10   10  0.0878074446893   27   14   12    8  0.0302728900558 
+  14   22   11   11 -0.0545702001674   14   27    8   12  0.0302728900558 
+  22   14   11   11 -0.0545702001674   22   14   12   12 -0.0296865929225 
+  30   14   11   11 -0.0393821965715 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+151  -0.455418887774133 2.38348e-08 1.19697e-06 4.23220e-08        3.660        1.835
+152  -0.455418885835300 2.29769e-08 1.19411e-06 3.98169e-08        3.589        1.799
+153  -0.455418854590205 2.40960e-08 1.26991e-06 4.00228e-08        3.523        1.766
+154  -0.455418917767837 2.91502e-08 1.11205e-06 5.51870e-08        3.537        1.776
+155  -0.455418941834100 2.69476e-08 1.00243e-06 7.53877e-08        3.111        1.559
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117358129   48   11  0.0228362297470   24   11 -0.0152859359343 
+  15   13 -0.0292771662583   22   11  0.0227414344018   28   13  0.0146112023936 
+  14   11 -0.0291078855726   21   10  0.0223298456078   17   13 -0.0141795170350 
+  30   11  0.0238611858377   33   11  0.0221044659063   21   12  0.0108512387531 
+  19   13  0.0233149028925   16   11  0.0172495058205   29   10 -0.0106866163341 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883623943501   14   30   11   11 -0.0393821766421 
+  14   14   11   11 -0.3302596309972   14   14   13   13  0.0387784808046 
+  14   14   12   10 -0.1252187124396   14   14   13   10 -0.0362351790195 
+  14   14   10   12 -0.1252187124396   14   14   10   13 -0.0362351790195 
+  14   14   10   10  0.0878105895735   27   14   12    8  0.0302731041517 
+  14   22   11   11 -0.0545701620292   14   27    8   12  0.0302731041517 
+  22   14   11   11 -0.0545701620292   14   22   12   12 -0.0296873721267 
+  30   14   11   11 -0.0393821766421 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+156  -0.455418971730100 2.83894e-08 1.03898e-06 3.88890e-08        3.113        1.560
+157  -0.455418973380430 4.33645e-08 9.53781e-07 5.01379e-08        3.185        1.596
+158  -0.455418969333254 3.15821e-08 9.87098e-07 5.32093e-08        4.301        2.295
+159  -0.455418973797868 3.14519e-08 9.80896e-07 5.41770e-08        5.322        2.700
+160  -0.455418928236757 2.14663e-08 1.09433e-06 5.69009e-08        5.622        2.939
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117621772   48   11  0.0228362418448   24   11 -0.0152859481547 
+  15   13 -0.0292771922343   22   11  0.0227414584435   28   13  0.0146112168937 
+  14   11 -0.0291079943336   21   10  0.0223298290415   17   13 -0.0141795326997 
+  30   11  0.0238612026443   33   11  0.0221044869079   21   12  0.0108512267023 
+  19   13  0.0233149167596   16   11  0.0172495437110   29   10 -0.0106866006832 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883516393156   14   30   11   11 -0.0393821938583 
+  14   14   11   11 -0.3302601675322   14   14   13   13  0.0387783075782 
+  14   14   12   10 -0.1252149857325   14   14   13   10 -0.0362338056292 
+  14   14   10   12 -0.1252149857325   14   14   10   13 -0.0362338056292 
+  14   14   10   10  0.0878074673387   27   14   12    8  0.0302728874052 
+  14   22   11   11 -0.0545701982057   14   27    8   12  0.0302728874052 
+  22   14   11   11 -0.0545701982057   14   22   12   12 -0.0296865908189 
+  30   14   11   11 -0.0393821938583 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+161  -0.455418908338010 2.54572e-08 1.15862e-06 5.60764e-08        6.319        3.172
+162  -0.455418901007818 6.01971e-08 1.15975e-06 1.09925e-07        6.052        3.180
+163  -0.455418902100746 6.44516e-08 1.15178e-06 1.15687e-07        3.455        1.732
+164  -0.455418987496814 1.80429e-08 9.38804e-07 4.50097e-08        3.735        1.872
+165  -0.455418954671238 2.48090e-08 1.00342e-06 4.87872e-08        3.694        1.852
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117506965   48   11  0.0228362389346   24   11 -0.0152859447974 
+  15   13 -0.0292771777011   22   11  0.0227414532296   28   13  0.0146112072905 
+  14   11 -0.0291079467347   21   10  0.0223298319608   17   13 -0.0141795187138 
+  30   11  0.0238611992115   33   11  0.0221044797737   21   12  0.0108512058763 
+  19   13  0.0233149093455   16   11  0.0172495282624   29   10 -0.0106866050638 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883542650191   30   14   11   11 -0.0393821875278 
+  14   14   11   11 -0.3302600543658   14   14   13   13  0.0387785146912 
+  14   14   12   10 -0.1252158666938   14   14   13   10 -0.0362346753890 
+  14   14   10   12 -0.1252158666938   14   14   10   13 -0.0362346753890 
+  14   14   10   10  0.0878082783710   27   14   12    8  0.0302729421538 
+  22   14   11   11 -0.0545701871257   14   27    8   12  0.0302729421538 
+  14   22   11   11 -0.0545701871257   14   22   12   12 -0.0296867957480 
+  14   30   11   11 -0.0393821875278 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+166  -0.455418920789227 2.86015e-08 1.09044e-06 4.82373e-08        3.727        1.868
+167  -0.455418903589328 2.71533e-08 1.13716e-06 4.66487e-08        3.698        1.854
+168  -0.455418896085965 4.28999e-08 1.18284e-06 6.18846e-08        3.678        1.843
+169  -0.455418876801467 3.58954e-08 1.21296e-06 6.47031e-08        3.551        1.780
+170  -0.455418957463136 4.31553e-08 1.03828e-06 5.09985e-08        3.618        1.813
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117607311   48   11  0.0228362343604   24   11 -0.0152859433552 
+  15   13 -0.0292771973844   22   11  0.0227414447516   28   13  0.0146112154729 
+  14   11 -0.0291079628683   21   10  0.0223298402822   17   13 -0.0141795304524 
+  30   11  0.0238611949368   33   11  0.0221044773316   21   12  0.0108512331628 
+  19   13  0.0233149088529   16   11  0.0172495296404   29   10 -0.0106866091242 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883571317455   14   30   11   11 -0.0393821846543 
+  14   14   11   11 -0.3302598950339   14   14   13   13  0.0387775048337 
+  14   14   12   10 -0.1252170284945   14   14   13   10 -0.0362343069804 
+  14   14   10   12 -0.1252170284945   14   14   10   13 -0.0362343069804 
+  14   14   10   10  0.0878091606415   27   14   12    8  0.0302729970665 
+  14   22   11   11 -0.0545701776552   14   27    8   12  0.0302729970665 
+  22   14   11   11 -0.0545701776552   14   22   12   12 -0.0296870223842 
+  30   14   11   11 -0.0393821846543 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+171  -0.455418958546857 4.44314e-08 1.01819e-06 5.39416e-08        3.746        1.878
+172  -0.455418945420085 4.88710e-08 1.06069e-06 8.20288e-08        3.552        1.780
+173  -0.455418935543407 9.84097e-08 1.12685e-06 2.22406e-07        3.518        1.763
+174  -0.455418939372123 1.07075e-07 1.12545e-06 2.34609e-07        3.742        1.876
+175  -0.455418944376185 1.11382e-07 1.11254e-06 2.44382e-07        3.492        1.750
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117456710   48   11  0.0228362404611   24   11 -0.0152859453398 
+  15   13 -0.0292771830534   22   11  0.0227414535440   28   13  0.0146112052321 
+  14   11 -0.0291079746032   21   10  0.0223298240822   17   13 -0.0141795359605 
+  30   11  0.0238611995795   33   11  0.0221044801176   21   12  0.0108512809223 
+  19   13  0.0233149104291   16   11  0.0172495299147   29   10 -0.0106866068416 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883548004552   30   14   11   11 -0.0393821932913 
+  14   14   11   11 -0.3302600436492   14   14   13   13  0.0387784488809 
+  14   14   12   10 -0.1252160624839   14   14   13   10 -0.0362330779044 
+  14   14   10   12 -0.1252160624839   14   14   10   13 -0.0362330779044 
+  14   14   10   10  0.0878085206597   27   14   12    8  0.0302729555135 
+  22   14   11   11 -0.0545701899519   14   27    8   12  0.0302729555135 
+  14   22   11   11 -0.0545701899519   22   14   12   12 -0.0296868350465 
+  14   30   11   11 -0.0393821932913 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+176  -0.455418926762044 1.73126e-08 1.10902e-06 3.86078e-08        3.431        1.720
+177  -0.455418930758858 2.77018e-08 1.08700e-06 4.38816e-08        3.462        1.735
+178  -0.455418940696577 1.73140e-08 1.03725e-06 3.47172e-08        3.583        1.796
+179  -0.455418940420372 1.79196e-08 1.02937e-06 1.87072e-08        3.460        1.734
+180  -0.455418951054508 1.81383e-08 1.01159e-06 2.59094e-08        5.235        2.642
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117003227   48   11  0.0228362379784   24   11 -0.0152859438158 
+  15   13 -0.0292771162425   22   11  0.0227414517969   28   13  0.0146111717656 
+  14   11 -0.0291079083330   21   10  0.0223298397084   17   13 -0.0141795090453 
+  30   11  0.0238611984814   33   11  0.0221044724303   21   12  0.0108512475860 
+  19   13  0.0233149062305   16   11  0.0172495094509   29   10 -0.0106866102315 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883549770255   14   30   11   11 -0.0393821874466 
+  14   14   11   11 -0.3302599738771   14   14   13   13  0.0387785803953 
+  14   14   12   10 -0.1252157719637   14   14   13   10 -0.0362316953619 
+  14   14   10   12 -0.1252157719637   14   14   10   13 -0.0362316953619 
+  14   14   10   10  0.0878085373379   27   14   12    8  0.0302729694641 
+  14   22   11   11 -0.0545701841749   14   27    8   12  0.0302729694641 
+  22   14   11   11 -0.0545701841749   14   22   12   12 -0.0296868003492 
+  30   14   11   11 -0.0393821874466 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+181  -0.455418924627091 1.10374e-08 1.04156e-06 2.74597e-08        5.184        2.701
+182  -0.455418923538889 7.93546e-09 1.03855e-06 3.05029e-08        5.198        2.620
+183  -0.455419020023251 5.43411e-08 6.82864e-07 1.27387e-07        6.056        3.132
+184  -0.455419092657683 4.37231e-08 4.62963e-07 8.72783e-08        5.060        2.663
+185  -0.455419152363179 2.68611e-08 4.06750e-07 4.99160e-08        3.206        1.607
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116511384   48   11  0.0228361955149   24   11 -0.0152859005521 
+  15   13 -0.0292770576786   22   11  0.0227413688509   28   13  0.0146111516172 
+  14   11 -0.0291075349715   21   10  0.0223299076344   17   13 -0.0141795064520 
+  30   11  0.0238611384752   33   11  0.0221044053529   21   12  0.0108511414482 
+  19   13  0.0233149048833   16   11  0.0172494087198   29   10 -0.0106866447245 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883914545044   30   14   11   11 -0.0393821164015 
+  14   14   11   11 -0.3302581714840   14   14   13   13  0.0387767527899 
+  14   14   12   10 -0.1252288709477   14   14   13   10 -0.0362305959437 
+  14   14   10   12 -0.1252288709477   14   14   10   13 -0.0362305959437 
+  14   14   10   10  0.0878195451505   27   14   12    8  0.0302737146357 
+  22   14   11   11 -0.0545700583538   14   27    8   12  0.0302737146357 
+  14   22   11   11 -0.0545700583538   22   14   12   12 -0.0296895389745 
+  14   30   11   11 -0.0393821164015 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+186  -0.455419183033066 1.37401e-08 3.19169e-07 3.74646e-08        3.101        1.554
+187  -0.455419189899666 1.76932e-08 3.80237e-07 3.75932e-08        3.096        1.552
+188  -0.455419193349209 1.51795e-08 3.71037e-07 3.04367e-08        3.472        1.740
+189  -0.455419213898780 1.38139e-08 3.32773e-07 3.75672e-08        3.636        1.822
+190  -0.455419209379045 1.41830e-08 3.45572e-07 3.68531e-08        3.543        1.776
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116475838   48   11  0.0228361909392   24   11 -0.0152858959162 
+  15   13 -0.0292770499922   22   11  0.0227413606868   28   13  0.0146111488987 
+  14   11 -0.0291074833172   21   10  0.0223299154195   17   13 -0.0141795013279 
+  30   11  0.0238611326304   33   11  0.0221043980289   21   12  0.0108511095135 
+  19   13  0.0233149029615   16   11  0.0172493974028   29   10 -0.0106866480651 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883954141103   14   30   11   11 -0.0393821066987 
+  14   14   11   11 -0.3302579786061   14   14   13   13  0.0387764261236 
+  14   14   12   10 -0.1252302989295   14   14   13   10 -0.0362307355966 
+  14   14   10   12 -0.1252302989295   14   14   10   13 -0.0362307355966 
+  14   14   10   10  0.0878207415693   27   14   12    8  0.0302737947050 
+  14   22   11   11 -0.0545700431353   14   27    8   12  0.0302737947050 
+  22   14   11   11 -0.0545700431353   14   22   12   12 -0.0296898374069 
+  30   14   11   11 -0.0393821066987 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+191  -0.455419213384076 1.50732e-08 3.47024e-07 3.88960e-08        3.498        1.753
+192  -0.455419235303278 1.14666e-08 3.85132e-07 3.43024e-08        3.468        1.738
+193  -0.455419201524608 1.67172e-08 2.72338e-07 4.30106e-08        3.530        1.769
+194  -0.455419163631645 1.24522e-08 2.46800e-07 3.36760e-08        3.564        1.786
+195  -0.455419187192306 1.60299e-08 2.44994e-07 1.62561e-08        3.617        1.813
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116962306   48   11  0.0228361933256   24   11 -0.0152858989923 
+  15   13 -0.0292771213427   22   11  0.0227413652512   28   13  0.0146111773960 
+  14   11 -0.0291075603776   21   10  0.0223299060687   17   13 -0.0141795168397 
+  30   11  0.0238611350854   33   11  0.0221044083829   21   12  0.0108511147917 
+  19   13  0.0233149063106   16   11  0.0172494182548   29   10 -0.0106866411305 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883946739619   30   14   11   11 -0.0393821120199 
+  14   14   11   11 -0.3302581151526   14   14   13   13  0.0387773009722 
+  14   14   12   10 -0.1252302065353   14   14   13   10 -0.0362307393959 
+  14   14   10   12 -0.1252302065353   14   14   10   13 -0.0362307393959 
+  14   14   10   10  0.0878205535065   27   14   12    8  0.0302737741461 
+  14   22   11   11 -0.0545700506529   14   27    8   12  0.0302737741461 
+  22   14   11   11 -0.0545700506529   14   22   12   12 -0.0296898033911 
+  14   30   11   11 -0.0393821120199 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+196  -0.455419194613897 1.11297e-08 2.36867e-07 1.97101e-08        3.579        1.794
+197  -0.455419187827270 3.95908e-09 2.14526e-07 7.91096e-09        3.604        1.806
+198  -0.455419201500490 9.26312e-09 2.07663e-07 1.51338e-08        3.547        1.778
+199  -0.455419193533482 4.93816e-09 2.06551e-07 1.09816e-08        3.166        1.587
+200  -0.455419207740812 7.44450e-09 1.99726e-07 1.59005e-08        3.105        1.556
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331117010691   48   11  0.0228361880307   24   11 -0.0152858962907 
+  15   13 -0.0292771241550   22   11  0.0227413557387   28   13  0.0146111775868 
+  14   11 -0.0291075247093   21   10  0.0223299169009   17   13 -0.0141795144432 
+  30   11  0.0238611305962   33   11  0.0221044008310   21   12  0.0108510543037 
+  19   13  0.0233149013955   16   11  0.0172494100932   29   10 -0.0106866473043 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883988380945   14   30   11   11 -0.0393821011146 
+  14   14   11   11 -0.3302579321913   14   14   13   13  0.0387770462473 
+  14   14   12   10 -0.1252317485901   14   14   13   10 -0.0362321397240 
+  14   14   10   12 -0.1252317485901   14   14   10   13 -0.0362321397240 
+  14   14   10   10  0.0878218068966   27   14   12    8  0.0302738591112 
+  22   14   11   11 -0.0545700333820   14   27    8   12  0.0302738591112 
+  14   22   11   11 -0.0545700333820   14   22   12   12 -0.0296901281214 
+  30   14   11   11 -0.0393821011146 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+201  -0.455419225328634 9.28336e-09 1.80310e-07 1.44561e-08        3.632        1.821
+202  -0.455419217808565 7.20682e-09 1.48246e-07 1.33369e-08        5.324        2.730
+203  -0.455419215167923 5.22261e-09 5.97176e-08 1.23933e-08        6.583        3.425
+204  -0.455419218296414 6.03139e-09 5.43110e-08 1.06441e-08        6.569        3.328
+205  -0.455419222993624 1.17646e-09 5.96476e-08 6.90041e-09        6.707        3.543
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116874082   48   11  0.0228361883350   24   11 -0.0152858954913 
+  15   13 -0.0292771099950   22   11  0.0227413557739   28   13  0.0146111699891 
+  14   11 -0.0291075113342   21   10  0.0223299170539   17   13 -0.0141795187822 
+  30   11  0.0238611294857   33   11  0.0221043999713   21   12  0.0108510756180 
+  19   13  0.0233149028170   16   11  0.0172494065654   29   10 -0.0106866538177 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883986775857   30   14   11   11 -0.0393821028257 
+  14   14   11   11 -0.3302579259198   14   14   13   13  0.0387770812680 
+  14   14   12   10 -0.1252317355323   14   14   13   10 -0.0362344698943 
+  14   14   10   12 -0.1252317355323   14   14   10   13 -0.0362344698943 
+  14   14   10   10  0.0878217770990   27   14   12    8  0.0302738566237 
+  14   22   11   11 -0.0545700350517   14   27    8   12  0.0302738566237 
+  22   14   11   11 -0.0545700350517   14   22   12   12 -0.0296901168593 
+  14   30   11   11 -0.0393821028257 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+206  -0.455419224335203 1.18103e-09 7.04422e-08 4.75697e-09        3.757        1.908
+207  -0.455419222168488 9.32491e-10 7.86750e-08 5.34970e-09        3.490        1.749
+208  -0.455419223043778 9.45544e-10 7.68445e-08 6.48599e-09        3.781        1.895
+209  -0.455419225884538 9.98294e-10 6.91331e-08 4.64245e-09        3.451        1.730
+210  -0.455419226815461 1.29718e-09 6.78574e-08 4.08350e-09        3.623        1.816
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116855466   48   11  0.0228361874023   24   11 -0.0152858946139 
+  15   13 -0.0292771070660   22   11  0.0227413540568   28   13  0.0146111688111 
+  14   11 -0.0291075005671   21   10  0.0223299186519   17   13 -0.0141795182117 
+  30   11  0.0238611283387   33   11  0.0221043982874   21   12  0.0108510722433 
+  19   13  0.0233149026711   16   11  0.0172494038615   29   10 -0.0106866553738 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883994428129   30   14   11   11 -0.0393821010695 
+  14   14   11   11 -0.3302578839668   14   14   13   13  0.0387770411841 
+  14   14   12   10 -0.1252320069381   14   14   13   10 -0.0362346518647 
+  14   14   10   12 -0.1252320069381   14   14   10   13 -0.0362346518647 
+  14   14   10   10  0.0878219956474   27   14   12    8  0.0302738721862 
+  14   22   11   11 -0.0545700322419   14   27    8   12  0.0302738721862 
+  22   14   11   11 -0.0545700322419   14   22   12   12 -0.0296901719660 
+  14   30   11   11 -0.0393821010695 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+211  -0.455419229710779 1.97520e-09 7.44856e-08 2.61238e-09        3.676        1.842
+212  -0.455419224376293 8.38140e-10 7.68687e-08 6.52947e-09        3.599        1.804
+213  -0.455419222366577 1.31352e-09 7.98395e-08 4.68996e-09        3.808        1.909
+214  -0.455419222898444 1.39026e-09 7.63934e-08 4.79914e-09        3.600        1.804
+215  -0.455419226302756 8.17670e-10 6.46089e-08 4.83640e-09        3.535        1.772
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116875254   48   11  0.0228361875023   24   11 -0.0152858946173 
+  15   13 -0.0292771103218   22   11  0.0227413542431   28   13  0.0146111701855 
+  14   11 -0.0291075045256   21   10  0.0223299183671   17   13 -0.0141795192720 
+  30   11  0.0238611283029   33   11  0.0221043987934   21   12  0.0108510744010 
+  19   13  0.0233149030653   16   11  0.0172494049175   29   10 -0.0106866548273 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883993547575   14   30   11   11 -0.0393821014060 
+  14   14   11   11 -0.3302578903329   14   14   13   13  0.0387770430207 
+  14   14   12   10 -0.1252319805821   14   14   13   10 -0.0362345497296 
+  14   14   10   12 -0.1252319805821   14   14   10   13 -0.0362345497296 
+  14   14   10   10  0.0878219722091   27   14   12    8  0.0302738701814 
+  22   14   11   11 -0.0545700327045   14   27    8   12  0.0302738701814 
+  14   22   11   11 -0.0545700327045   22   14   12   12 -0.0296901664855 
+  30   14   11   11 -0.0393821014060 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+216  -0.455419229191357 8.33441e-10 7.51387e-08 3.42680e-09        3.668        1.839
+217  -0.455419227976614 1.24506e-09 7.84539e-08 3.92238e-09        3.661        1.835
+218  -0.455419231574633 1.39532e-09 5.39807e-08 3.43002e-09        3.582        1.795
+219  -0.455419230485144 1.25150e-09 3.12476e-08 2.76288e-09        3.534        1.771
+220  -0.455419227308386 6.37431e-10 1.88835e-08 2.76633e-09        3.655        1.832
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116878760   48   11  0.0228361881816   24   11 -0.0152858953082 
+  15   13 -0.0292771101168   22   11  0.0227413556860   28   13  0.0146111696254 
+  14   11 -0.0291075101911   21   10  0.0223299172652   17   13 -0.0141795172536 
+  30   11  0.0238611292830   33   11  0.0221043998016   21   12  0.0108510761339 
+  19   13  0.0233149028925   16   11  0.0172494064459   29   10 -0.0106866541237 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883985668947   30   14   11   11 -0.0393821024649 
+  14   14   11   11 -0.3302579202781   14   14   13   13  0.0387768968961 
+  14   14   12   10 -0.1252317018929   14   14   13   10 -0.0362344800921 
+  14   14   10   12 -0.1252317018929   14   14   10   13 -0.0362344800921 
+  14   14   10   10  0.0878217438338   27   14   12    8  0.0302738545103 
+  14   22   11   11 -0.0545700349288   14   27    8   12  0.0302738545103 
+  22   14   11   11 -0.0545700349288   14   22   12   12 -0.0296901083732 
+  14   30   11   11 -0.0393821024649 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+221  -0.455419227007663 4.32007e-10 1.57647e-08 1.94110e-09        3.606        1.807
+222  -0.455419226639470 1.81638e-10 1.36682e-08 1.21676e-09        5.998        3.025
+223  -0.455419226787652 1.72461e-10 1.33844e-08 6.98687e-10        6.654        3.437
+224  -0.455419226910424 2.97683e-10 1.32331e-08 4.31289e-10        6.605        3.464
+225  -0.455419226280066 2.13555e-10 1.15224e-08 4.80423e-10        6.226        3.318
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116893333   48   11  0.0228361884436   24   11 -0.0152858955469 
+  15   13 -0.0292771125027   22   11  0.0227413561541   28   13  0.0146111701522 
+  14   11 -0.0291075132122   21   10  0.0223299168012   17   13 -0.0141795179718 
+  30   11  0.0238611296552   33   11  0.0221044002523   21   12  0.0108510765357 
+  19   13  0.0233149031650   16   11  0.0172494071303   29   10 -0.0106866538032 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883983678634   14   30   11   11 -0.0393821028616 
+  14   14   11   11 -0.3302579309475   14   14   13   13  0.0387769073333 
+  14   14   12   10 -0.1252316374479   14   14   13   10 -0.0362344727993 
+  14   14   10   12 -0.1252316374479   14   14   10   13 -0.0362344727993 
+  14   14   10   10  0.0878216828978   27   14   12    8  0.0302738501583 
+  14   22   11   11 -0.0545700357860   14   27    8   12  0.0302738501583 
+  22   14   11   11 -0.0545700357860   14   22   12   12 -0.0296900945316 
+  30   14   11   11 -0.0393821028616 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+226  -0.455419225668926 4.07614e-10 9.57877e-09 7.73172e-10        3.504        1.756
+227  -0.455419225427242 3.87973e-10 8.64441e-09 7.89242e-10        3.644        1.826
+228  -0.455419225353250 2.87568e-10 8.95190e-09 6.95299e-10        3.608        1.809
+229  -0.455419225410937 2.89320e-10 8.87476e-09 6.84980e-10        3.636        1.822
+230  -0.455419225574561 2.70035e-10 9.04847e-09 5.78308e-10        3.598        1.803
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116894683   48   11  0.0228361885135   24   11 -0.0152858956183 
+  15   13 -0.0292771126420   22   11  0.0227413562904   28   13  0.0146111702461 
+  14   11 -0.0291075139485   21   10  0.0223299166903   17   13 -0.0141795179758 
+  30   11  0.0238611297548   33   11  0.0221044003701   21   12  0.0108510768521 
+  19   13  0.0233149031784   16   11  0.0172494073009   29   10 -0.0106866537056 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883983092185   30   14   11   11 -0.0393821029897 
+  14   14   11   11 -0.3302579340758   14   14   13   13  0.0387769152655 
+  14   14   12   10 -0.1252316161253   14   14   13   10 -0.0362344585354 
+  14   14   10   12 -0.1252316161253   14   14   10   13 -0.0362344585354 
+  14   14   10   10  0.0878216650614   27   14   12    8  0.0302738489610 
+  22   14   11   11 -0.0545700360128   14   27    8   12  0.0302738489610 
+  14   22   11   11 -0.0545700360128   22   14   12   12 -0.0296900901482 
+  14   30   11   11 -0.0393821029897 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+231  -0.455419225160740 2.92196e-10 9.01440e-09 7.12863e-10        3.596        1.802
+232  -0.455419224439877 4.74004e-10 9.54853e-09 1.00669e-09        3.561        1.785
+233  -0.455419223666694 4.42378e-10 9.55285e-09 1.43265e-09        3.461        1.735
+234  -0.455419223799143 4.34035e-10 9.31452e-09 1.49020e-09        3.522        1.765
+235  -0.455419224436764 4.06180e-10 8.71062e-09 1.15506e-09        3.580        1.794
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116895415   48   11  0.0228361886094   24   11 -0.0152858957124 
+  15   13 -0.0292771126429   22   11  0.0227413564702   28   13  0.0146111703387 
+  14   11 -0.0291075146668   21   10  0.0223299165013   17   13 -0.0141795179822 
+  30   11  0.0238611298920   33   11  0.0221044005056   21   12  0.0108510774805 
+  19   13  0.0233149031880   16   11  0.0172494074473   29   10 -0.0106866537205 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883982386861   14   30   11   11 -0.0393821031702 
+  14   14   11   11 -0.3302579376548   14   14   13   13  0.0387769315459 
+  14   14   12   10 -0.1252315909415   14   14   13   10 -0.0362344794163 
+  14   14   10   12 -0.1252315909415   14   14   10   13 -0.0362344794163 
+  14   14   10   10  0.0878216416371   27   14   12    8  0.0302738474539 
+  14   22   11   11 -0.0545700363304   14   27    8   12  0.0302738474539 
+  22   14   11   11 -0.0545700363304   14   22   12   12 -0.0296900846645 
+  30   14   11   11 -0.0393821031702 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+236  -0.455419224424872 3.93206e-10 8.65622e-09 1.15350e-09        3.582        1.795
+237  -0.455419224472257 6.42903e-10 8.08561e-09 1.65040e-09        3.478        1.743
+238  -0.455419224459384 6.62532e-10 7.87741e-09 1.75825e-09        3.131        1.569
+239  -0.455419223930087 3.15392e-10 9.09738e-09 1.24960e-09        3.377        1.693
+240  -0.455419224300530 2.83656e-10 8.80623e-09 1.09255e-09        3.398        1.703
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116896136   48   11  0.0228361887261   24   11 -0.0152858958103 
+  15   13 -0.0292771126361   22   11  0.0227413566973   28   13  0.0146111703416 
+  14   11 -0.0291075155509   21   10  0.0223299163357   17   13 -0.0141795178202 
+  30   11  0.0238611300437   33   11  0.0221044006719   21   12  0.0108510775291 
+  19   13  0.0233149031953   16   11  0.0172494076959   29   10 -0.0106866535805 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883981274069   30   14   11   11 -0.0393821033423 
+  14   14   11   11 -0.3302579429430   14   14   13   13  0.0387769308908 
+  14   14   12   10 -0.1252315508159   14   14   13   10 -0.0362344668648 
+  14   14   10   12 -0.1252315508159   14   14   10   13 -0.0362344668648 
+  14   14   10   10  0.0878216092080   27   14   12    8  0.0302738452452 
+  14   22   11   11 -0.0545700366842   14   27    8   12  0.0302738452452 
+  22   14   11   11 -0.0545700366842   22   14   12   12 -0.0296900765411 
+  14   30   11   11 -0.0393821033423 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+241  -0.455419223743594 2.91674e-10 9.01859e-09 1.34531e-09        3.580        1.794
+242  -0.455419223342754 4.11604e-10 8.59051e-09 1.82292e-09        3.590        1.799
+243  -0.455419223285040 4.24698e-10 8.07971e-09 1.80252e-09        4.087        2.048
+244  -0.455419223184490 3.26851e-10 8.41325e-09 1.50916e-09        5.307        2.726
+245  -0.455419223397567 4.00069e-10 7.69488e-09 1.79565e-09        5.982        3.147
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116895392   48   11  0.0228361887019   24   11 -0.0152858957906 
+  15   13 -0.0292771125761   22   11  0.0227413566319   28   13  0.0146111703127 
+  14   11 -0.0291075152539   21   10  0.0223299163994   17   13 -0.0141795178974 
+  30   11  0.0238611300143   33   11  0.0221044006195   21   12  0.0108510774842 
+  19   13  0.0233149031824   16   11  0.0172494075858   29   10 -0.0106866537431 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883981593307   30   14   11   11 -0.0393821033056 
+  14   14   11   11 -0.3302579416068   14   14   13   13  0.0387769372192 
+  14   14   12   10 -0.1252315638242   14   14   13   10 -0.0362345130539 
+  14   14   10   12 -0.1252315638242   14   14   10   13 -0.0362345130539 
+  14   14   10   10  0.0878216177247   27   14   12    8  0.0302738458370 
+  22   14   11   11 -0.0545700366261   14   27    8   12  0.0302738458370 
+  14   22   11   11 -0.0545700366261   22   14   12   12 -0.0296900789851 
+  14   30   11   11 -0.0393821033056 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+246  -0.455419223838287 4.45852e-10 6.65084e-09 1.87601e-09        5.269        2.665
+247  -0.455419224682799 2.69105e-10 6.15785e-09 1.27539e-09        5.997        3.559
+248  -0.455419224498424 2.18786e-10 7.44838e-09 1.20543e-09        3.634        1.821
+249  -0.455419224578778 2.32222e-10 6.08987e-09 1.44370e-09        3.600        1.804
+250  -0.455419224361497 3.09249e-10 6.46323e-09 1.65630e-09        3.477        1.743
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116895206   48   11  0.0228361887587   24   11 -0.0152858958397 
+  15   13 -0.0292771125036   22   11  0.0227413567456   28   13  0.0146111702857 
+  14   11 -0.0291075156923   21   10  0.0223299162904   17   13 -0.0141795178291 
+  30   11  0.0238611300847   33   11  0.0221044007053   21   12  0.0108510777614 
+  19   13  0.0233149031856   16   11  0.0172494077031   29   10 -0.0106866536253 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883981074422   30   14   11   11 -0.0393821034039 
+  14   14   11   11 -0.3302579437950   14   14   13   13  0.0387769314702 
+  14   14   12   10 -0.1252315440924   14   14   13   10 -0.0362344753188 
+  14   14   10   12 -0.1252315440924   14   14   10   13 -0.0362344753188 
+  14   14   10   10  0.0878216028314   27   14   12    8  0.0302738448363 
+  22   14   11   11 -0.0545700367942   14   27    8   12  0.0302738448363 
+  14   22   11   11 -0.0545700367942   14   22   12   12 -0.0296900749912 
+  14   30   11   11 -0.0393821034039 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+251  -0.455419223614506 3.55600e-10 6.85361e-09 1.85944e-09        3.354        1.681
+252  -0.455419223142005 2.64754e-10 7.01429e-09 1.65579e-09        3.745        1.877
+253  -0.455419223258560 2.21337e-10 7.01020e-09 1.38940e-09        3.758        1.883
+254  -0.455419222941446 2.32714e-10 7.00541e-09 1.51407e-09        3.507        1.758
+255  -0.455419222935805 2.25145e-10 6.97983e-09 1.35895e-09        3.438        1.723
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116894005   48   11  0.0228361888649   24   11 -0.0152858959480 
+  15   13 -0.0292771122471   22   11  0.0227413569654   28   13  0.0146111702185 
+  14   11 -0.0291075164738   21   10  0.0223299161237   17   13 -0.0141795176843 
+  30   11  0.0238611302374   33   11  0.0221044008525   21   12  0.0108510782156 
+  19   13  0.0233149032145   16   11  0.0172494079209   29   10 -0.0106866535389 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883980057902   14   30   11   11 -0.0393821035949 
+  14   14   11   11 -0.3302579485932   14   14   13   13  0.0387769393297 
+  14   14   12   10 -0.1252315058969   14   14   13   10 -0.0362344695220 
+  14   14   10   12 -0.1252315058969   14   14   10   13 -0.0362344695220 
+  14   14   10   10  0.0878215722222   27   14   12    8  0.0302738428128 
+  14   22   11   11 -0.0545700371087   14   27    8   12  0.0302738428128 
+  22   14   11   11 -0.0545700371087   14   22   12   12 -0.0296900671552 
+  30   14   11   11 -0.0393821035949 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+256  -0.455419222821495 2.48336e-10 6.97592e-09 1.49203e-09        3.149        1.578
+257  -0.455419222316312 2.45048e-10 6.98377e-09 1.41110e-09        3.148        1.578
+258  -0.455419222199709 2.10190e-10 6.96910e-09 1.32096e-09        3.138        1.573
+259  -0.455419222189174 1.61211e-10 7.01373e-09 1.20261e-09        3.202        1.605
+260  -0.455419222190827 1.75913e-10 6.80007e-09 1.37283e-09        3.422        1.715
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116893661   48   11  0.0228361889145   24   11 -0.0152858959913 
+  15   13 -0.0292771122287   22   11  0.0227413570594   28   13  0.0146111702326 
+  14   11 -0.0291075169197   21   10  0.0223299160406   17   13 -0.0141795177858 
+  30   11  0.0238611302968   33   11  0.0221044009313   21   12  0.0108510785551 
+  19   13  0.0233149032143   16   11  0.0172494080492   29   10 -0.0106866535130 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883979686412   14   30   11   11 -0.0393821036926 
+  14   14   11   11 -0.3302579505237   14   14   13   13  0.0387769506101 
+  14   14   12   10 -0.1252314915308   14   14   13   10 -0.0362344698937 
+  14   14   10   12 -0.1252314915308   14   14   10   13 -0.0362344698937 
+  14   14   10   10  0.0878215601302   27   14   12    8  0.0302738420575 
+  14   22   11   11 -0.0545700372471   14   27    8   12  0.0302738420575 
+  22   14   11   11 -0.0545700372471   22   14   12   12 -0.0296900640566 
+  30   14   11   11 -0.0393821036926 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+261  -0.455419222366140 2.43438e-10 6.56244e-09 1.12909e-09        3.148        1.578
+262  -0.455419222538510 1.90830e-10 6.37091e-09 6.43030e-10        3.715        1.862
+263  -0.455419222227934 1.76959e-10 6.26173e-09 6.15433e-10        3.403        1.706
+264  -0.455419222036883 1.14897e-10 6.44081e-09 7.36072e-10        3.144        1.576
+265  -0.455419222458862 1.50187e-10 6.15640e-09 7.78427e-10        3.141        1.574
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116892847   48   11  0.0228361888134   24   11 -0.0152858958904 
+  15   13 -0.0292771122049   22   11  0.0227413568621   28   13  0.0146111702136 
+  14   11 -0.0291075160161   21   10  0.0223299162001   17   13 -0.0141795179189 
+  30   11  0.0238611301378   33   11  0.0221044007800   21   12  0.0108510784460 
+  19   13  0.0233149032302   16   11  0.0172494078511   29   10 -0.0106866536183 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883980614251   30   14   11   11 -0.0393821035273 
+  14   14   11   11 -0.3302579458104   14   14   13   13  0.0387769482864 
+  14   14   12   10 -0.1252315240913   14   14   13   10 -0.0362344741967 
+  14   14   10   12 -0.1252315240913   14   14   10   13 -0.0362344741967 
+  14   14   10   10  0.0878215875423   27   14   12    8  0.0302738439758 
+  14   22   11   11 -0.0545700369097   14   27    8   12  0.0302738439758 
+  22   14   11   11 -0.0545700369097   22   14   12   12 -0.0296900706244 
+  14   30   11   11 -0.0393821035273 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+266  -0.455419222969658 8.61910e-11 5.09011e-09 4.60261e-10        3.853        1.931
+267  -0.455419222868241 1.47180e-10 4.54546e-09 4.07999e-10        5.040        2.622
+268  -0.455419222758786 7.14399e-11 4.50099e-09 3.89239e-10        4.869        2.512
+269  -0.455419222854093 5.24826e-11 4.48990e-09 3.45746e-10        5.744        2.944
+270  -0.455419222875056 4.98079e-11 4.65913e-09 3.11862e-10        6.677        3.557
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116892375   48   11  0.0228361888035   24   11 -0.0152858958906 
+  15   13 -0.0292771121047   22   11  0.0227413568514   28   13  0.0146111701776 
+  14   11 -0.0291075159906   21   10  0.0223299162232   17   13 -0.0141795178765 
+  30   11  0.0238611301382   33   11  0.0221044007686   21   12  0.0108510783468 
+  19   13  0.0233149032272   16   11  0.0172494078325   29   10 -0.0106866536321 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883980658271   14   30   11   11 -0.0393821035143 
+  14   14   11   11 -0.3302579458084   14   14   13   13  0.0387769510320 
+  14   14   12   10 -0.1252315256600   14   14   13   10 -0.0362344748444 
+  14   14   10   12 -0.1252315256600   14   14   10   13 -0.0362344748444 
+  14   14   10   10  0.0878215892948   27   14   12    8  0.0302738440875 
+  14   22   11   11 -0.0545700368901   14   27    8   12  0.0302738440875 
+  22   14   11   11 -0.0545700368901   14   22   12   12 -0.0296900710311 
+  30   14   11   11 -0.0393821035143 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+271  -0.455419222945904 1.05994e-10 4.35779e-09 4.20356e-10        4.098        2.071
+272  -0.455419222920688 1.14053e-10 4.48722e-09 4.76260e-10        3.741        1.877
+273  -0.455419222928446 1.20302e-10 4.46025e-09 5.02126e-10        4.208        2.109
+274  -0.455419222806659 6.72821e-11 4.62257e-09 3.77279e-10        3.407        1.708
+275  -0.455419222631689 9.96328e-11 4.33034e-09 2.10571e-10        3.461        1.735
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116892463   48   11  0.0228361888828   24   11 -0.0152858959736 
+  15   13 -0.0292771120798   22   11  0.0227413570081   28   13  0.0146111701400 
+  14   11 -0.0291075165171   21   10  0.0223299161111   17   13 -0.0141795178672 
+  30   11  0.0238611302500   33   11  0.0221044008786   21   12  0.0108510783154 
+  19   13  0.0233149032183   16   11  0.0172494080146   29   10 -0.0106866535517 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883979860177   14   30   11   11 -0.0393821036375 
+  14   14   11   11 -0.3302579493830   14   14   13   13  0.0387769470643 
+  14   14   12   10 -0.1252314963918   14   14   13   10 -0.0362344810989 
+  14   14   10   12 -0.1252314963918   14   14   10   13 -0.0362344810989 
+  14   14   10   10  0.0878215663472   27   14   12    8  0.0302738425149 
+  22   14   11   11 -0.0545700370950   14   27    8   12  0.0302738425149 
+  14   22   11   11 -0.0545700370950   14   22   12   12 -0.0296900651502 
+  30   14   11   11 -0.0393821036375 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+276  -0.455419222518297 7.77708e-11 3.35885e-09 2.38531e-10        3.295        1.652
+277  -0.455419222528752 1.19970e-10 2.56352e-09 3.73369e-10        3.586        1.797
+278  -0.455419222597711 7.30984e-11 1.90038e-09 4.08816e-10        3.692        1.850
+279  -0.455419222685091 9.12775e-11 1.78013e-09 1.86490e-10        3.428        1.718
+280  -0.455419222726954 9.27626e-11 1.96870e-09 1.37398e-10        3.160        1.584
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116890494   48   11  0.0228361888658   24   11 -0.0152858959597 
+  15   13 -0.0292771118033   22   11  0.0227413569714   28   13  0.0146111700285 
+  14   11 -0.0291075162583   21   10  0.0223299161290   17   13 -0.0141795177803 
+  30   11  0.0238611302235   33   11  0.0221044008430   21   12  0.0108510784889 
+  19   13  0.0233149032200   16   11  0.0172494079364   29   10 -0.0106866537179 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883980100835   14   30   11   11 -0.0393821036220 
+  14   14   11   11 -0.3302579482357   14   14   13   13  0.0387769480017 
+  14   14   12   10 -0.1252315064949   14   14   13   10 -0.0362345297792 
+  14   14   10   12 -0.1252315064949   14   14   10   13 -0.0362345297792 
+  14   14   10   10  0.0878215731978   27   14   12    8  0.0302738429754 
+  14   22   11   11 -0.0545700370632   14   27    8   12  0.0302738429754 
+  22   14   11   11 -0.0545700370632   14   22   12   12 -0.0296900668418 
+  30   14   11   11 -0.0393821036220 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+281  -0.455419222670642 8.66638e-11 1.86875e-09 1.07836e-10        3.119        1.563
+282  -0.455419222761126 1.09945e-10 2.47480e-09 1.17686e-10        3.130        1.569
+283  -0.455419222772658 1.12331e-10 2.38704e-09 1.52278e-10        3.512        1.760
+284  -0.455419222811348 1.21453e-10 2.30632e-09 1.21992e-10        3.436        1.722
+285  -0.455419222847694 1.17405e-10 2.88765e-09 1.39072e-10        3.158        1.583
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116890467   48   11  0.0228361888413   24   11 -0.0152858959357 
+  15   13 -0.0292771117912   22   11  0.0227413569274   28   13  0.0146111700299 
+  14   11 -0.0291075160672   21   10  0.0223299161729   17   13 -0.0141795177769 
+  30   11  0.0238611301908   33   11  0.0221044008079   21   12  0.0108510783960 
+  19   13  0.0233149032295   16   11  0.0172494078833   29   10 -0.0106866537470 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883980294585   14   30   11   11 -0.0393821035770 
+  14   14   11   11 -0.3302579473139   14   14   13   13  0.0387769478241 
+  14   14   12   10 -0.1252315137684   14   14   13   10 -0.0362345336308 
+  14   14   10   12 -0.1252315137684   14   14   10   13 -0.0362345336308 
+  14   14   10   10  0.0878215789031   27   14   12    8  0.0302738433645 
+  14   22   11   11 -0.0545700370000   14   27    8   12  0.0302738433645 
+  22   14   11   11 -0.0545700370000   22   14   12   12 -0.0296900683182 
+  30   14   11   11 -0.0393821035770 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+286  -0.455419222795055 1.07009e-10 2.22893e-09 1.77978e-10        3.130        1.569
+287  -0.455419222791871 9.16592e-11 1.71536e-09 8.05587e-11        3.121        1.564
+288  -0.455419222772566 7.38596e-11 1.83538e-09 7.53161e-11        3.112        1.560
+289  -0.455419222857295 1.35370e-10 1.00855e-09 1.34540e-10        3.118        1.563
+290  -0.455419222930973 1.58248e-10 3.43649e-10 1.67860e-10        3.792        1.900
+
+   A    I                     A    I                     A    I                  
+-------------------------- -------------------------- -------------------------- 
+  20   13  0.0331116890273   48   11  0.0228361888287   24   11 -0.0152858959293 
+  15   13 -0.0292771117656   22   11  0.0227413569033   28   13  0.0146111700080 
+  14   11 -0.0291075159066   21   10  0.0223299161985   17   13 -0.0141795177569 
+  30   11  0.0238611301794   33   11  0.0221044007865   21   12  0.0108510783011 
+  19   13  0.0233149032317   16   11  0.0172494078521   29   10 -0.0106866537725 
+
+   A    B    I    J                     A    B    I    J                  
+------------------------------------ ------------------------------------ 
+  14   14   12   12 -0.3883980346313   14   30   11   11 -0.0393821035533 
+  14   14   11   11 -0.3302579467789   14   14   13   13  0.0387769412126 
+  14   14   12   10 -0.1252315159523   14   14   13   10 -0.0362345438520 
+  14   14   10   12 -0.1252315159523   14   14   10   13 -0.0362345438520 
+  14   14   10   10  0.0878215805955   27   14   12    8  0.0302738434602 
+  22   14   11   11 -0.0545700369587   14   27    8   12  0.0302738434602 
+  14   22   11   11 -0.0545700369587   14   22   12   12 -0.0296900687797 
+  30   14   11   11 -0.0393821035533 
+
+It.  Correlation Energy T1 Residual T2 Residual T3 Residual CPU Time (s) Walltime (s)
+-------------------------------------------------------------------------------------
+
+CCSDT iterations converged in 290 cycles and 577.517 seconds (1.991 s/it.) at 28.026 Gflops/sec
+
+Total CCSDT energy: -534.996574827366317
+
+CCSDT[Q] correlation energy:  -0.003446338883291
+CCSDT(Q) correlation energy:  -0.006508600246046
+
+Non-iterative calculation of CCSDT(Q) took 178.547 cpu seconds and 93.083 walltime seconds at 5.809 Gflops/sec
+
+Total CCSDT(Q) energy: -535.003083427612410
+
+ @CHECKOUT-I, Total execution time (CPU/WALL):     1318.83/     671.42 seconds.
+--executable xncc finished with status     0 in      671.53 seconds (walltime).
+  The final electronic energy is      -535.003083427612410 a.u. 
+  This computation required                          673.12 seconds (walltime).

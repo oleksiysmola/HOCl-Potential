@@ -1,0 +1,36 @@
+***, HOCl CV correction
+memory,500,m;
+
+ gthresh,energy=1.d-12,zero=1.d-14,thrint=1.d-14,oneint=1.d-14,twoint=1.d-14,prefac=1.d-20
+ 
+ geometry={angstrom
+ o
+ h , 1, roh
+ cl , 1, rocl, 2, alpha
+ }
+ 
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.00
+
+basis=aug-cc-pVQZ-f12
+hf
+{ccsd(t)-f12,ri_basis=cc-pV5Z/jkfit,df_basis=aug-cc-pwCV5Z/mp2fit,gem_beta=1.4}
+
+E_pVQZ = ENERGY(2)
+
+basis=aug-cc-pCVQZ-f12
+hf
+frozen,1
+{ccsd(t)-f12,ri_basis=cc-pV5Z/jkfit,df_basis=aug-cc-pwCV5Z/mp2fit,gem_beta=1.4}
+
+E_pCVQZ = ENERGY(2)
+
+E_CV = E_pCVQZ - E_pVQZ
+
+! Output the energy
+xxx = "mmm"
+point = 1
+text ### HOCl
+table,xxx,roh,rocl,alpha,E_CV,point
+DIGITS, 0, 8, 8, 8, 14, 12, 4

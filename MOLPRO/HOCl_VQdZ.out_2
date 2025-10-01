@@ -1,0 +1,268 @@
+
+ Working directory              : /tmp/asmola/molpro.L8MazpQnzQ/
+ Global scratch directory       : /tmp/asmola/molpro.L8MazpQnzQ/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.L8MazpQnzQ/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.01 sec
+ ***,HOCl Ground State Energy with CCSD(T)-F12 and aug-cc-pVQZ-F12
+ memory,500,m;
+ 
+ geometry={angstrom
+ o
+ h , 1, roh
+ cl , 1, rocl, 2, alpha
+ }
+ 
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.0
+ 
+ basis=aug-cc-pVQdZ
+ 
+ hf
+ ccsd(t)
+ 
+ 
+ Commands initialized (818), CPU time= 0.00 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.05 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2022.1 linked Mar  3 2022 23:20:00
+
+
+ **********************************************************************************************************************************
+ LABEL *   HOCl Ground State Energy with CCSD(T)-F12 and aug-cc-pVQZ-F12                 
+  (8 PROC) 64 bit serial version                                                         DATE: 25-Jun-25          TIME: 15:23:03  
+ **********************************************************************************************************************************
+
+ SHA1:             31073afc4d8441e10870424e0d77336a33bc4286
+ **********************************************************************************************************************************
+
+ Memory per process:       500 MW
+ Total memory per node:    500 MW
+
+ GA preallocation disabled
+ GA check disabled
+
+ Variable memory set to 500.0 MW
+
+ SETTING ROH            =         0.96446195                                  
+ SETTING ROCL           =         1.68888476                                  
+ SETTING ALPHA          =       103.00000000                                  
+ SETTING BASIS          =    AUG-CC-PVQDZ
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+ Cannot find default basis AUG-CC-PVQDZ for atom O
+
+ Default basis sets for atom=O  key= context=
+ Number of basis sets found:  179
+
+ cc-pVDZ             0  2
+ aug-cc-pVDZ         0  2
+ d-aug-cc-pVDZ       0  2
+ t-aug-cc-pVDZ       0  2
+ cc-pVTZ             0  3
+ aug-cc-pVTZ         0  3
+ d-aug-cc-pVTZ       0  3
+ t-aug-cc-pVTZ       0  3
+ cc-pVQZ             0  4
+ aug-cc-pVQZ         0  4
+ d-aug-cc-pVQZ       0  4
+ t-aug-cc-pVQZ       0  4
+ cc-pV5Z             0  5
+ aug-cc-pV5Z         0  5
+ d-aug-cc-pV5Z       0  5
+ t-aug-cc-pV5Z       0  5
+ cc-pV6Z             0  6
+ aug-cc-pV6Z         0  6
+ d-aug-cc-pV6Z       0  6
+ t-aug-cc-pV6Z       0  6
+ cc-pCVDZ            0  2
+ aug-cc-pCVDZ        0  2
+ cc-pCVTZ            0  3
+ aug-cc-pCVTZ        0  3
+ cc-pCVQZ            0  4
+ aug-cc-pCVQZ        0  4
+ cc-pCV5Z            0  5
+ aug-cc-pCV5Z        0  5
+ cc-pCV6Z            0  6
+ aug-cc-pCV6Z        0  6
+ cc-pwCVDZ           0  2
+ aug-cc-pwCVDZ       0  2
+ cc-pwCVTZ           0  3
+ aug-cc-pwCVTZ       0  3
+ cc-pwCVQZ           0  4
+ aug-cc-pwCVQZ       0  4
+ cc-pwCV5Z           0  5
+ aug-cc-pwCV5Z       0  5
+ cc-pVDZ-DK          0  2
+ aug-cc-pVDZ-DK      0  2
+ cc-pVTZ-DK          0  3
+ aug-cc-pVTZ-DK      0  3
+ cc-pVQZ-DK          0  4
+ aug-cc-pVQZ-DK      0  4
+ cc-pV5Z-DK          0  5
+ aug-cc-pV5Z-DK      0  5
+ cc-pV(D+d)Z-DK      0  2
+ aug-cc-pV(D+d)Z-DK  0  2
+ cc-pV(T+d)Z-DK      0  3
+ aug-cc-pV(T+d)Z-DK  0  3
+ cc-pV(Q+d)Z-DK      0  4
+ aug-cc-pV(Q+d)Z-DK  0  4
+ cc-pV(5+d)Z-DK      0  5
+ aug-cc-pV(5+d)Z-DK  0  5
+ cc-pV(6+d)Z-DK      0  6
+ aug-cc-pV(6+d)Z-DK  0  6
+ cc-pwCVDZ-DK        0  2
+ aug-cc-pwCVDZ-DK    0  2
+ cc-pCVDZ-DK         0  2
+ aug-cc-pCVDZ-DK     0  2
+ cc-pwCVTZ-DK        0  3
+ aug-cc-pwCVTZ-DK    0  3
+ cc-pCVTZ-DK         0  3
+ aug-cc-pCVTZ-DK     0  3
+ cc-pwCVQZ-DK        0  4
+ aug-cc-pwCVQZ-DK    0  4
+ cc-pCVQZ-DK         0  4
+ aug-cc-pCVQZ-DK     0  4
+ cc-pwCV5Z-DK        0  5
+ aug-cc-pwCV5Z-DK    0  5
+ cc-pCV5Z-DK         0  5
+ aug-cc-pCV5Z-DK     0  5
+ cc-pVDZ-X2C         0  2
+ aug-cc-pVDZ-X2C     0  2
+ cc-pVTZ-X2C         0  3
+ aug-cc-pVTZ-X2C     0  3
+ cc-pVQZ-X2C         0  4
+ aug-cc-pVQZ-X2C     0  4
+ cc-pV5Z-X2C         0  5
+ aug-cc-pV5Z-X2C     0  5
+ cc-pV6Z-X2C         0  6
+ aug-cc-pV6Z-X2C     0  6
+ cc-pV(D+d)Z-X2C     0  2
+ aug-cc-pV(D+d)Z-X2  0  2
+ cc-pV(T+d)Z-X2C     0  3
+ aug-cc-pV(T+d)Z-X2  0  3
+ cc-pV(Q+d)Z-X2C     0  4
+ aug-cc-pV(Q+d)Z-X2  0  4
+ cc-pV(5+d)Z-X2C     0  5
+ aug-cc-pV(5+d)Z-X2  0  5
+ cc-pV(6+d)Z-X2C     0  6
+ aug-cc-pV(6+d)Z-X2  0  6
+ cc-pwCVDZ-X2C       0  2
+ aug-cc-pwCVDZ-X2C   0  2
+ cc-pwCVTZ-X2C       0  3
+ aug-cc-pwCVTZ-X2C   0  3
+ cc-pwCVQZ-X2C       0  4
+ aug-cc-pwCVQZ-X2C   0  4
+ cc-pwCV5Z-X2C       0  5
+ aug-cc-pwCV5Z-X2C   0  5
+ cc-pCVDZ-X2C        0  2
+ aug-cc-pCVDZ-X2C    0  2
+ cc-pCVTZ-X2C        0  3
+ aug-cc-pCVTZ-X2C    0  3
+ cc-pCVQZ-X2C        0  4
+ aug-cc-pCVQZ-X2C    0  4
+ cc-pCV5Z-X2C        0  5
+ aug-cc-pCV5Z-X2C    0  5
+ cc-pCV6Z-X2C        0  6
+ aug-cc-pCV6Z-X2C    0  6
+ cc-pVDZ-F12         0  2
+ aug-cc-pVDZ-F12     0  2
+ cc-pVTZ-F12         0  3
+ aug-cc-pVTZ-F12     0  3
+ cc-pVQZ-F12         0  4
+ aug-cc-pVQZ-F12     0  4
+ cc-pV5Z-F12         0  5
+ aug-cc-pV5Z-F12     0  5
+ cc-pCVDZ-F12        0  2
+ cc-pCVTZ-F12        0  3
+ cc-pCVQZ-F12        0  4
+ aug-cc-pCVDZ-F12    0  2
+ aug-cc-pCVTZ-F12    0  3
+ aug-cc-pCVQZ-F12    0  4
+ aug-cc-pCV5Z-F12    0  5
+ Ahlrichs-pVDZ       0  2
+ Ahlrichs-VDZ        0  1
+ Ahlrichs-VTZ        0  1
+ def1-sv             0  1
+ def1-svp            0  2
+ def1-tzv            0  1
+ def1-tzvp           0  1
+ def1-tzvpp          0  1
+ def1-tzvppp         0  1
+ def2-SVP            0  2
+ def2-SVPD           0  2
+ ASVP                0  2
+ DASVP               0  2
+ SV(P)               0  2
+ ASV(P)              0  2
+ def2-TZVPP          0  3
+ TZVPPD              0  3
+ ATZVPP              0  3
+ DATZVPP             0  3
+ def2-TZVP           0  3
+ TZVPD               0  3
+ ATZVP               0  3
+ def2-QZVPP          0  4
+ QZVPPD              0  4
+ AQZVPP              0  4
+ DAQZVPP             0  4
+ QZVP                0  4
+ QZVPD               0  4
+ AQZVP               0  4
+ MINAO               0  1
+ ECP2SDF_GUESS       0  1
+ atomic-guess        0  1
+ sto-3g              0  1
+ sbkjc               0  1
+ lanl2dz             0  1
+ dz                  0  1
+ dzp                 0  2
+ ECP2SDF             0  1
+ ECP2MWB             0  1
+ ROOS                0  3
+ HUZINAGA            0  1
+ midi                0  1
+ midi-bang           0  2
+ mini                0  1
+ mini-scaled         0  1
+ avdz-orb-oep        0  2
+ avdz-aux-oep        0  2
+ avtz-orb-oep        0  3
+ avtz-aux-oep        0  2
+ avqz-orb-oep        0  4
+ avqz-aux-oep        0  2
+ av5z-orb-oep        0  4
+ av5z-aux-oep        0  2
+ MG3S                0  3
+
+ Please specify a default basis or define basis sets for all atoms!
+ ? Error
+ ? Cannot find AUG-CC-PVQDZ in basis catalogue
+ ? The problem occurs in binput
+
+ GLOBAL ERROR fehler on processor   0                                         

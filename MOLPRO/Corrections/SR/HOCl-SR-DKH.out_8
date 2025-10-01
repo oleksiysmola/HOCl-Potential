@@ -1,0 +1,193 @@
+
+ Working directory              : /tmp/asmola/molpro.gW9WnFPzUC/
+ Global scratch directory       : /tmp/asmola/molpro.gW9WnFPzUC/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.gW9WnFPzUC/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.01 sec
+ ***,HOCl SR correction using second-order DKH approach
+ memory,500,m;
+ 
+ geometry={angstrom
+ o
+ h , 1, roh
+ cl , 1, rocl, 2, alpha
+ }
+ 
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.0
+ 
+ basis=cc-pV(Q+d)Z-DK
+ 
+ df-hf
+ frozen
+ df-ccsd(t)
+ E_0 = energy
+ 
+ SET,DKROLL=1
+ df-hf
+ frozen
+ df-ccsd(t)
+ E_SR=energy-E_0
+ 
+                                                                                 ! Output the energy
+ xxx = "mmm"
+ point = 1
+ text ### HOCl
+ table,xxx,roh,rocl,alpha,E_SR,energy,point
+ DIGITS, 0, 8, 8, 8, 14, 12, 4
+ Commands initialized (818), CPU time= 0.00 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.05 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2022.1 linked Mar  3 2022 23:20:00
+
+
+ **********************************************************************************************************************************
+ LABEL *   HOCl SR correction using second-order DKH approach                            
+  (8 PROC) 64 bit serial version                                                         DATE: 19-Jul-25          TIME: 15:40:03  
+ **********************************************************************************************************************************
+
+ SHA1:             31073afc4d8441e10870424e0d77336a33bc4286
+ **********************************************************************************************************************************
+
+ Memory per process:       500 MW
+ Total memory per node:    500 MW
+
+ GA preallocation disabled
+ GA check disabled
+
+ Variable memory set to 500.0 MW
+
+
+ Turning off symmetry in density fitting calculation
+ To re-enable, use 'symmetry,auto'
+
+ SETTING ROH            =         0.96446195                                  
+ SETTING ROCL           =         1.68888476                                  
+ SETTING ALPHA          =       103.00000000                                  
+ SETTING BASIS          =    CC-PV(Q+D)Z-DK
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+ Library entry O      S cc-pVQZ-DK           selected for orbital group  1
+ Library entry O      P cc-pVQZ-DK           selected for orbital group  1
+ Library entry O      D cc-pVQZ-DK           selected for orbital group  1
+ Library entry O      F cc-pVQZ-DK           selected for orbital group  1
+ Library entry O      G cc-pVQZ-DK           selected for orbital group  1
+ Library entry H      S cc-pVQZ-DK           selected for orbital group  2
+ Library entry H      P cc-pVQZ-DK           selected for orbital group  2
+ Library entry H      D cc-pVQZ-DK           selected for orbital group  2
+ Library entry H      F cc-pVQZ-DK           selected for orbital group  2
+ Library entry CL     S cc-pVQZ-DK           selected for orbital group  3
+ Library entry CL     P cc-pVQZ-DK           selected for orbital group  3
+ Library entry CL     D cc-pv(q+d)z          selected for orbital group  3
+ Library entry CL     F cc-pv(q+d)z          selected for orbital group  3
+ Library entry CL     G cc-pv(q+d)z          selected for orbital group  3
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+ Orientation using atomic masses  
+ Molecule type: Asymmetric top
+ Rotational constants:      14.7760974     15.1401499    614.5055928 GHz  (calculated with average atomic masses)
+
+ Point group  C1  
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  O       8.00    0.000000000    0.118821474   -2.145960667
+   2  H       1.00    0.000000000   -1.639489684   -2.625647468
+   3  CL     17.00    0.000000000   -0.007011115    1.043087417
+
+ Bond lengths in Bohr (Angstrom)
+
+ 1-2  1.822568943  1-3  3.191529652
+     ( 0.964461950)     ( 1.688884760)
+
+ Bond angles
+
+  2-1-3  103.00000000
+
+ NUCLEAR CHARGE:                   26
+ NUMBER OF PRIMITIVE AOS:         228
+ NUMBER OF SYMMETRY AOS:          192
+ NUMBER OF CONTRACTIONS:          149   (  149A   )
+ NUMBER OF INNER CORE ORBITALS:     1   (    1A   )
+ NUMBER OF OUTER CORE ORBITALS:     5   (    5A   )
+ NUMBER OF VALENCE ORBITALS:        9   (    9A   )
+
+
+ NUCLEAR REPULSION ENERGY   51.23575142
+
+ EXTRA SYMMETRY OF AOS IN SYMMETRY 1:   1 1 1 1 1 2 1 1 2 1   1 2 1 1 2 1 1 1 2 2   1 1 1 2 2 1 1 1 2 2   1 1 2 1 1 2 2 1 1 2
+                                        1 1 2 2 1 1 1 2 2 1   1 1 2 2 1 1 1 1 1 2   1 1 2 1 1 2 1 1 1 2   2 1 1 1 2 2 1 1 2 1
+                                        1 2 2 1 1 1 1 1 1 1   1 2 1 1 2 1 1 2 1 1   2 1 1 2 1 1 1 2 2 1   1 1 2 2 1 1 1 2 2 1
+                                        1 1 2 2 1 1 2 1 1 2   2 1 1 2 1 1 2 2 1 1   1 2 2 1 1 1 2 2 1
+
+ Eigenvalues of metric
+
+         1 0.208E-03 0.306E-03 0.339E-03 0.416E-03 0.422E-03 0.569E-03 0.152E-02 0.253E-02
+
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      18       29.39       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1700   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    OPER   
+
+ PROGRAMS   *        TOTAL       INT
+ CPU TIMES  *         0.43      0.32
+ REAL TIME  *         0.33 SEC
+ DISK USED  *        29.71 MB
+ **********************************************************************************************************************************
+
+
+ Program * Restricted Hartree-Fock
+
+ Cannot find default basis VQZ-DK for atom O
+
+ Default basis sets for atom=O  key= context=JFIT JKFIT
+ Number of basis sets found:    0
+
+ Type=FIT
+ Context=JFIT JKFIT
+
+ Please specify a default basis or define basis sets for all atoms!
+ ? Error
+ ? Cannot find VQZ-DK-JFIT-FIT in basis catalogue
+ ? The problem occurs in binput
+
+ GLOBAL ERROR fehler on processor   0                                         

@@ -1,0 +1,1 @@
+ifort -O3 -qopenmp -o fitPotential.x fitpes_XY2_1-cos.f90

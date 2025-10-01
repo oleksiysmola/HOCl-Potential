@@ -1,0 +1,32 @@
+***, HOCl SR correction using second-order DKH approach
+memory,500,m;
+
+geometry={angstrom
+o 
+h , 1, roh 
+cl , 1, rocl, 2, alpha
+}
+
+roh = 0.96446195
+rocl = 1.68888476
+alpha = 103.0
+
+basis=cc-pV(Q+d)Z-DK
+
+hf
+frozen
+ccsd(t)
+E_0 = energy
+
+SET,DKROLL=1
+hf
+frozen
+ccsd(t)
+E_SR=energy-E_0
+
+! Output the energy
+xxx = "mmm"
+point = 1
+text ### HOCl
+table,xxx,roh,rocl,alpha,E_SR,energy,point
+DIGITS, 0, 8, 8, 8, 14, 12, 4

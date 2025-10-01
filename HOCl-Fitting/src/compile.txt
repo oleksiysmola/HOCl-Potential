@@ -1,0 +1,2 @@
+ifort -O3 -qopenmp -o fitPotential.x CH3OH_v7.f90
+ifort -O3 -qopenmp -o HOCl-FitBend1.x fitpes_XY2_v15-Bend1.f90

@@ -1,0 +1,119 @@
+
+ Working directory              : /tmp/asmola/molpro.WBDUd0A6tF/
+ Global scratch directory       : /tmp/asmola/molpro.WBDUd0A6tF/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.WBDUd0A6tF/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.01 sec
+ ***,HOCl Ground State Energy with CCSD(T) and cc-pVQZ
+ memory,500,m;
+ 
+ geometry={angstrom
+ o
+ h , 1, rch1
+ cl , 1, rocl, 2, a
+ }
+ 
+ roh = 0.96
+ rocl = 1.683
+ a = 106.000000
+ 
+                                                                                 ! Use the cc-pVQZ basis set
+ basis=cc-pVQZ
+ 
+ hf
+ runmp2 = {hf;mp2}
+ 
+                                                                                 ! Use explicitly correlated F12 methods
+                                                                            ! First, MP2-F12 (useful for initial electronic energy)
+ {mp2-f12}
+ 
+                                                                        ! If desired, perform CCSD(T)-F12 for more accurate results
+ {ccsd(t)}
+ 
+                                                                                 ! Output the energy
+ 
+ Commands initialized (818), CPU time= 0.00 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.05 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2022.1 linked Mar  3 2022 23:20:00
+
+
+ **********************************************************************************************************************************
+ LABEL *   HOCl Ground State Energy with CCSD(T) and cc-pVQZ                             
+  (8 PROC) 64 bit serial version                                                         DATE: 15-Jan-25          TIME: 12:38:16  
+ **********************************************************************************************************************************
+
+ SHA1:             31073afc4d8441e10870424e0d77336a33bc4286
+ **********************************************************************************************************************************
+
+ Memory per process:       500 MW
+ Total memory per node:    500 MW
+
+ GA preallocation disabled
+ GA check disabled
+
+ Variable memory set to 500.0 MW
+
+ SETTING ROH            =         0.96000000                                  
+ SETTING ROCL           =         1.68300000                                  
+ SETTING A              =       106.00000000                                  
+ SETTING BASIS          =    CC-PVQZ
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+ ? Possible error in Z matrix
+ Line                    2  connection                    1  expr=RCH1
+ ? Apparently depends on a variable, but not one that is yet defined
+
+ Z matrix     Current Z-matrix
+ ========
+
+ Records:   700.0   700.0
+ Maximum, total, and current numbers of geometry points 100   0   0
+ Orientation using atomic masses  
+ Rotational constants:       0.0000000      0.0000000      0.0000000 GHz  (calculated with average atomic masses)
+ Unique atoms/degeneracy:
+
+   #     Tag     N1 Distance  N2 Angle     N3 Angle        J
+   Grp   Chg     Distance     Angle        Angle                  x            y            z
+
+   1  1   O    
+      1  8.0    0.0000000    0.0000000    0.0000000              0.0000000    0.0000000    0.0000000
+   2  2   H       1 RCH1    
+      2  1.0    0.0000000    0.0000000    0.0000000              0.0000000    0.0000000    0.0000000
+   3  3   CL      1 ROCL       2 A       
+      3 17.0    1.6830000  106.0000000    0.0000000              0.0000000    0.0000000    0.0000000
+
+ Variables on which Z-matrix depends:
+ Name:                                                                                                               ROCL               A
+ Value:         0.0000000       0.0000000       0.0000000       0.0000000       0.0000000       0.0000000       1.6830000 A   106.0000000 D
+ Name:                  A
+ Value:       106.0000000 D
+ ? Error
+ ? Error in Z matrix
+ ? The problem occurs in zmatrix.f:zmat_evaluate
+
+ GLOBAL ERROR fehler on processor   0                                         

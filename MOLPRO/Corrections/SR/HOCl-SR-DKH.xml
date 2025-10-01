@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<molpro xmlns="http://www.molpro.net/schema/molpro-output"
+  xmlns:xsd="http://www.w3.org/1999/XMLSchema"
+  xmlns:cml="http://www.xml-cml.org/schema"
+  xmlns:stm="http://www.xml-cml.org/schema"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+ <job>
+  <jobstep command="HF-SCF" commandset="SCFPRO">
+   <cml:molecule>
+    <cml:symmetry pointGroup="Cs">
+     <cml:transform3 title="generator" id="X">
+      -1  0  0  0  0  1  0  0  0  0  1  0  0  0  0  1
+     </cml:transform3>
+    </cml:symmetry>
+    <cml:atomArray>
+     <cml:atom id="a1" elementType="O" x3="0.0" y3="0.628776160079085E-01"
+       z3="-1.13559348038032"/>
+     <cml:atom id="a2" elementType="H" x3="0.0" y3="-0.867580578034085" z3="-1.38943280384679"/>
+     <cml:atom id="a3" elementType="Cl" x3="0.0" y3="-0.371012218241778E-02"
+       z3="0.551978090156157"/>
+    </cml:atomArray>
+    <cml:bondArray>
+     <cml:bond atomRefs2="a1 a2"/>
+     <cml:bond atomRefs2="a1 a3"/>
+    </cml:bondArray>
+   </cml:molecule>
+   <property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-534.525415178116"/>
+   <property name="One-electron energy" method="RHF" value="-840.872770321205"/>
+   <property name="Two-electron energy" method="RHF" value="255.111603719852"/>
+   <property name="Kinetic energy" method="RHF" value="544.502593467031"/>
+   <property name="Nuclear energy" method="RHF" value="51.2357514232366"/>
+   <property name="Virial quotient" method="RHF" value="-0.981676527515898"/>
+   <property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+     stateNumber="1" value="0.0 -0.63044779655848 -0.130695247600181"/>
+   <time start="15:40:30" end="15:40:37" cpu="18.63" system="0.68" real="6.87"/>
+   <storage units="megabyte" memory="0.0" sf="0.0" df="524.53" eaf="0.0"/>
+   <summary overall_method="HF/cc-pV(Q+D)Z-DK"/>
+  </jobstep>
+  <jobstep command="CCSD(T)" commandset="CCSD">
+   <property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+     value="-534.525415178116"/>
+   <property name="singlet pair energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-0.338598007491681"/>
+   <property name="triplet pair energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-0.154865395483862"/>
+   <property name="correlation energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-0.493463543513821"/>
+   <property name="contribution" method="Triples (T)" stateSymmetry="1" stateNumber="1"
+     value="-0.213398951949555E-01"/>
+   <property name="correlation energy" method="Total" stateSymmetry="1" stateNumber="1"
+     value="-0.514803438708777"/>
+   <property name="total energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-535.01887872163"/>
+   <property name="energy" method="CCSD[T]" stateSymmetry="1" stateNumber="1"
+     value="-535.040741619858"/>
+   <property name="energy" method="CCSD-T" stateSymmetry="1" stateNumber="1"
+     value="-535.039975001278"/>
+   <property name="total energy" method="CCSD(T)" principal="true" stateSymmetry="1"
+     stateNumber="1" value="-535.040218616825"/>
+   <time start="15:40:37" end="15:40:46" cpu="54.22" system="3.28" real="8.82"/>
+   <storage units="megabyte" memory="0.0" sf="0.0" df="524.53" eaf="0.0"/>
+   <summary overall_method="CCSD(T)/cc-pV(Q+D)Z-DK"/>
+  </jobstep>
+  <jobstep command="HF-SCF" commandset="SCFPRO">
+   <property name="Energy" method="RHF" principal="true" stateSymmetry="1" stateNumber="1"
+     value="-536.393877395732"/>
+   <property name="One-electron energy" method="RHF" value="-842.966053497278"/>
+   <property name="Two-electron energy" method="RHF" value="255.336424678301"/>
+   <property name="Kinetic energy" method="RHF" value="545.40670828281"/>
+   <property name="Nuclear energy" method="RHF" value="51.2357514232447"/>
+   <property name="Virial quotient" method="RHF" value="-0.983475027442449"/>
+   <property name="Dipole moment" method="RHF" principal="true" stateSymmetry="1"
+     stateNumber="1" value="0.0 -0.629258917120677 -0.126051878657467"/>
+   <time start="15:40:46" end="15:40:47" cpu="4.33" system="0.21" real="1.68"/>
+   <storage units="megabyte" memory="0.0" sf="0.0" df="524.53" eaf="0.0"/>
+   <summary overall_method="HF/cc-pV(Q+D)Z-DK"/>
+  </jobstep>
+  <jobstep command="CCSD(T)" commandset="CCSD">
+   <property name="energy" method="Reference" stateSymmetry="1" stateNumber="1"
+     value="-536.393877395732"/>
+   <property name="singlet pair energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-0.338812956074086"/>
+   <property name="triplet pair energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-0.154977809612649"/>
+   <property name="correlation energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-0.493791042859933"/>
+   <property name="contribution" method="Triples (T)" stateSymmetry="1" stateNumber="1"
+     value="-0.213585692917185E-01"/>
+   <property name="correlation energy" method="Total" stateSymmetry="1" stateNumber="1"
+     value="-0.515149612151652"/>
+   <property name="total energy" method="CCSD" stateSymmetry="1" stateNumber="1"
+     value="-536.887668438592"/>
+   <property name="energy" method="CCSD[T]" stateSymmetry="1" stateNumber="1"
+     value="-536.909551443849"/>
+   <property name="energy" method="CCSD-T" stateSymmetry="1" stateNumber="1"
+     value="-536.908782870041"/>
+   <property name="total energy" method="CCSD(T)" principal="true" stateSymmetry="1"
+     stateNumber="1" value="-536.909027007884"/>
+   <time start="15:40:47" end="15:40:56" cpu="52.73" system="3.39" real="8.83"/>
+   <storage units="megabyte" memory="0.0" sf="0.0" df="524.53" eaf="0.0"/>
+   <summary overall_method="CCSD(T)/cc-pV(Q+D)Z-DK"/>
+  </jobstep>
+<table xmlns="http://www.w3.org/1999/xhtml" id="table1">
+<thead><tr><th>XXX</th><th>ROH</th><th>ROCL</th><th>ALPHA</th><th>E_SR</th><th>ENERGY</th><th>POINT</th></tr></thead><tbody>
+<tr><td>"MMM"</td><td>   0.96446195</td><td>   1.68888476</td><td>   103.00000000</td><td>   -1.86880839105891</td><td>   -536.909027007884</td><td>   1.0000</td></tr>
+</tbody></table>
+  <stm:metadataList>
+   <stm:metadata name="dc:date" content="2025-07-19T15:40:56+01:00"/>
+   <stm:metadata name="dc:creator" content="asmola"/>
+   <stm:metadata name="dc:title" content="HOCl SR correction using second-order DKH approach"/>
+   <stm:metadata name="cmlm:insilico" content="Molpro"/>
+  </stm:metadataList>
+  <platform>
+   <version major="2022" minor="1" SHA="31073afc4d8441e10870424e0d77336a33bc4286"
+     integer_bits="64" parallelism="serial">
+    2022.1
+    <date year="2025" month="7" day="19" hour="15" minute="40" second="30">
+     2025-07-19T15:40:30
+    </date>
+   </version>
+   <licence id="uclcc"/>
+   <parallel processes="1" nodes="1" all_processes="1" openmp="8"/>
+   <dimensions natom="400" nvalence="500" nvalence_pno="1000" nbasis="12000" nstate="100"
+     nsymm="16" nrec="512" nprim="2" ncol="100"/>
+  </platform>
+  <input>
+   <p>***,HOCl SR correction using second-order DKH approach</p>
+   <p>memory,500,m;</p>
+   <p>geometry={angstrom</p>
+   <p>o</p>
+   <p>h , 1, roh</p>
+   <p>cl , 1, rocl, 2, alpha</p>
+   <p>}</p>
+   <p>roh = 0.96446195</p>
+   <p>rocl = 1.68888476</p>
+   <p>alpha = 103.0</p>
+   <p>basis=cc-pV(Q+d)Z-DK</p>
+   <p>hf</p>
+   <p>frozen</p>
+   <p>ccsd(t)</p>
+   <p>E_0 = energy</p>
+   <p>SET,DKROLL=1</p>
+   <p>hf</p>
+   <p>frozen</p>
+   <p>ccsd(t)</p>
+   <p>E_SR=energy-E_0</p>
+   <p>! Output the energy</p>
+   <p>xxx = "mmm"</p>
+   <p>point = 1</p>
+   <p>text ### HOCl</p>
+   <p>table,xxx,roh,rocl,alpha,E_SR,energy,point</p>
+   <p>DIGITS, 0, 8, 8, 8, 14, 12, 4</p>
+  </input>
+  <diagnostics warnings="0"/>
+ </job>
+</molpro>

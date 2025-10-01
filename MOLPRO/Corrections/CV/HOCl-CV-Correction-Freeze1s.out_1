@@ -1,0 +1,77 @@
+
+ Working directory              : /tmp/asmola/molpro.yQjnmUNf4N/
+ Global scratch directory       : /tmp/asmola/molpro.yQjnmUNf4N/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.yQjnmUNf4N/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.00 sec
+ ***,HOCl CV correction
+ memory,500,m;
+ 
+ geometry={angstrom
+ o
+ h , 1, roh
+ cl , 1, rocl, 2, alpha
+ }
+ 
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.0
+ 
+ basis=aug-cc-pVQZ-f12
+ hf
+ core,1
+ {ccsd(t)-f12,ri_basis=cc-pV5Z/jkfit,df_basis=aug-cc-pwCV5Z/mp2fit,gem_beta=1.4}
+ 
+ E_pVQZ = ENERGY(2)
+ 
+ basis=aug-cc-pCVQZ-f12
+ hf
+ core,1
+ {ccsd(t)-f12,ri_basis=cc-pV5Z/jkfit,df_basis=aug-cc-pwCV5Z/mp2fit,gem_beta=1.4}
+ 
+ E_pCVQZ = ENERGY(2)
+ 
+ E_CV = E_pCVQZ - E_pVQZ
+ 
+                                                                                 ! Output the energy
+ xxx = "mmm"
+ point = 1
+ text ### HOCl
+ table,xxx,roh,rocl,alpha,E_CV,point
+ DIGITS, 0, 8, 8, 8, 14, 12, 4
+ Commands initialized (818), CPU time= 0.01 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.05 sec
+
+ Checking input...
+
+ Ambiguous input: CORE
+
+ This may be a directive for command HF-SCF or a global directives or a procedure.
+ Please enclose command and associated directives by curly brackets:
+ {HF-SCF;...}
+
+ Ambiguous input: CORE
+
+ This may be a directive for command HF-SCF or a global directives or a procedure.
+ Please enclose command and associated directives by curly brackets:
+ {HF-SCF;...}
+
+    2 input errors found
+
+ ? Error
+ ? Input errors!
+ ? The problem occurs in check_input
+
+ GLOBAL ERROR fehler on processor   0                                         

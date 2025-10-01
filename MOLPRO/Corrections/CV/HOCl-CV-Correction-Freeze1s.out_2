@@ -1,0 +1,64 @@
+
+ Working directory              : /tmp/asmola/molpro.4KYSu9lm8C/
+ Global scratch directory       : /tmp/asmola/molpro.4KYSu9lm8C/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.4KYSu9lm8C/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.00 sec
+ ***,HOCl CV correction
+ memory,500,m;
+ 
+ geometry={angstrom
+ o
+ h , 1, roh
+ cl , 1, rocl, 2, alpha
+ }
+ 
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.0
+ 
+ basis=aug-cc-pVQZ-f12
+ hf
+ {ccsd(t)-f12,core,1,ri_basis=cc-pV5Z/jkfit,df_basis=aug-cc-pwCV5Z/mp2fit,gem_beta=1.4}
+ 
+ E_pVQZ = ENERGY(2)
+ 
+ basis=aug-cc-pCVQZ-f12
+ hf
+ {ccsd(t)-f12,core,1,ri_basis=cc-pV5Z/jkfit,df_basis=aug-cc-pwCV5Z/mp2fit,gem_beta=1.4}
+ 
+ E_pCVQZ = ENERGY(2)
+ 
+ E_CV = E_pCVQZ - E_pVQZ
+ 
+                                                                                 ! Output the energy
+ xxx = "mmm"
+ point = 1
+ text ### HOCl
+ table,xxx,roh,rocl,alpha,E_CV,point
+ DIGITS, 0, 8, 8, 8, 14, 12, 4
+ Commands initialized (818), CPU time= 0.01 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.05 sec
+
+ Checking input...
+
+ Error on CCSD(T)-F12 directive
+
+ Unknown parameter CORE for set THRESH:CCSD:LOCAL:IB:ITF:ALGOOPT:ITF:EXPLICIT
+ ? Error
+ ? Input error
+ ? The problem occurs in scan_inp
+
+ GLOBAL ERROR fehler on processor   0                                         

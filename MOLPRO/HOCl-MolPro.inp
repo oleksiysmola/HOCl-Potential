@@ -1,0 +1,29 @@
+***, HOCl Ground State Energy with CCSD(T) and cc-pVQZ
+memory,500,m;
+
+geometry={angstrom
+o 
+h , 1, roh 
+cl , 1, rocl, 2, a
+}
+
+roh = 0.96
+rocl = 1.683
+a = 106.000000
+
+! Use the cc-pVQZ basis set
+basis=VQZ-f12
+
+hf
+runmp2 = {hf;mp2}
+
+! Use explicitly correlated F12 methods
+! First, MP2-F12 (useful for initial electronic energy)
+{mp2-f12}
+
+! If desired, perform CCSD(T)-F12 for more accurate results
+{ccsd(t)-f12b}
+
+! Output the energy
+
+--- End of Script ---
