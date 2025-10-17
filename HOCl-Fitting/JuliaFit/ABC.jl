@@ -83,3 +83,11 @@ function defineXiCoordinatesScaled(internalCoordinates::Vector{Float64}, structu
 
     return xi
 end
+
+# function computeDistanceToReferenceGeometry(internalCoordinates::Vector{Float64}, referenceGeometry::Vector{Float64})::Float64
+#     numberOfAtoms::Int64 = (length(referenceGeometry)+6)/3
+#     cartesianCoordinates::Matrix{Float64} = zeros(numberOfAtoms, 3)
+#     cartesianCoordinates::Matrix{Float64} = zeros(numberOfAtoms, 3)
+
+
+# end
