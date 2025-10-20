@@ -61,6 +61,7 @@ function defineXiCoordinatesScaled(internalCoordinates::Vector{Float64}, structu
     # xi[numberOfStretches+1:end] = internalCoordinates[numberOfStretches+1:end] - equilibriumParameters[numberOfStretches+1:end]
     # # Trigonometric-type function for the bending 
     xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end]) .- cos.(equilibriumParameters[numberOfStretches+1:end])
+    # xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end] .- equilibriumParameters[numberOfStretches+1:end])
     # xi[numberOfStretches+1:end] = cos.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
     # xi[numberOfStretches+1:end] = sin.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
 
@@ -76,6 +77,7 @@ function defineXiCoordinatesScaled(internalCoordinates::Vector{Float64}, structu
     lowerBounds[2] = 1 - exp(-morseParameters[2]*1.8)
     bendingRangeForRescale::Vector{Float64} = collect(LinRange(40, 180, 200))
     bendingRangeForRescale = cos.(bendingRangeForRescale.*convertToRadians) .- cos(equilibriumParameters[end])
+    # bendingRangeForRescale = cos.(bendingRangeForRescale.*convertToRadians .- equilibriumParameters[end])
     upperBounds[3] = maximum(bendingRangeForRescale)
     lowerBounds[3] = minimum(bendingRangeForRescale)
 
