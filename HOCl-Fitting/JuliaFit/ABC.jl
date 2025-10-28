@@ -58,9 +58,9 @@ function defineXiCoordinatesScaled(internalCoordinates::Vector{Float64}, structu
     xi[1:numberOfStretches] = 1 .- exp.(-morseParameters.*stretchDisplacement)
     # xi[1:numberOfStretches] = stretchDisplacement
 
-    xi[numberOfStretches+1:end] = internalCoordinates[numberOfStretches+1:end] - equilibriumParameters[numberOfStretches+1:end]
+    # xi[numberOfStretches+1:end] = internalCoordinates[numberOfStretches+1:end] - equilibriumParameters[numberOfStretches+1:end]
     # # Trigonometric-type function for the bending 
-    # xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end]) .- cos.(equilibriumParameters[numberOfStretches+1:end])
+    xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end]) .- cos.(equilibriumParameters[numberOfStretches+1:end])
     # xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end] .- equilibriumParameters[numberOfStretches+1:end])
     # xi[numberOfStretches+1:end] = 1 .- cos.(internalCoordinates[numberOfStretches+1:end] .- equilibriumParameters[numberOfStretches+1:end])
     # xi[numberOfStretches+1:end] = cos.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
