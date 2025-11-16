@@ -34,9 +34,9 @@ function defineXiCoordinates(internalCoordinates::Vector{Float64}, structuralPar
     xi[1:numberOfStretches] = 1 .- exp.(-morseParameters.*stretchDisplacement)
     # xi[1:numberOfStretches] = stretchDisplacement
 
-    xi[numberOfStretches+1:end] = internalCoordinates[numberOfStretches+1:end] - equilibriumParameters[numberOfStretches+1:end]
+    # xi[numberOfStretches+1:end] = internalCoordinates[numberOfStretches+1:end] - equilibriumParameters[numberOfStretches+1:end]
     # # Trigonometric-type function for the bending 
-    # xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end]) .- cos.(equilibriumParameters[numberOfStretches+1:end])
+    xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end]) .- cos.(equilibriumParameters[numberOfStretches+1:end])
     # xi[numberOfStretches+1:end] = cos.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
     # xi[numberOfStretches+1:end] = sin.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
     return xi
@@ -67,8 +67,8 @@ function defineXiCoordinatesScaled(internalCoordinates::Vector{Float64}, structu
     # xi[numberOfStretches+1:end] = sin.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
 
     # Rescale within -1 and 1 for Chebyshev basis
-    upperBounds::Vector{Float64} = zeros(3)
-    lowerBounds::Vector{Float64} = zeros(3)
+    upperBounds = zeros(3)
+    lowerBounds = zeros(3)
 
     # -0.34,2.5
     # -0.40,1.8
@@ -76,7 +76,7 @@ function defineXiCoordinatesScaled(internalCoordinates::Vector{Float64}, structu
     upperBounds[2] = 1 - exp(morseParameters[2]*0.40)
     lowerBounds[1] = 1 - exp(-morseParameters[1]*2.5)
     lowerBounds[2] = 1 - exp(-morseParameters[2]*1.8)
-    bendingRangeForRescale::Vector{Float64} = collect(LinRange(40, 180, 200))
+    bendingRangeForRescale = collect(LinRange(40, 180, 200))
     # bendingRangeForRescale = cos.(bendingRangeForRescale.*convertToRadians) .- cos(equilibriumParameters[end])
     # bendingRangeForRescale = cos.(bendingRangeForRescale.*convertToRadians .- equilibriumParameters[end])
     # bendingRangeForRescale = 1 .- cos.(bendingRangeForRescale.*convertToRadians .- equilibriumParameters[end])

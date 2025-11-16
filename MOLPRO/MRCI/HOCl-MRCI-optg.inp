@@ -1,0 +1,33 @@
+***, Calculation of HOCl --- MRCI
+memory,500,m;
+gprint,orbitals
+gthresh,energy=1.d-10,zero=1.d-14,thrint=1.d-14,oneint=1.d-14,twoint=1.d-14,prefac=1.d-20
+
+geometry={angstrom
+o 
+h , 1, roh 
+cl , 1, rocl, 2, alpha
+}
+
+roh = 1.00
+rocl = 1.0
+alpha = 170
+
+basis=aug-cc-pCVTZ-f12
+
+{multi;
+occ,11,3;            ! Defines the active space: 4 A' and 1 A'' orbitals. 
+closed,5,1;          ! Defines the core orbitals to be frozen.           
+wf,26,1,0;state,2;   ! wf,nelect,irrep,spin2s
+wf,26,2,0;state,2;   ! wf,nelect,irrep,spin2s
+natorb,2140.2;                                                                  
+noextra}             
+
+{MRCI-F12;
+occ,11,3;
+core,1,0;
+closed,5,1;
+wf,26,1,0;state,2;
+orbital,2140.2;
+maxiter,500,500}
+optg

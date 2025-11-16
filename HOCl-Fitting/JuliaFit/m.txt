@@ -1,0 +1,460 @@
+include("ABC.jl")
+
+hartreeToWavenumberConversion::Float64 = 2.194746354e5
+convertToRadians::Float64 = pi/180
+
+# inputFileName::String = "HOCl-InitialFit"
+# inputFileName::String = "HOCl-CBS+HL-rOH-1D"
+# inputFileName::String = "HOCl-CBS+HL-rOCl-1D"
+# inputFileName::String = "HOCl-CBS+HL-alpha-1D"
+# inputFileName::String = "HOCl-VQZ+HL-alpha-1D"
+# inputFileName::String = "HOCl-CBS+HL-InitialFit"
+# inputFileName::String = "HOCl-CBS+HL-PolynomialFit"
+# inputFileName::String = "HOCl-CBS+HL-PolynomialFit-Filtered"
+# inputFileName::String = "HOCl-CBS+HL-PolynomialFit-12thOrder"
+# inputFileName::String = "HOCl-CBS+HL-Chebyshev"
+# inputFileName::String = "HOCl-SR-Correction"
+# inputFileName::String = "HOCl-CV-Correction"
+# inputFileName::String = "HOCl-CBS-12thOrder-alpha14th"
+# inputFileName::String = "HOCl-CBS-1D-rOH"
+# inputFileName::String = "HOCl-CBS-1D-rOCl"
+# inputFileName::String = "HOCl-CBS-1D-alpha"
+# inputFileName::String = "HOCl-CBS-1D-alpha-shortRange"
+# inputFileName::String = "HOCl-CBS-1D-alpha-longRange"
+# inputFileName::String = "HOCl-VQZ-alpha"
+# inputFileName::String = "HOCl-VQZ"
+# inputFileName::String = "HOCl-MRCI1"
+inputFileName::String = "HOCl-MRCI1-rOH"
+# inputFileName::String = "HOCl-MRCI1-rOH-LongRange"
+potentialInputFilePath::String = inputFileName*".inp"
+
+keywords::Vector{String} = ["structural", "linear", "grid"]
+inputBlocks::Vector{Vector{String}} = []
+open(potentialInputFilePath, "r") do potentialInputFile::IOStream
+    input::Vector{String} = readlines(potentialInputFile)
+    addToBlock::Bool = false
+    for keyword in keywords
+        newBlock::Vector{String} = []
+        for line in input
+            if lowercase(line) == lowercase(keyword)
+                addToBlock = true
+            elseif lowercase(line) == "end"
+                addToBlock = false
+            end
+            if addToBlock
+                push!(newBlock, line)
+            end
+        end
+        push!(inputBlocks, newBlock)
+    end
+end
+
+structuralParameterBlock::Vector{String} = inputBlocks[1][2:end]
+numberOfStructuralParameters::Int64 = size(structuralParameterBlock)[1] - 1
+structuralParameterBlockSplit::Vector{Vector{SubString{String}}} = split.(structuralParameterBlock, r"\s+")
+numberOfMorseParameters::Int64 = parse(Int64, structuralParameterBlockSplit[1][2])
+numberOfEquilibriumParameters::Int64 = numberOfStructuralParameters - numberOfMorseParameters
+numberOfModes::Int64 = size(structuralParameterBlockSplit[2])[1] - 3
+numberOfAtoms::Int64 = (numberOfModes + 6)/3
+numberOfStretches::Int64 = numberOfAtoms - 1
+numberOfBondAngles::Int64 = numberOfAtoms - 2
+numberOfDihedrals::Int64 = numberOfAtoms - 3
+
+structuralParameters::Vector{Float64} = zeros(numberOfStructuralParameters)
+structuralParameterLabels::Vector{String} = []
+structuralPowers::Matrix{Int64} = zeros(numberOfStructuralParameters, numberOfModes)
+structuralParametersOn::Vector{Int64} = zeros(numberOfStructuralParameters)
+for i in 1:numberOfStructuralParameters
+    structuralParameters[i] = parse(Float64, structuralParameterBlockSplit[i + 1][end])
+    push!(structuralParameterLabels, String(structuralParameterBlockSplit[i + 1][1]))
+    structuralPowers[i, :] = parse.(Int64, structuralParameterBlockSplit[i + 1][2:end-2])
+    structuralParametersOn[i] = parse(Float64, structuralParameterBlockSplit[i + 1][end - 1])
+end
+
+structuralParameters::Vector{Float64} = convertAnglesToRadians(structuralParameters)
+indicesOfStructuralParametersOn::Vector{Int64} = findall(>(0), structuralParametersOn)
+
+linearParameterBlock::Vector{String} = inputBlocks[2][2:end]
+numberOfLinearParameters::Int64 = size(linearParameterBlock)[1]
+linearParameterBlockSplit::Vector{Vector{SubString{String}}} = split.(linearParameterBlock, r"\s+")
+
+linearParameters::Vector{Float64} = zeros(numberOfLinearParameters)
+linearParameterLabels::Vector{String} = []
+linearPowers::Matrix{Int64} = zeros(numberOfLinearParameters, numberOfModes)
+linearPowersTotal::Vector{Int64} = zeros(numberOfLinearParameters)
+linearParametersOn::Vector{Int64} = zeros(numberOfLinearParameters)
+
+for i in 1:numberOfLinearParameters
+    linearParameters[i] = parse(Float64, linearParameterBlockSplit[i][end])
+    push!(linearParameterLabels, String(linearParameterBlockSplit[i][1]))
+    linearPowers[i, :] = parse.(Int64, linearParameterBlockSplit[i][2:end-2])
+    linearPowersTotal[i] = sum(linearPowers[i, :])
+    linearParametersOn[i] = parse(Float64, linearParameterBlockSplit[i][end - 1])
+end
+
+# Reduce expansion order
+maxExpansionOrder::Int64 = 12
+indicesBelowExpansionOrderThreshold::Vector{Int64} = findall(<=(maxExpansionOrder), linearPowersTotal)
+linearPowersTotal = linearPowersTotal[indicesBelowExpansionOrderThreshold]
+linearParameters = linearParameters[indicesBelowExpansionOrderThreshold]
+linearPowers = linearPowers[indicesBelowExpansionOrderThreshold, :] 
+linearParametersOn = linearParametersOn[indicesBelowExpansionOrderThreshold]
+numberOfLinearParameters = length(linearParameters)
+
+# Define Chebyshev polyonmials for construction of basis
+chebyshevPolynomials::Vector{Function} = [
+    x -> 1,
+    x -> x,
+    # x -> 2*x^2 - 1,
+    # x -> 4*x^3 - 3*x,
+    # x -> 8*x^4 - 8*x^2 + 1,
+    # x -> 16*x^5 - 20*x^3 + 5*x,
+    # x -> 32*x^6 - 48*x^4 + 18*x^2 - 1,
+    # x -> 64*x^7 - 112*x^5 + 56*x^3 - 7*x,
+    # x -> 128*x^8 - 256*x^6 + 160*x^4 - 32*x^2 + 1
+]
+# Define Chebyshev polynomials recursively up to desired expansion order
+for i in 3:maxExpansionOrder+1
+    push!(chebyshevPolynomials, x -> 2*x*chebyshevPolynomials[i-1](x) - chebyshevPolynomials[i-2](x))
+end
+# Note Julia indexing starts from 1 so chebyshevPolynomials[n] is actually T_n-1 and so forth!
+
+allParameters::Vector{Float64} = vcat(structuralParameters, linearParameters)
+allParameterLabels::Vector{String} = vcat(structuralParameterLabels, linearParameterLabels)
+allPowers::Matrix{Int64} = vcat(structuralPowers, linearPowers)
+allParametersOn::Vector{Int64} = vcat(structuralParametersOn, linearParametersOn)
+numberOfParameters::Int64 = length(allParameters)
+ 
+gridBlock::Vector{String} = inputBlocks[3][2:end]
+numberOfGridPoints::Int64 = size(gridBlock)[1] 
+gridBlockSplit::Vector{Vector{SubString{String}}} = split.(gridBlock, r"\s+")
+
+grid::Matrix{Float64} = zeros(numberOfGridPoints, numberOfModes)
+gridValenceCoordinates::Matrix{Float64} = zeros(numberOfGridPoints, numberOfModes)
+energies::Vector{Float64} = zeros(numberOfGridPoints)
+
+for i in 1:numberOfGridPoints
+    grid[i, :]  = parse.(Float64, gridBlockSplit[i][1:numberOfModes])
+    gridValenceCoordinates[i, :] = defineInternalCoordinates(grid[i, :])
+    energies[i] = parse(Float64, gridBlockSplit[i][numberOfModes+1])
+end
+
+referenceGeometry::Vector{Float64} = gridValenceCoordinates[1, :] 
+
+energies = energies.*hartreeToWavenumberConversion
+# minimumEnergy::Float64 = minimum(energies)
+referenceEnergy::Float64 = minimum(energies)
+println()
+# @printf("%12.10f \n", minimumEnergy)
+energies = energies.-referenceEnergy
+
+energyMaximum::Float64 = 5.0e4
+indicesBelowEnergyThreshold::Vector{Int64} = findall(<(energyMaximum), energies)
+energies = energies[indicesBelowEnergyThreshold]
+gridValenceCoordinates = gridValenceCoordinates[indicesBelowEnergyThreshold, :]
+grid = grid[indicesBelowEnergyThreshold, :]
+numberOfGridPoints = length(energies)
+
+# Weight factor by Partridge and Schwenke
+function computeWeightOfPoint(energy::Float64, energyThreshold=20000.0::Float64, energyMax=10000.0::Float64)::Float64
+    weight::Float64 = (tanh(−0.0006*(energy - energyThreshold)) + 1.002002002)/2.002002002
+    if energy > energyMax
+        weight = weight/(0.0001*energy)
+    else
+        weight = weight/(0.0001*energyMax)
+    end
+    return weight
+    # return 1.0
+end
+
+weights::Vector{Float64} = computeWeightOfPoint.(energies)
+# weights = ones(numberOfGridPoints)
+weightsSqrt::Vector{Float64} = sqrt.(weights)
+
+function defineXiGrid(gridValenceCoordinates::Matrix{Float64}, structuralParameters)
+    numberOfGridPoints::Int64 = size(gridValenceCoordinates)[1]
+    T::DataType = eltype(structuralParameters)
+    xiGrid::Matrix{T} = zeros(numberOfGridPoints, numberOfModes)
+    for i in 1:numberOfGridPoints
+        xiGrid[i, :] = defineXiCoordinates(gridValenceCoordinates[i, :], structuralParameters)
+    end
+    return xiGrid
+end
+
+function defineXiGridScaled(gridValenceCoordinates::Matrix{Float64}, structuralParameters)
+    numberOfGridPoints::Int64 = size(gridValenceCoordinates)[1]
+    T::DataType = eltype(structuralParameters)
+    xiGrid::Matrix{T} = zeros(numberOfGridPoints, numberOfModes)
+    for i in 1:numberOfGridPoints
+        xiGrid[i, :] = defineXiCoordinatesScaled(gridValenceCoordinates[i, :], structuralParameters)
+    end
+    return xiGrid
+end
+
+# For range 1 to -1
+function rescaleXiGrid(xiGrid)
+    xiMaxima = maximum(xiGrid, dims=1)[1, :]
+    xiMinima = minimum(xiGrid, dims=1)[1, :]
+    xiGrid = (2*xiGrid .- (xiMaxima .+ xiMinima)')./(xiMaxima .- xiMinima)'
+    return xiGrid
+end
+
+# For unit variance
+# function rescaleXiGrid(xiGrid)
+#     xistd = std(xiGrid, dims=1)[1, :]
+#     ximean = mean(xiGrid, dims=1)[1, :]
+#     xiGrid = (xiGrid .- (ximean)')./(xistd)'
+#     return xiGrid
+# end
+
+function defineChebyshevBasis(xiGrid)
+    numberOfGridPoints::Int64 = size(xiGrid)[1]
+    T::DataType = eltype(xiGrid)
+    xiMatrix::Matrix{T} = zeros(numberOfGridPoints, numberOfLinearParameters)
+    for i in 1:numberOfGridPoints
+        for j in 1:numberOfLinearParameters
+            xiMatrix[i, j] = chebyshevPolynomials[linearPowers[j, 1]+1](xiGrid[i, 1])*chebyshevPolynomials[linearPowers[j, 2]+1](xiGrid[i, 2])*chebyshevPolynomials[linearPowers[j, 3]+1](xiGrid[i, 3])
+            # if linearPowers[j, 1] != linearPowers[j, 2]
+            #     xiMatrix[i, j] += chebyshevPolynomials[linearPowers[j, 1]+1](xiGrid[i, 2])*chebyshevPolynomials[linearPowers[j, 2]+1](xiGrid[i, 1])*chebyshevPolynomials[linearPowers[j, 3]+1](xiGrid[i, 3])
+            # end
+        end
+    end
+    return xiMatrix
+end
+
+function definePowersGrid(xiGrid)
+    numberOfGridPoints::Int64 = size(xiGrid)[1]
+    T::DataType = eltype(xiGrid)
+    xiMatrix::Matrix{T} = zeros(numberOfGridPoints, numberOfLinearParameters)
+    for i in 1:numberOfGridPoints
+        for j in 1:numberOfLinearParameters
+            xiMatrix[i, j] = exp(-0.5*(grid[i, 1]-structuralParameters[1])^2)*xiGrid[i, 1]^linearPowers[j, 1]*xiGrid[i, 2]^linearPowers[j, 2]*xiGrid[i, 3]^linearPowers[j, 3]
+            # if linearPowers[j, 1] != linearPowers[j, 2]
+            #     xiMatrix[i, j] += xiGrid[i, 2]^linearPowers[j, 1]*xiGrid[i, 1]^linearPowers[j, 2]*xiGrid[i, 3]^linearPowers[j, 3]
+            # end
+        end
+    end
+    return xiMatrix
+end
+
+function solveLinearRegression(gridValenceCoordinates::Matrix{Float64}, energies::Vector{Float64}, weights::Vector{Float64}, structuralParameterIndex, structuralParameterForDerivative, λ::Float64 = 1e-7)
+    T::DataType = typeof(structuralParameterForDerivative)
+    numberOfGridPoints::Int64 = length(energies)
+    structuralParametersInLossFunction::Vector{T} = copy(structuralParameters)
+    structuralParametersInLossFunction[structuralParameterIndex] = structuralParameterForDerivative
+    xiGrid = defineXiGrid(gridValenceCoordinates, structuralParametersInLossFunction)
+    # xiGrid = rescaleXiGrid(xiGrid)
+    # xiMatrix = defineChebyshevBasis(xiGrid)
+    xiMatrix = definePowersGrid(xiGrid)
+    weightsSqrt::Vector{Float64} = sqrt.(weights)
+    weightedXiMatrix = xiMatrix .* weightsSqrt
+    weightedEnergies = energies .* weightsSqrt
+    tikhonovMatrix::Matrix{Float64} = λ.*Matrix(1I, numberOfLinearParameters, numberOfLinearParameters)
+    linearParametersOfFit = (weightedXiMatrix'*weightedXiMatrix + tikhonovMatrix)\ (weightedXiMatrix'*weightedEnergies)
+    computedEnergies::Vector{T} = xiMatrix*linearParametersOfFit
+    residuals::Vector{T} = energies .- computedEnergies
+    loss::T = (sum(weights.*residuals.^2) + sum(λ.*linearParametersOfFit.^2))/numberOfGridPoints
+    return loss
+end
+
+function computeLossForwardDiff(gridValenceCoordinates::Matrix{Float64}, energies::Vector{Float64}, weights::Vector{Float64}, structuralParameters, λ::Float64 = 1e-7)
+    T::DataType = eltype(structuralParameters)
+    numberOfGridPoints::Int64 = length(energies)
+    xiGrid = defineXiGrid(gridValenceCoordinates, structuralParameters)
+    # xiGrid = rescaleXiGrid(xiGrid)
+    # xiMatrix = defineChebyshevBasis(xiGrid)
+    xiMatrix = definePowersGrid(xiGrid)
+    computedEnergies::Vector{T} = xiMatrix*linearParameters
+    residuals::Vector{T} = energies .- computedEnergies
+    loss::T = (sum(weights.*residuals.^2) + sum(λ.*linearParameters.^2))/numberOfGridPoints
+    return loss
+end
+
+function computeResdidualForwardDiff(gridValenceCoordinates::Matrix{Float64}, energies::Vector{Float64}, weights::Vector{Float64}, structuralParameters)
+    T::DataType = eltype(structuralParameters)
+    numberOfGridPoints::Int64 = length(energies)
+    xiGrid = defineXiGrid(gridValenceCoordinates, structuralParameters)
+    xiMatrix = definePowersGrid(xiGrid)
+    # xiGrid = defineXiGridScaled(gridValenceCoordinates, structuralParameters)
+    # xiMatrix = defineChebyshevBasis(xiGrid)
+    weightedXiMatrix = xiMatrix .* weightsSqrt
+    weightedEnergies = energies .* weightsSqrt
+    # xiGrid = rescaleXiGrid(xiGrid)
+    # xiMatrix = defineChebyshevBasis(xiGrid)
+    computedEnergies::Vector{T} = weightedXiMatrix*linearParameters
+    residuals::Vector{T} = weightedEnergies .- computedEnergies
+    return residuals
+end
+
+function computeLoss(xiMatrix::Matrix{Float64}, energies::Vector{Float64}, weights::Vector{Float64}, λ::Float64 = 1e-7)
+    numberOfGridPoints::Int64 = length(energies)
+    computedEnergies::Vector{Float64} = xiMatrix*linearParameters
+    residuals::Vector{Float64} = energies .- computedEnergies
+    loss::Float64 = (sum(weights.*residuals.^2) + λ*sum(linearParameters.^2))/numberOfGridPoints
+    return loss
+end
+
+function computeJacobianOfResiduals(xiMatrix::Matrix{Float64}, energies::Vector{Float64}, weights::Vector{Float64})
+    numberOfGridPoints::Int64 = length(energies)
+    weightedXiMatrix = xiMatrix .* weightsSqrt
+    weightedEnergies = energies .* weightsSqrt
+    # computedEnergies::Vector{Float64} = weightedXiMatrix*linearParameters
+    jacobian::Matrix{Float64} = zeros(numberOfGridPoints, numberOfLinearParameters)
+    for i in 1:numberOfGridPoints
+        for j in 1:numberOfLinearParameters
+            jacobian[i, j] = weightedEnergies[i] - weightedXiMatrix[i, j]
+        end
+    end
+    return jacobian
+end
+
+function computeGradient(xiMatrix::Matrix{Float64}, energies::Vector{Float64}, weights::Vector{Float64}, λ::Float64 = 1e-7)
+    numberOfGridPoints::Int64 = length(energies)
+    computedEnergies::Vector{Float64} = xiMatrix*linearParameters
+    residuals::Vector{Float64} = energies .- computedEnergies
+    gradientVector::Vector{Float64} = 2*(-xiMatrix'*(weights.*residuals) .+ λ.*linearParameters)/numberOfGridPoints
+    return gradientVector
+end
+
+function computeHessian(xiMatrix::Matrix{Float64}, energies::Vector{Float64}, weights::Vector{Float64}, λ::Float64 = 1e-7)
+    numberOfGridPoints::Int64 = length(energies)
+    weightsSqrt::Vector{Float64} = sqrt.(weights)
+    weightedXiMatrix = xiMatrix .* weightsSqrt
+    hessian::Matrix{Float64} = 2*(weightedXiMatrix'*weightedXiMatrix .+ λ*Matrix(1I, numberOfLinearParameters, numberOfLinearParameters))/numberOfGridPoints
+    return hessian
+end
+
+function computeLongRangePotential(grid::Matrix{Float64})::Vector{Float64}
+    numberOfGridPoints::Int64 = size(grid)[1]
+    reAB::Float64 = 0.950551760000
+    morseAB::Float64 = 2.000000000000
+    xiAB::Vector{Float64} = 1 .- exp.(-morseAB*(grid[:, 1] .- reAB))
+    longRangePotential::Vector{Float64} = 63587.574815000618*xiAB.^2
+    longRangePotential += 1267.236297806359*xiAB.^3
+    longRangePotential += -8431.897568859196*xiAB.^4
+    longRangePotential += -16634.263565898113*xiAB.^5
+    longRangePotential += -103.062053385059*xiAB.^6
+    return longRangePotential
+end
+
+longRangePotential::Vector{Float64} = computeLongRangePotential(grid)
+
+
+structuralParameterBounds::Vector{Vector{Float64}} = [
+    [0.96446195 - 0.2, 0.96446195 + 0.2],
+    [1.68888476 - 0.2, 1.68888476 + 0.2],
+    [(103.000000 - 1.5)*convertToRadians, (103.000000 + 1.5)*convertToRadians],
+    [0.1, 5.0],
+    [0.1, 5.0],
+]
+
+xiGrid = defineXiGrid(gridValenceCoordinates, structuralParameters)
+# xiGrid = defineXiGridScaled(gridValenceCoordinates, structuralParameters)
+# xiGrid = rescaleXiGrid(xiGrid)
+# xiMatrix::Matrix{Float64} = defineChebyshevBasis(xiGrid)
+xiMatrix::Matrix{Float64} = definePowersGrid(xiGrid)
+
+# weightedXiMatrix::Matrix{Float64} = xiMatrix .* weightsSqrt
+# weightedEnergies::Vector{Float64} = energies .* weightsSqrt
+
+learningRateStructural::Float64 = 1.0
+learningRateLinear::Float64 = 1.0
+ϵ::Float64 = 1e-4 # Regulate weights for robust fitting
+λ::Float64 = 1e-8 # Tikhonov Regularization parameter
+cutOffSVD::Int64 = numberOfLinearParameters # Size of truncated SVD basis set
+# cutOffSVD::Int64 = 140 # Size of truncated SVD basis set (207 for 12th order < 1e-5)
+toleranceSVD::Float64 = 1e-6
+epochs::Int64 = 200
+lossVector::Vector{Float64} = zeros(epochs) # Loss vector to track convergence
+convergenceThreshold::Float64 = 1e-6
+energies = energies - longRangePotential
+for epoch in 1:epochs
+    xiGrid = defineXiGrid(gridValenceCoordinates, structuralParameters)
+    # xiGrid = defineXiGridScaled(gridValenceCoordinates, structuralParameters)
+    # xiGrid = rescaleXiGrid(xiGrid)
+    xiMatrix::Matrix{Float64} = definePowersGrid(xiGrid)
+    # xiMatrix::Matrix{Float64} = defineChebyshevBasis(xiGrid)
+    # weightsSqrt::Vector{Float64} = sqrt.(weights)
+    # weightedXiMatrix = xiMatrix .* weightsSqrt
+    weightedXiMatrix = diagm(weightsSqrt)*xiMatrix
+    weightedEnergies = energies .* weightsSqrt
+    # columnNorms = vec(norm.(eachcol(weightedXiMatrix)))
+    # columnNorms .= [c == 0.0 ? 1.0 : c for c in columnNorms]
+    # weightedXiMatrixNormalised = weightedXiMatrix ./ columnNorms'
+    # linearParameters -= learningRateLinear*((weightedXiMatrix'*weightedXiMatrix .+ λ.*Matrix(1I, numberOfLinearParameters, numberOfLinearParameters)*linearPowersTotal.^2)\(-weightedXiMatrix'*(weightedEnergies .- weightedXiMatrix*linearParameters))).*linearParametersOn
+    U, S, V = svd(weightedXiMatrix)
+    cutOffSVD = length(S[S .> toleranceSVD])
+    reducedU::Matrix{Float64} = U[:, 1:cutOffSVD]
+    reducedS::Matrix{Float64} = diagm(S[1:cutOffSVD])
+    reducedV::Matrix{Float64} = V[:, 1:cutOffSVD]
+    linearParameters = reducedV * ((reducedS^2 + λ*reducedV'*diagm(linearPowersTotal.^2)*reducedV)\(reducedS*reducedU'*weightedEnergies))
+    # linearParameters = reducedV * ((reducedS^2 + λ*Matrix(1I, numberOfLinearParameters, numberOfLinearParameters))\(reducedS*reducedU'*weightedEnergies))
+    # linearParameters = reducedV * ((reducedS^2 + λ*reducedV'*Matrix(1I, numberOfLinearParameters, numberOfLinearParameters)*reducedV)\(reducedS*reducedU'*weightedEnergies))
+    # linearParameters = (weightedXiMatrix'*weightedXiMatrix + λ*diagm(linearPowersTotal.^2))\(weightedXiMatrix'*weightedEnergies)
+    # solutionSVD::Vector{Float64} = U[:, 1:cutOffSVD]*diagm(S[1:cutOffSVD]) \ weightedEnergies
+    # reducedXiMatrix = U[:, 1:cutOffSVD]*diagm(S[1:cutOffSVD])*V[:, 1:cutOffSVD]'
+    # linearParameters = reducedXiMatrix\weightedEnergies
+    # linearParameters = V[:, 1:cutOffSVD]*diagm(1.0 ./ S[1:cutOffSVD])*U[:, 1:cutOffSVD]'*weightedEnergies
+    # 
+    # tolerenceFactor = 1e-8
+    # tolerance = tolerenceFactor * maximum(size(weightedXiMatrixNormalised)) * maximum(S)  # numerical tolerance
+    # Sinv = [s > tolerance ? 1/s : 0.0 for s in S]
+    # linearParameters = (Vt' * Diagonal(Sinv) * (U' * weightedEnergies)) ./ columnNorms
+    # structuralParametersJacobian::Matrix{Float64} = ForwardDiff.jacobian(structuralParameters -> computeResdidualForwardDiff(gridValenceCoordinates, energies, weights, structuralParameters), structuralParameters)[:, indicesOfStructuralParametersOn]
+    # structuralParameters[indicesOfStructuralParametersOn] -= learningRateStructural*(structuralParametersJacobian'*structuralParametersJacobian)\(structuralParametersJacobian'*computeResdidualForwardDiff(gridValenceCoordinates, energies, weights, structuralParameters))
+    # structuralParameters = map((parameter, bound) -> clamp(parameter, bound[1], bound[2]), structuralParameters, structuralParameterBounds)
+    residuals::Vector{Float64} = energies .- xiMatrix*linearParameters
+    lossVector[epoch] =  sum(weights.*residuals.^2)/numberOfGridPoints
+    println("Epoch $(epoch), Loss = ", lossVector[epoch])
+    if epoch > 1
+        if abs(lossVector[epoch] - lossVector[epoch - 1])/lossVector[epoch - 1] < convergenceThreshold
+            println("Fit converged to desired tolerance!")
+            break
+        end
+    end
+    # weights = 1 ./ (residuals.^2 .+ ϵ)
+    # weights = 1 ./ ((residuals./(energies.+1e-6)).^2 .+ ϵ)
+    weights = computeWeightOfPoint.(energies + longRangePotential) ./ (residuals.^2 .+ ϵ)
+    # weights = (energies ./ ) ./ (residuals.^2 .+ ϵ)
+    weightsSqrt::Vector{Float64} = sqrt.(weights)
+end
+energies = energies + longRangePotential
+
+xiGrid = defineXiGrid(gridValenceCoordinates, structuralParameters)
+xiMatrix::Matrix{Float64} = definePowersGrid(xiGrid)
+# xiGrid = rescaleXiGrid(xiGrid)
+# xiGrid = defineXiGridScaled(gridValenceCoordinates, structuralParameters)
+# xiMatrix::Matrix{Float64} = defineChebyshevBasis(xiGrid)
+# Q, R = qr(Diagonal(weightsSqrt)*testXiMatrix)
+# linearParameters = R \ (Matrix(Q)' * (energies.*weightsSqrt))
+# linearParameters
+# println(solveLinearRegressionForForwardDiff(gridValenceCoordinates, energies, weights, 1, structuralParameters[1]))
+
+sortedEnergyOrderingIndices::Vector{Int64} = sortperm(energies)
+energies = energies[sortedEnergyOrderingIndices]
+longRangePotential = longRangePotential[sortedEnergyOrderingIndices]
+grid = grid[sortedEnergyOrderingIndices, :]
+xiMatrix = xiMatrix[sortedEnergyOrderingIndices, :]
+
+computedEnergies::Vector{Float64} = xiMatrix*linearParameters .+ longRangePotential
+residuals::Vector{Float64} = energies .- computedEnergies
+
+structuralParameters = convertAnglesToDegrees(structuralParameters)
+
+fittedParameters::Vector{Float64} = vcat(structuralParameters, linearParameters)
+weights = computeWeightOfPoint.(energies)
+# weights = ones(numberOfGridPoints)
+open(inputFileName*".out", "w") do outputFile::IOStream
+    println(outputFile, "New model:")
+    for i in 1:numberOfParameters
+        @printf(outputFile, "f   %4.0f %4.0f %4.0f  %12.12f\n", allPowers[i, 1], allPowers[i, 2], allPowers[i, 3], fittedParameters[i])
+    end
+    println(outputFile, )
+    println(outputFile, "Grid of energies:")
+    for i in 1:numberOfGridPoints
+        # @printf(outputFile, "%12.8f %12.8f %12.8f  %12.12f %12.12f %12.12f %12.12f\n", grid[i, 1], grid[i, 2], grid[i, 3],  energies[i], computedEnergies[i], residuals[i], weights[i])
+        @printf(outputFile, "%12.8f %12.8f %12.8f  %12.12f %12.12f %12.12f \n", grid[i, 1], grid[i, 2], grid[i, 3],  energies[i], computedEnergies[i], residuals[i])
+    end
+end
+weightedRms::Float64 = sqrt(mean(weights.*residuals.^2))
+println(weightedRms)
