@@ -11,7 +11,7 @@ pandarallel.initialize(progress_bar=True)
 # columns = ["grep", "rCH", "rCO", "alpha", "E", "E2", "E3", "point"]
 columns = ["grep", "rCH", "rCO", "alpha", "E", "E2", "point"]
 # df = pd.read_csv("CH3OH-3DEnergies.dat", delim_whitespace=True, names=columns, dtype=str)
-df = pd.read_csv("HOCl-CBS-FrozenCore.en", delim_whitespace=True, names=columns, dtype=str)
+df = pd.read_csv("HOCl-MRCI-MoreAngle.en", delim_whitespace=True, names=columns, dtype=str)
 # df2 = pd.read_csv("HOCl-VQZ-Grid.en", delim_whitespace=True, names=["point", "E_VQZ"], dtype=str)
 df = df[["rCH", "rCO", "alpha", "E", "point"]]
 # df2 = pd.read_csv("VQZ.energies", delim_whitespace=True, names=["point", "E_VQZ"], dtype=str)
@@ -32,7 +32,7 @@ df["E_value"] = df["E_value"] - df["E_value"].min()
 df = df.sort_values(by="point")
 print(df[df["E_value"] >= 50000].to_string(index=False))
 df = df[df["rCH"].astype(float) <= 2.3]
-df = df[df["rCO"].astype(float) <= 2.8]
+df = df[df["rCO"].astype(float) <= 2.25]
 df = df[df["E_value"] <= 50000]
 # df = pd.merge(df, df2, on="point", how="left")
 # df = df[["rCH", "rCO", "alpha", "E", "E_VQZ", "point"]]
@@ -40,7 +40,7 @@ df = df[df["E_value"] <= 50000]
 df = df.to_string(index=False, header=False)
 # df2 = df2.to_string(index=False, header=False)
 # print(df)
-vqzFile = "HOCl_CBS-FrozenCore.dat"
+vqzFile = "HOCl_MRCI-MoreAngle.dat"
 # cbsFile = "HOCl_CBS.dat"
 with open(vqzFile, "w+") as FileToWriteTo:
     FileToWriteTo.write(df)
