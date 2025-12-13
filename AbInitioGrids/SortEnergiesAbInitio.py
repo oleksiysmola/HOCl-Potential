@@ -9,11 +9,11 @@ pandarallel.initialize(progress_bar=True)
 # columns = ["grep", "rCH1", "rCH2", "rCH3", "Sa", "Sb", "rho", "E", "point"]
 # columns = ["grep", "rCH", "rCO", "alpha", "E", "E_VQZ", "point"]
 # columns = ["grep", "rCH", "rCO", "alpha", "E", "E2", "E3", "point"]
-columns = ["grep", "rCH", "rCO", "alpha", "E", "E2", "point"]
+columns = ["grep", "rCH", "rCO", "alpha", "E", "E2",  "point"]
 # df = pd.read_csv("CH3OH-3DEnergies.dat", delim_whitespace=True, names=columns, dtype=str)
-df = pd.read_csv("HOCl-MRCI-MoreAngle.en", delim_whitespace=True, names=columns, dtype=str)
+df = pd.read_csv("HOCl-MRCI3.en", delim_whitespace=True, names=columns, dtype=str)
 # df2 = pd.read_csv("HOCl-VQZ-Grid.en", delim_whitespace=True, names=["point", "E_VQZ"], dtype=str)
-df = df[["rCH", "rCO", "alpha", "E", "point"]]
+df = df[["rCH", "rCO", "alpha", "E", "E2",  "point"]]
 # df2 = pd.read_csv("VQZ.energies", delim_whitespace=True, names=["point", "E_VQZ"], dtype=str)
 print(df.head(10).to_string(index=False))
 df["point"] = df["point"].astype(float).astype(int)
@@ -40,7 +40,7 @@ df = df[df["E_value"] <= 50000]
 df = df.to_string(index=False, header=False)
 # df2 = df2.to_string(index=False, header=False)
 # print(df)
-vqzFile = "HOCl_MRCI-MoreAngle.dat"
+vqzFile = "HOCl_MRCI3.dat"
 # cbsFile = "HOCl_CBS.dat"
 with open(vqzFile, "w+") as FileToWriteTo:
     FileToWriteTo.write(df)
