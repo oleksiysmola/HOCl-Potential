@@ -1,0 +1,249 @@
+
+ Working directory              : /tmp/asmola/molpro.FgywYELtrv/
+ Global scratch directory       : /tmp/asmola/molpro.FgywYELtrv/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.FgywYELtrv/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.00 sec
+ ***,HOCl DMS surface
+ memory,500,m;
+ 
+ gthresh,energy=1.d-12,zero=1.d-14,thrint=1.d-14,oneint=1.d-14,twoint=1.d-14,prefac=1.d-20
+ 
+ point = 1
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.00000000
+ 
+ 
+ ORIENT, NOORIENT
+ geometry={angstrom
+ o, 0.d0,0.d0,0.d0
+ h, roh*sin(180.d0 - alpha),0.d0,roh*cos(180.d0 - alpha)
+ cl,0.d0,0.d0,-rocl
+ }
+ 
+ field=[-0.001d0, 0.001d0]
+ 
+ 
+ basis=aug-cc-pV(5+d)Z
+ 
+                                                                                 !dip,field(1)
+                                                                                 !hf
+                                                                                 !{ccsd(t);
+                                                                                 !core,5,1}
+                                                                                 !ex6d1=energy
+                                                                                 !dip,field(2)
+                                                                                 !hf
+                                                                                 !{ccsd(t);
+                                                                                 !core,5,1}
+                                                                                 !ex6d2=energy
+                                                                                 !dipau=(ex6d2-ex6d1)/(field(2)-field(1))
+                                                                                 !dipole(1)=dipau*TODEBYE
+ 
+ dip,,field(1)
+ hf
+ {ccsd(t);
+ core,5,1}
+ ex6d1=energy
+ dip,,field(2)
+ hf
+ {ccsd(t);
+ core,5,1}
+ ex6d2=energy
+ dipau=(ex6d2-ex6d1)/(field(2)-field(1))
+ dipole(2)=dipau*TODEBYE
+ 
+ dip,,,field(1)
+ hf
+ {ccsd(t);
+ core,5,1}
+ ex6d1=energy
+ dip,,,field(2)
+ hf
+ {ccsd(t);
+ core,5,1}
+ ex6d2=energy
+ dipau=(ex6d2-ex6d1)/(field(2)-field(1))
+ dipole(3)=dipau*TODEBYE
+ 
+ xxx = "mmm"
+ point = 1.00000000
+ text ### HOCl
+ table,xxx,roh,rocl,alpha,dipole(1),dipole(2),dipole(3)point
+ DIGITS, 0, 8, 8, 8, 12, 12, 12, 4
+ Commands initialized (818), CPU time= 0.01 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.05 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2022.1 linked Mar  3 2022 23:20:00
+
+
+ **********************************************************************************************************************************
+ LABEL *   HOCl DMS surface                                                              
+  (14 PROC) 64 bit serial version                                                        DATE: 23-Jan-26          TIME: 23:21:08  
+ **********************************************************************************************************************************
+
+ SHA1:             31073afc4d8441e10870424e0d77336a33bc4286
+ **********************************************************************************************************************************
+
+ Memory per process:       500 MW
+ Total memory per node:    500 MW
+
+ GA preallocation disabled
+ GA check disabled
+
+ Variable memory set to 500.0 MW
+
+
+ THRESHOLDS:
+
+ ZERO    =  1.00D-14  ONEINT  =  1.00D-14  TWOINT  =  1.00D-14  PREFAC  =  1.00D-20  XXXXXX  =  1.00D-09  EORDER  =  1.00D-04
+ ENERGY  =  1.00D-12  ETEST   =  0.00D+00  EDENS   =  0.00D+00  THRDEDEF=  1.00D-06  GRADIENT=  1.00D-05  STEP    =  1.00D-03
+ ORBITAL =  1.00D-05  CIVEC   =  1.00D-05  COEFF   =  1.00D-04  PRINTCI =  5.00D-02  PUNCHCI =  9.90D+01  OPTGRAD =  3.00D-04
+ OPTENERG=  1.00D-06  OPTSTEP =  3.00D-04  THRGRAD =  1.00D-10  COMPRESS=  1.00D-11  VARMIN  =  1.00D-07  VARMAX  =  1.00D-03
+ THRDOUB =  0.00D+00  THRDIV  =  1.00D-05  THRRED  =  1.00D-07  THRPSP  =  1.00D+00  THRDC   =  1.00D-10  THRCS   =  1.00D-10
+ THRNRM  =  1.00D-08  THREQ   =  0.00D+00  THRDE   =  1.00D+00  THRREF  =  1.00D-05  SPARFAC =  1.00D+00  THRDLP  =  1.00D-07
+ THRDIA  =  1.00D-10  THRDLS  =  1.00D-07  THRGPS  =  0.00D+00  THRKEX  =  0.00D+00  THRDIS  =  2.00D-01  THRVAR  =  1.00D-10
+ THRLOC  =  1.00D-06  THRGAP  =  1.00D-06  THRLOCT = -1.00D+00  THRGAPT = -1.00D+00  THRORB  =  1.00D-06  THRMLTP =  0.00D+00
+ THRCPQCI=  1.00D-10  KEXTA   =  0.00D+00  THRCOARS=  0.00D+00  SYMTOL  =  1.00D-06  GRADTOL =  1.00D-06  THROVL  =  1.00D-08
+ THRORTH =  1.00D-08  THRDLOVL= -1.00D+00  GRID    =  1.00D-06  GRIDMAX =  1.00D-03  DTMAX   =  0.00D+00  THROCCDE=  1.00D-01
+ THROCCDE=  1.00D-01  THRPRINT=  2.50D-01
+
+ SETTING POINT          =         1.00000000                                  
+ SETTING ROH            =         0.96446195                                  
+ SETTING ROCL           =         1.68888476                                  
+ SETTING ALPHA          =       103.00000000                                  
+
+ Geometry recognized as XYZ
+
+ SETTING FIELD(1)       =        -0.00100000                                  
+ SETTING FIELD(2)       =         0.00100000                                  
+ SETTING BASIS          =    AUG-CC-PV(5+D)Z
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+ Library entry O      S aug-cc-pV5Z          selected for orbital group  1
+ Library entry O      P aug-cc-pV5Z          selected for orbital group  1
+ Library entry O      D aug-cc-pV5Z          selected for orbital group  1
+ Library entry O      F aug-cc-pV5Z          selected for orbital group  1
+ Library entry O      G aug-cc-pV5Z          selected for orbital group  1
+ Library entry O      H aug-cc-pV5Z          selected for orbital group  1
+ Library entry H      S aug-cc-pV5Z          selected for orbital group  2
+ Library entry H      P aug-cc-pV5Z          selected for orbital group  2
+ Library entry H      D aug-cc-pV5Z          selected for orbital group  2
+ Library entry H      F aug-cc-pV5Z          selected for orbital group  2
+ Library entry H      G aug-cc-pV5Z          selected for orbital group  2
+ Library entry CL     S aug-cc-pv(5+d)z      selected for orbital group  3
+ Library entry CL     P aug-cc-pv(5+d)z      selected for orbital group  3
+ Library entry CL     D aug-cc-pv(5+d)z      selected for orbital group  3
+ Library entry CL     F aug-cc-pv(5+d)z      selected for orbital group  3
+ Library entry CL     G aug-cc-pv(5+d)z      selected for orbital group  3
+ Library entry CL     H aug-cc-pv(5+d)z      selected for orbital group  3
+
+
+ PROGRAM * SEWARD (Integral evaluation for generally contracted gaussian basis sets)     Author: Roland Lindh, 1990
+
+ Geometry written to block  1 of record 700
+
+
+ Point group  Cs  
+
+
+
+ ATOMIC COORDINATES
+
+ NR  ATOM    CHARGE       X              Y              Z
+
+   1  O       8.00    0.000000000    0.000000000    0.000000000
+   2  H       1.00    1.775856619    0.000000000    0.409988805
+   3  CL     17.00    0.000000000    0.000000000   -3.191529652
+
+ Bond lengths in Bohr (Angstrom)
+
+ 1-2  1.822568943  1-3  3.191529652
+     ( 0.964461950)     ( 1.688884760)
+
+ Bond angles
+
+  2-1-3  103.00000000
+
+ NUCLEAR CHARGE:                   26
+ NUMBER OF PRIMITIVE AOS:         530
+ NUMBER OF SYMMETRY AOS:          394
+ NUMBER OF CONTRACTIONS:          343   (  210A'  +  133A"  )
+ NUMBER OF INNER CORE ORBITALS:     1   (    1A'  +    0A"  )
+ NUMBER OF OUTER CORE ORBITALS:     5   (    4A'  +    1A"  )
+ NUMBER OF VALENCE ORBITALS:        9   (    7A'  +    2A"  )
+
+
+ NUCLEAR REPULSION ENERGY   51.23575142
+
+
+ Eigenvalues of metric
+
+         1 0.593E-05 0.645E-05 0.126E-04 0.243E-04 0.321E-04 0.658E-04 0.137E-03 0.155E-03
+         2 0.650E-05 0.253E-03 0.558E-03 0.195E-02 0.264E-02 0.286E-02 0.368E-02 0.547E-02
+
+
+ Contracted 2-electron integrals neglected if value below      1.0D-14
+ AO integral compression algorithm  1   Integral accuracy      1.0D-14
+
+     5429.002 MB (compressed) written to integral file ( 65.2%)
+
+
+ NUMBER OF SORTED TWO-ELECTRON INTEGRALS:  877410121.     BUFFER LENGTH:  32768
+ NUMBER OF SEGMENTS:  28  SEGMENT LENGTH:   31997877      RECORD LENGTH: 524288
+
+ Memory used in sort:      32.55 MW
+
+ SORT1 READ  1041338578. AND WROTE   669577105. INTEGRALS IN   1927 RECORDS. CPU TIME:     7.93 SEC, REAL TIME:    11.35 SEC
+ SORT2 READ   669577105. AND WROTE   877410121. INTEGRALS IN  20710 RECORDS. CPU TIME:     7.66 SEC, REAL TIME:     9.97 SEC
+
+ FILE SIZES:   FILE 1:  5462.1 MBYTE,  FILE 4:  8082.5 MBYTE,   TOTAL:  13544.6 MBYTE
+
+ OPERATOR DM      FOR CENTER  0  COORDINATES:    0.000000    0.000000    0.000000
+
+
+ **********************************************************************************************************************************
+ DATASETS  * FILE   NREC   LENGTH (MB)   RECORD NAMES
+              1      19     4507.44       500      610      700      900      950      970     1000      129      960     1100   
+                                          VAR    BASINP    GEOM    SYMINP    ZMAT    AOBASIS   BASIS     P2S    ABASIS      S 
+                                         1400     1410     1200     1210     1080     1600     1650     1300     1700   
+                                           T        V       H0       H01     AOSYM     SMH    MOLCAS    ERIS     OPER   
+
+ PROGRAMS   *        TOTAL       INT
+ CPU TIMES  *       448.56    448.43
+ REAL TIME  *       118.82 SEC
+ DISK USED  *        12.61 GB
+ **********************************************************************************************************************************
+
+
+
+ Reading unperturbed one-electron hamiltonian
+
+
+ ?ERROR: FINITE FIELD PERTURBATION OPERATOR DMY NOT TOTALLY SYMMETRIC
+
+ GLOBAL ERROR fehler on processor   0                                         

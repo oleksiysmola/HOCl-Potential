@@ -1,0 +1,63 @@
+
+ Working directory              : /tmp/asmola/molpro.hWFxphReIP/
+ Global scratch directory       : /tmp/asmola/molpro.hWFxphReIP/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.hWFxphReIP/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.00 sec
+ ***,HOCl Ground State Energy with CCSD(T)-F12 and cc-pVQZ-F12
+ memory,500,m;
+ 
+ gthresh,energy=1.d-12,zero=1.d-14,thrint=1.d-14,oneint=1.d-14,twoint=1.d-14,prefac=1.d-20
+ 
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.00000000
+ 
+ print(pi)
+ 
+ ORIENT, NOORIENT
+ geometry={angstrom
+ o, 0.d0,0.d0,0.d0
+ h, roh*sin(pi-alpha),0.d0,roh*cos(pi-alpha)
+ cl,0.d0,0.d0,-rocl
+ }
+ 
+ 
+ hf
+ 
+                                                                                 !basis=aug-cc-pV(5+d)Z
+                                                                                 !hf
+                                                                                 !{ccsd(t);
+                                                                                 !core,5,1}
+ 
+ xxx = "mmm"
+ point = 1.00000000
+ text ### HOCl
+ table,xxx,roh,rocl,alpha,energy,point
+ DIGITS, 0, 8, 8, 8, 12, 4
+ Commands initialized (818), CPU time= 0.01 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.05 sec
+
+ Checking input...
+
+ Unknown command or directive PRINT(PI)
+
+    1 input errors found
+
+ ? Error
+ ? Input errors!
+ ? The problem occurs in check_input
+
+ GLOBAL ERROR fehler on processor   0                                         

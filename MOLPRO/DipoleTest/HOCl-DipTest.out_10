@@ -1,0 +1,137 @@
+
+ Working directory              : /tmp/asmola/molpro.VbPWzlxbln/
+ Global scratch directory       : /tmp/asmola/molpro.VbPWzlxbln/
+ Wavefunction directory         : /home/asmola/wfu/
+ Main file repository           : /tmp/asmola/molpro.VbPWzlxbln/
+
+ id        : uclcc
+
+ Nodes                        nprocs
+ vincent.theory.phys.ucl.ac.uk    1
+ GA implementation: MPI file
+ GA implementation (serial work in mppx): MPI file
+
+ Using customized tuning parameters: mindgm=1; mindgv=20; mindgc=4; mindgr=1; noblas=0; minvec=7
+ default implementation of scratch files=df  
+
+
+ Variables initialized (1015), CPU time= 0.00 sec
+ ***,HOCl DMS surface
+ memory,500,m;
+ 
+ gthresh,energy=1.d-12,zero=1.d-14,thrint=1.d-14,oneint=1.d-14,twoint=1.d-14,prefac=1.d-20
+ 
+ roh = 0.96446195
+ rocl = 1.68888476
+ alpha = 103.00000000
+ rho = 1.0d*pi - (alpha*180.0d/pi)
+ 
+ 
+ ORIENT, NOORIENT
+ geometry={angstrom
+ o, 0.d0,0.d0,0.d0
+ h, roh*sin(rho),0.d0,roh*cos(rho)
+ cl,0.d0,0.d0,-rocl
+ }
+ 
+ 
+ hf
+ 
+                                                                                 !basis=aug-cc-pV(5+d)Z
+                                                                                 !hf
+                                                                                 !{ccsd(t);
+                                                                                 !core,5,1}
+ 
+ xxx = "mmm"
+ point = 1.00000000
+ text ### HOCl
+ table,xxx,roh,rocl,alpha,energy,rho
+ DIGITS, 0, 8, 8, 8, 12, 4
+ Commands initialized (818), CPU time= 0.01 sec, 672 directives.
+ Default parameters read. Elapsed time= 0.06 sec
+
+ Checking input...
+ Passed
+1
+
+
+                                         ***  PROGRAM SYSTEM MOLPRO  ***
+                                       Copyright, TTI GmbH Stuttgart, 2015
+                                    Version 2022.1 linked Mar  3 2022 23:20:00
+
+
+ **********************************************************************************************************************************
+ LABEL *   HOCl DMS surface                                                              
+  (8 PROC) 64 bit serial version                                                         DATE: 23-Jan-26          TIME: 17:10:16  
+ **********************************************************************************************************************************
+
+ SHA1:             31073afc4d8441e10870424e0d77336a33bc4286
+ **********************************************************************************************************************************
+
+ Memory per process:       500 MW
+ Total memory per node:    500 MW
+
+ GA preallocation disabled
+ GA check disabled
+
+ Variable memory set to 500.0 MW
+
+
+ THRESHOLDS:
+
+ ZERO    =  1.00D-14  ONEINT  =  1.00D-14  TWOINT  =  1.00D-14  PREFAC  =  1.00D-20  XXXXXX  =  1.00D-09  EORDER  =  1.00D-04
+ ENERGY  =  1.00D-12  ETEST   =  0.00D+00  EDENS   =  0.00D+00  THRDEDEF=  1.00D-06  GRADIENT=  1.00D-05  STEP    =  1.00D-03
+ ORBITAL =  1.00D-05  CIVEC   =  1.00D-05  COEFF   =  1.00D-04  PRINTCI =  5.00D-02  PUNCHCI =  9.90D+01  OPTGRAD =  3.00D-04
+ OPTENERG=  1.00D-06  OPTSTEP =  3.00D-04  THRGRAD =  1.00D-10  COMPRESS=  1.00D-11  VARMIN  =  1.00D-07  VARMAX  =  1.00D-03
+ THRDOUB =  0.00D+00  THRDIV  =  1.00D-05  THRRED  =  1.00D-07  THRPSP  =  1.00D+00  THRDC   =  1.00D-10  THRCS   =  1.00D-10
+ THRNRM  =  1.00D-08  THREQ   =  0.00D+00  THRDE   =  1.00D+00  THRREF  =  1.00D-05  SPARFAC =  1.00D+00  THRDLP  =  1.00D-07
+ THRDIA  =  1.00D-10  THRDLS  =  1.00D-07  THRGPS  =  0.00D+00  THRKEX  =  0.00D+00  THRDIS  =  2.00D-01  THRVAR  =  1.00D-10
+ THRLOC  =  1.00D-06  THRGAP  =  1.00D-06  THRLOCT = -1.00D+00  THRGAPT = -1.00D+00  THRORB  =  1.00D-06  THRMLTP =  0.00D+00
+ THRCPQCI=  1.00D-10  KEXTA   =  0.00D+00  THRCOARS=  0.00D+00  SYMTOL  =  1.00D-06  GRADTOL =  1.00D-06  THROVL  =  1.00D-08
+ THRORTH =  1.00D-08  THRDLOVL= -1.00D+00  GRID    =  1.00D-06  GRIDMAX =  1.00D-03  DTMAX   =  0.00D+00  THROCCDE=  1.00D-01
+ THROCCDE=  1.00D-01  THRPRINT=  2.50D-01
+
+ SETTING ROH            =         0.96446195                                  
+ SETTING ROCL           =         1.68888476                                  
+ SETTING ALPHA          =       103.00000000                                  
+ SETTING RHO            =    1.0D*PI-(ALPHA*180.0D/PI)
+
+ Geometry recognized as XYZ
+
+
+
+ Recomputing integrals since basis changed
+
+
+ Using spherical harmonics
+
+ Possible error in geometry specification
+ The centres                     2 H and                     1 O have ended up at the same place
+
+ Z matrix     current Z matrix
+ ========
+
+ Records:   700.0   700.0
+ Maximum, total, and current numbers of geometry points 100   0   0
+ Unique atoms/degeneracy:
+
+   #     Tag     N1 Distance  N2 Angle     N3 Angle        J
+   Grp   Chg     Distance     Angle        Angle                  x            y            z
+
+   1  1   O       0 GX1        0 GY1        0 GZ1     
+      1  8.0    0.0000000    0.0000000    0.0000000              0.0000000    0.0000000    0.0000000
+   2  2   H       0 GX2        0 GY2        0 GZ2     
+      2  1.0    0.0000000    0.0000000    0.0000000              0.0000000    0.0000000    0.0000000
+   3  3   CL      0 GX3        0 GY3        0 GZ3     
+      3 17.0    0.0000000    0.0000000   -1.6888848              0.0000000    0.0000000   -3.1915297
+
+ Variables on which Z-matrix depends:
+ Name:                GX1             GY1             GZ1             GX2             GY2             GZ2             GX3             GY3
+ Value:         0.0000000 A     0.0000000 A     0.0000000 A     0.0000000 A     0.0000000 A     0.0000000 A     0.0000000 A     0.0000000 A
+ Name:                GZ3
+ Value:        -1.6888848 A
+ ? Error
+ ? Illegal coincident centres
+ ? The problem occurs in zmatrix.f:zmat_weed
+
+ GLOBAL ERROR fehler on processor   0                                         
