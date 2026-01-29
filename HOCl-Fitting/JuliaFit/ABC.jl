@@ -21,7 +21,6 @@ end
 
 function defineXiCoordinates(internalCoordinates::Vector{Float64}, structuralParameters)
     T::DataType = eltype(structuralParameters)
-    convertToRadians::Float64 = pi/180
     numberOfModes::Int64 = length(internalCoordinates)
     numberOfAtoms::Int64 = (numberOfModes + 6)/3
     numberOfStretches::Int64 = numberOfAtoms - 1
@@ -33,6 +32,28 @@ function defineXiCoordinates(internalCoordinates::Vector{Float64}, structuralPar
     stretchDisplacement = internalCoordinates[1:numberOfStretches] - equilibriumParameters[1:numberOfStretches]
     xi[1:numberOfStretches] = 1 .- exp.(-morseParameters.*stretchDisplacement)
     # xi[1:numberOfStretches] = stretchDisplacement
+
+    # xi[numberOfStretches+1:end] = internalCoordinates[numberOfStretches+1:end] - equilibriumParameters[numberOfStretches+1:end]
+    # # Trigonometric-type function for the bending 
+    xi[numberOfStretches+1:end] = cos.(internalCoordinates[numberOfStretches+1:end]) .- cos.(equilibriumParameters[numberOfStretches+1:end])
+    # xi[numberOfStretches+1:end] = cos.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
+    # xi[numberOfStretches+1:end] = sin.(pi .- internalCoordinates[numberOfStretches+1:end].*convertToRadians) .- cos.(pi .- equilibriumParameters[numberOfStretches+1:end].*convertToRadians)
+    return xi
+end
+
+function defineXiCoordinatesDipole(internalCoordinates::Vector{Float64}, structuralParameters)
+    T::DataType = eltype(structuralParameters)
+    numberOfModes::Int64 = length(internalCoordinates)
+    numberOfAtoms::Int64 = (numberOfModes + 6)/3
+    numberOfStretches::Int64 = numberOfAtoms - 1
+    xi::Vector{T} = zeros(numberOfModes)
+    equilibriumParameters = structuralParameters[1:numberOfModes]
+    # morseParameters = structuralParameters[numberOfModes+1:end]
+    
+    # Define Morse-like coordinates for stretches
+    stretchDisplacement = internalCoordinates[1:numberOfStretches] - equilibriumParameters[1:numberOfStretches]
+    # xi[1:numberOfStretches] = 1 .- exp.(-morseParameters.*stretchDisplacement)
+    xi[1:numberOfStretches] = stretchDisplacement
 
     # xi[numberOfStretches+1:end] = internalCoordinates[numberOfStretches+1:end] - equilibriumParameters[numberOfStretches+1:end]
     # # Trigonometric-type function for the bending 
